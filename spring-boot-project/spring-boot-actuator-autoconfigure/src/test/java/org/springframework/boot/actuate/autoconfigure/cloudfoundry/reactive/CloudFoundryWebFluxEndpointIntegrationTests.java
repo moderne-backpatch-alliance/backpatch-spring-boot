@@ -59,6 +59,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -210,6 +212,24 @@ class CloudFoundryWebFluxEndpointIntegrationTests {
 			.doesNotExist()));
 	}
 
+	@Test
+	void unknownEndpointsAreForbidden() {
+		this.contextRunner.run(withWebTestClient(
+				(client) -> client.get().uri("/cfApplication/unknown").exchange().expectStatus().isForbidden()));
+	}
+
+	@Test
+	void applicationEndpointUnderCloudFoundryNamespaceIsNotReachable() {
+		this.contextRunner.withUserConfiguration(ApplicationEndpointConfiguration.class)
+			.run(withWebTestClient((client) -> client.get()
+				.uri("/cfApplication/appsecret")
+				.exchange()
+				.expectStatus()
+				.isForbidden()
+				.expectBody()
+				.isEmpty()));
+	}
+
 	private ContextConsumer<AssertableReactiveWebApplicationContext> withWebTestClient(
 			Consumer<WebTestClient> clientConsumer) {
 		return (context) -> {
@@ -336,6 +356,33 @@ class CloudFoundryWebFluxEndpointIntegrationTests {
 		@Bean
 		TestEnvEndpoint testEnvEndpoint() {
 			return new TestEnvEndpoint();
+		}
+
+	}
+
+	@Configuration(proxyBeanMethods = false)
+	static class ApplicationEndpointConfiguration {
+
+		@Bean
+		ApplicationController applicationController() {
+			return new ApplicationController();
+		}
+
+	}
+
+	/**
+	 * An application controller mapped inside the CloudFoundry namespace. This is the
+	 * shape CVE-2026-22733 exposed: without the catch-all mapping the CloudFoundry
+	 * handler mapping does not claim this path, so it falls through to the application's
+	 * own handler mapping and is served without the CloudFoundry security interceptor
+	 * ever running.
+	 */
+	@RestController
+	static class ApplicationController {
+
+		@GetMapping("/cfApplication/appsecret")
+		Map<String, Object> appSecret() {
+			return Collections.singletonMap("secret", "application-secret-payload");
 		}
 
 	}

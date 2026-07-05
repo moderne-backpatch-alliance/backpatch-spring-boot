@@ -54,6 +54,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -199,6 +201,43 @@ class CloudFoundryMvcWebEndpointIntegrationTests {
 					.doesNotExist());
 	}
 
+	@Test
+	void unknownEndpointsAreForbidden() {
+		load(TestEndpointConfiguration.class,
+				(client) -> client.get()
+					.uri("/cfApplication/unknown")
+					.accept(MediaType.APPLICATION_JSON)
+					.exchange()
+					.expectStatus()
+					.isForbidden());
+	}
+
+	@Test
+	void applicationEndpointUnderCloudFoundryNamespaceIsNotReachable() {
+		load(ApplicationEndpointConfiguration.class,
+				(client) -> client.get()
+					.uri("/cfApplication/appsecret")
+					.accept(MediaType.APPLICATION_JSON)
+					.exchange()
+					.expectStatus()
+					.isForbidden()
+					.expectBody()
+					.isEmpty());
+	}
+
+	@Test
+	void knownEndpointUnderCloudFoundryNamespaceStillResolves() {
+		given(this.securityService.getAccessLevel(any(), eq("app-id"))).willReturn(AccessLevel.FULL);
+		load(TestEndpointConfiguration.class,
+				(client) -> client.get()
+					.uri("/cfApplication/test")
+					.accept(MediaType.APPLICATION_JSON)
+					.header("Authorization", "bearer " + mockAccessToken())
+					.exchange()
+					.expectStatus()
+					.isEqualTo(HttpStatus.OK));
+	}
+
 	private void load(Class<?> configuration, Consumer<WebTestClient> clientConsumer) {
 		BiConsumer<ApplicationContext, WebTestClient> consumer = (context, client) -> clientConsumer.accept(client);
 		new WebApplicationContextRunner(AnnotationConfigServletWebServerApplicationContext::new)
@@ -340,6 +379,34 @@ class CloudFoundryMvcWebEndpointIntegrationTests {
 		@Bean
 		TestEnvEndpoint testEnvEndpoint() {
 			return new TestEnvEndpoint();
+		}
+
+	}
+
+	@Configuration(proxyBeanMethods = false)
+	@Import(TestEndpointConfiguration.class)
+	static class ApplicationEndpointConfiguration {
+
+		@Bean
+		ApplicationController applicationController() {
+			return new ApplicationController();
+		}
+
+	}
+
+	/**
+	 * An application controller mapped inside the CloudFoundry namespace. This is the
+	 * shape CVE-2026-22733 exposed: without the catch-all mapping the CloudFoundry
+	 * handler mapping does not claim this path, so it falls through to the application's
+	 * own handler mapping and is served without the CloudFoundry security interceptor
+	 * ever running.
+	 */
+	@RestController
+	static class ApplicationController {
+
+		@GetMapping("/cfApplication/appsecret")
+		Map<String, Object> appSecret() {
+			return Collections.singletonMap("secret", "application-secret-payload");
 		}
 
 	}
