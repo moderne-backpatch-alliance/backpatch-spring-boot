@@ -52,6 +52,8 @@ public abstract class AbstractEmbeddedServletContainerFactory extends AbstractCo
 
 	private static final String[] COMMON_DOC_ROOTS = { "src/main/webapp", "public", "static" };
 
+	private static final int MAX_TEMP_DIR_ATTEMPTS = 10;
+
 	public AbstractEmbeddedServletContainerFactory() {
 		super();
 	}
@@ -266,9 +268,7 @@ public abstract class AbstractEmbeddedServletContainerFactory extends AbstractCo
 	 */
 	protected File createTempDir(String prefix) {
 		try {
-			File tempDir = File.createTempFile(prefix + ".", "." + getPort());
-			tempDir.delete();
-			tempDir.mkdir();
+			File tempDir = createTempDirectory(prefix);
 			tempDir.deleteOnExit();
 			return tempDir;
 		}
@@ -276,6 +276,51 @@ public abstract class AbstractEmbeddedServletContainerFactory extends AbstractCo
 			throw new EmbeddedServletContainerException(
 					"Unable to create tempDir. java.io.tmpdir is set to " + System.getProperty("java.io.tmpdir"), ex);
 		}
+	}
+
+	/**
+	 * Create an empty directory that no other user of the temp dir could have supplied.
+	 * <p>
+	 * {@link File#createTempFile} reserves a unique name atomically, but deleting the
+	 * file to make room for the directory releases that name again, and anyone with write
+	 * access to {@code java.io.tmpdir} can take it in the interval. What closes that
+	 * window is honouring {@link File#mkdir()}: it fails rather than succeeds when the
+	 * name is already taken, so a {@code false} return means somebody else got there and
+	 * the name has to be given up rather than used.
+	 * @param prefix servlet container name
+	 * @return a directory this process created rather than found
+	 * @throws IOException if no directory could be created
+	 */
+	private File createTempDirectory(String prefix) throws IOException {
+		for (int attempt = 0; attempt < MAX_TEMP_DIR_ATTEMPTS; attempt++) {
+			File candidate = File.createTempFile(prefix + ".", "." + getPort());
+			if (candidate.delete() && candidate.mkdir()) {
+				restrictToOwner(candidate);
+				return candidate;
+			}
+		}
+		throw new IOException("Unable to create a temporary directory after " + MAX_TEMP_DIR_ATTEMPTS
+				+ " attempts. java.io.tmpdir is set to " + System.getProperty("java.io.tmpdir"));
+	}
+
+	/**
+	 * Take the directory down to owner-only access, which is what the platform's own
+	 * temp-directory creation would have given it.
+	 * <p>
+	 * Best effort, and deliberately not checked: these setters report failure on
+	 * filesystems that do not carry POSIX permissions, and there is nothing useful to do
+	 * about it here. What closes the hijack is {@link File#mkdir()}'s return value in
+	 * {@link #createTempDirectory}, not the mode — so a filesystem where this does
+	 * nothing still gets the fix, it just also leaves the directory at the process umask.
+	 * @param dir the directory to restrict
+	 */
+	private void restrictToOwner(File dir) {
+		dir.setReadable(false, false);
+		dir.setWritable(false, false);
+		dir.setExecutable(false, false);
+		dir.setReadable(true, true);
+		dir.setWritable(true, true);
+		dir.setExecutable(true, true);
 	}
 
 }
