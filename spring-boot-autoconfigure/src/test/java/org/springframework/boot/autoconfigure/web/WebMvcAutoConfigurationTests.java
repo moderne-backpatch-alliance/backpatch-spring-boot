@@ -42,6 +42,7 @@ import org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoCon
 import org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WelcomePageHandlerMapping;
+import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WelcomePageNotAcceptableHandlerMapping;
 import org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizerBeanPostProcessor;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
@@ -144,7 +145,7 @@ public class WebMvcAutoConfigurationTests {
 	@Test
 	public void handlerMappingsCreated() throws Exception {
 		load();
-		assertThat(this.context.getBeanNamesForType(HandlerMapping.class).length).isEqualTo(7);
+		assertThat(this.context.getBeanNamesForType(HandlerMapping.class).length).isEqualTo(8);
 	}
 
 	@Test
@@ -533,9 +534,31 @@ public class WebMvcAutoConfigurationTests {
 	@Test
 	public void welcomePageMappingDoesNotHandleRequestsThatDoNotAcceptTextHtml() throws Exception {
 		load("spring.resources.static-locations:classpath:/welcome-page/");
-		assertThat(this.context.getBeansOfType(WelcomePageHandlerMapping.class)).hasSize(1);
+		WelcomePageHandlerMapping welcomePageHandlerMapping = this.context.getBean(WelcomePageHandlerMapping.class);
+		assertThat(welcomePageHandlerMapping.getHandlerInternal(requestAccepting(MediaType.APPLICATION_JSON))).isNull();
+	}
+
+	@Test
+	public void welcomePageMappingProducesNotAcceptableResponseWhenRequestDoesNotAcceptTextHtml() throws Exception {
+		load("spring.resources.static-locations:classpath:/welcome-page/");
+		assertThat(this.context.getBeansOfType(WelcomePageNotAcceptableHandlerMapping.class)).hasSize(1);
 		MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(this.context).build();
-		mockMvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isNotFound());
+		mockMvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isNotAcceptable())
+				.andExpect(forwardedUrl(null));
+	}
+
+	@Test
+	public void welcomePageNotAcceptableRootHandlerIsNotRegisteredWhenThereIsNoWelcomePage() {
+		load("spring.resources.static-locations:classpath:/no-welcome-page/");
+		WelcomePageNotAcceptableHandlerMapping mapping = this.context
+				.getBean(WelcomePageNotAcceptableHandlerMapping.class);
+		assertThat(mapping.getRootHandler()).isNull();
+	}
+
+	private MockHttpServletRequest requestAccepting(MediaType mediaType) {
+		MockHttpServletRequest request = new MockHttpServletRequest("GET", "/");
+		request.addHeader(HttpHeaders.ACCEPT, mediaType.toString());
+		return request;
 	}
 
 	@Test

@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 
 import javax.servlet.Servlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -62,6 +63,7 @@ import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.util.ClassUtils;
@@ -83,6 +85,7 @@ import org.springframework.web.filter.RequestContextFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
@@ -99,6 +102,7 @@ import org.springframework.web.servlet.handler.AbstractUrlHandlerMapping;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
+import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.mvc.ParameterizableViewController;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
@@ -295,6 +299,13 @@ public class WebMvcAutoConfiguration {
 		@Bean
 		public WelcomePageHandlerMapping welcomePageHandlerMapping(ResourceProperties resourceProperties) {
 			return new WelcomePageHandlerMapping(resourceProperties.getWelcomePage(),
+					this.mvcProperties.getStaticPathPattern());
+		}
+
+		@Bean
+		public WelcomePageNotAcceptableHandlerMapping welcomePageNotAcceptableHandlerMapping(
+				ResourceProperties resourceProperties) {
+			return new WelcomePageNotAcceptableHandlerMapping(resourceProperties.getWelcomePage(),
 					this.mvcProperties.getStaticPathPattern());
 		}
 
@@ -536,6 +547,40 @@ public class WebMvcAutoConfiguration {
 		private List<MediaType> getAcceptedMediaTypes(HttpServletRequest request) {
 			String acceptHeader = request.getHeader(HttpHeaders.ACCEPT);
 			return MediaType.parseMediaTypes(StringUtils.hasText(acceptHeader) ? acceptHeader : "*/*");
+		}
+
+	}
+
+	/**
+	 * An {@link AbstractUrlHandlerMapping} for an application's welcome page that was
+	 * ultimately not accepted. Without it, {@link WelcomePageHandlerMapping} declining a
+	 * request leaves "/" unmapped and the response is a 404 — which a reverse proxy is
+	 * entitled to cache and then serve to everybody, including the browsers the welcome
+	 * page exists for. A 406 says what actually happened and is not cacheable in the same
+	 * way.
+	 *
+	 * @see WelcomePageHandlerMapping
+	 */
+	static final class WelcomePageNotAcceptableHandlerMapping extends AbstractUrlHandlerMapping {
+
+		private WelcomePageNotAcceptableHandlerMapping(Resource welcomePage, String staticPathPattern) {
+			setOrder(LOWEST_PRECEDENCE - 10); // Before ResourceHandlerRegistry
+			if (welcomePage != null && "/**".equals(staticPathPattern)) {
+				setRootHandler(new NotAcceptableController());
+			}
+		}
+
+	}
+
+	/**
+	 * The handler {@link WelcomePageNotAcceptableHandlerMapping} maps "/" to.
+	 */
+	static final class NotAcceptableController implements Controller {
+
+		@Override
+		public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
+			response.setStatus(HttpStatus.NOT_ACCEPTABLE.value());
+			return null;
 		}
 
 	}
