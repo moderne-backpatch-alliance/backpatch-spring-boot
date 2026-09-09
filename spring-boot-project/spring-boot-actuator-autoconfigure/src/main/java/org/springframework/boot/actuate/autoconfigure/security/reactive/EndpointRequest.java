@@ -219,11 +219,18 @@ public final class EndpointRequest {
 			if (this.includeLinks && StringUtils.hasText(pathMappedEndpoints.getBasePath())) {
 				delegateMatchers.add(new PathPatternParserServerWebExchangeMatcher(pathMappedEndpoints.getBasePath()));
 			}
+			if (delegateMatchers.isEmpty()) {
+				return EMPTY_MATCHER;
+			}
 			return new OrServerWebExchangeMatcher(delegateMatchers);
 		}
 
 		private Stream<String> streamPaths(List<Object> source, PathMappedEndpoints pathMappedEndpoints) {
-			return source.stream().filter(Objects::nonNull).map(this::getEndpointId).map(pathMappedEndpoints::getPath);
+			return source.stream()
+				.filter(Objects::nonNull)
+				.map(this::getEndpointId)
+				.map(pathMappedEndpoints::getPath)
+				.filter(Objects::nonNull);
 		}
 
 		@Override

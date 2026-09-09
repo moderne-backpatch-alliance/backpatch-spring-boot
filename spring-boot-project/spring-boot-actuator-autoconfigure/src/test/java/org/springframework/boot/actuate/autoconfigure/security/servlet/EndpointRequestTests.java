@@ -210,6 +210,30 @@ class EndpointRequestTests {
 	}
 
 	@Test
+	void toEndpointIdThatIsNotExposedShouldNotBuildANullPatternMatcher() {
+		// CVE-2025-22235: PathMappedEndpoints.getPath() returns null for an endpoint that is
+		// disabled or not exposed over the web. That null reached the pattern builder, which
+		// appended the string "null", so EndpointRequest.to("baz") produced a matcher for
+		// "null/**" -- a rule written to protect an actuator endpoint instead applied to /null,
+		// and the endpoint it named was left with no rule at all.
+		List<String> patterns = new ArrayList<>();
+		RequestMatcher matcher = EndpointRequest.to("baz");
+		RequestMatcherAssert assertMatcher = assertMatcher(matcher, mockPathMappedEndpoints("/actuator"),
+				(pattern) -> {
+					patterns.add(pattern);
+					return (request) -> false;
+				});
+		assertMatcher.doesNotMatch("/null");
+		assertThat(patterns).noneMatch((pattern) -> pattern.contains("null"));
+	}
+
+	@Test
+	void toEndpointIdThatIsExposedStillMatchesItsPath() {
+		RequestMatcher matcher = EndpointRequest.to("foo");
+		assertMatcher(matcher).matches("/actuator/foo");
+	}
+
+	@Test
 	void noEndpointPathsBeansShouldNeverMatch() {
 		RequestMatcher matcher = EndpointRequest.toAnyEndpoint();
 		assertMatcher(matcher, (PathMappedEndpoints) null).doesNotMatch("/actuator/foo");
