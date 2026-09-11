@@ -16,6 +16,7 @@
 
 package org.springframework.boot.actuate.autoconfigure.cloudfoundry.servlet;
 
+import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -42,8 +43,10 @@ import org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpo
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
 
 /**
@@ -64,6 +67,11 @@ class CloudFoundryWebEndpointServletHandlerMapping extends AbstractWebMvcEndpoin
 
 	private final Collection<ExposableEndpoint<?>> allEndpoints;
 
+	private final EndpointMapping endpointMapping;
+
+	private final Method catchAllMethod = ReflectionUtils.findMethod(CatchAllHandler.class, "handle",
+			HttpServletResponse.class);
+
 	CloudFoundryWebEndpointServletHandlerMapping(EndpointMapping endpointMapping,
 			Collection<ExposableWebEndpoint> endpoints, EndpointMediaTypes endpointMediaTypes,
 			CorsConfiguration corsConfiguration, CloudFoundrySecurityInterceptor securityInterceptor,
@@ -73,12 +81,34 @@ class CloudFoundryWebEndpointServletHandlerMapping extends AbstractWebMvcEndpoin
 		this.securityInterceptor = securityInterceptor;
 		this.linksResolver = new EndpointLinksResolver(allEndpoints);
 		this.allEndpoints = allEndpoints;
+		this.endpointMapping = endpointMapping;
 	}
 
 	@Override
 	protected void initHandlerMethods() {
 		super.initHandlerMethods();
 		registerCatchAllMapping(HttpStatus.FORBIDDEN);
+	}
+
+	/**
+	 * Register a "catch all" handler for the rest of actuator namespace, ensuring that
+	 * all requests are handled by this handler mapping.
+	 * @param responseStatus the response status to use for handled requests
+	 */
+	@SuppressWarnings("deprecation")
+	protected void registerCatchAllMapping(HttpStatus responseStatus) {
+		RequestMappingInfo.BuilderConfiguration builderConfig = new RequestMappingInfo.BuilderConfiguration();
+		if (getPatternParser() != null) {
+			builderConfig.setPatternParser(getPatternParser());
+		}
+		else {
+			builderConfig.setPathMatcher(null);
+			builderConfig.setTrailingSlashMatch(true);
+			builderConfig.setSuffixPatternMatch(false);
+		}
+		String subPath = this.endpointMapping.createSubPath("/**");
+		registerMapping(RequestMappingInfo.paths(subPath).options(builderConfig).build(),
+				new CatchAllHandler(responseStatus), this.catchAllMethod);
 	}
 
 	@Override
@@ -161,6 +191,23 @@ class CloudFoundryWebEndpointServletHandlerMapping extends AbstractWebMvcEndpoin
 				return new ResponseEntity<Object>(securityResponse.getMessage(), securityResponse.getStatus());
 			}
 			return this.delegate.handle(request, body);
+		}
+
+	}
+
+	/**
+	 * Catch-all handler that always replies with a fixed HTTP status.
+	 */
+	private static final class CatchAllHandler {
+
+		private final HttpStatus responseStatus;
+
+		CatchAllHandler(HttpStatus responseStatus) {
+			this.responseStatus = responseStatus;
+		}
+
+		void handle(HttpServletResponse response) {
+			response.setStatus(this.responseStatus.value());
 		}
 
 	}
