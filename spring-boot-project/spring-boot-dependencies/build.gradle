@@ -1741,7 +1741,7 @@ bom {
 			]
 		}
 	}
-	library("Spring Data Bom", "2021.2.18.1-backpatch-00005") {
+	library("Spring Data Bom", "2021.2.18.1-backpatch-00006") {
 		considerSnapshots()
 		calendarName = "Spring Data Release"
 		prohibit {
