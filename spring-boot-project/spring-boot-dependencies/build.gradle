@@ -1480,7 +1480,7 @@ bom {
 			]
 		}
 	}
-	library("Reactor Bom", "2020.0.38") {
+	library("Reactor Bom", "2020.0.47.1-backpatch-00001") {
 		considerSnapshots()
 		calendarName = "Reactor"
 		group("io.projectreactor") {
