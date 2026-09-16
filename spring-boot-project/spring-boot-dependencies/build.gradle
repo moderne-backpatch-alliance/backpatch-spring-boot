@@ -457,7 +457,7 @@ bom {
 			]
 		}
 	}
-	library("Hibernate", "5.6.15.Final") {
+	library("Hibernate", "5.6.15.Final-backpatch-00001") {
 		prohibit {
 			versionRange "[6.0.0.Alpha2,)"
 			because "it uses the jakarta.* namespace"
