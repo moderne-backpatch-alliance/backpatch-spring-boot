@@ -1844,7 +1844,7 @@ bom {
 			]
 		}
 	}
-	library("Spring Security", "5.7.14.1-backpatch-00004") {
+	library("Spring Security", "5.7.14.1-backpatch-00005") {
 		considerSnapshots()
 		prohibit {
 			versionRange "[6.0.0-M1,)"
