@@ -969,7 +969,7 @@ bom {
 			]
 		}
 	}
-	library("Jetty", "9.4.58.v20250814-backpatch-00002") {
+	library("Jetty", "9.4.58.v20250814-backpatch-00003") {
 		prohibit {
 			versionRange "[10.0.0-alpha0,)"
 			because "it requires Java 11"
