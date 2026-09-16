@@ -1775,7 +1775,7 @@ bom {
 			]
 		}
 	}
-	library("Spring HATEOAS", "1.5.6") {
+	library("Spring HATEOAS", "1.5.6.1-backpatch-00001") {
 		considerSnapshots()
 		prohibit {
 			versionRange "[2.0.0-M1,)"
