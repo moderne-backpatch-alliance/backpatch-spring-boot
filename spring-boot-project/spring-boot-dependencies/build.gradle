@@ -1766,7 +1766,7 @@ bom {
 			]
 		}
 	}
-	library("Spring GraphQL", "1.0.6.1-backpatch-00001") {
+	library("Spring GraphQL", "1.0.6.1-backpatch-00002") {
 		considerSnapshots()
 		group("org.springframework.graphql") {
 			modules = [
