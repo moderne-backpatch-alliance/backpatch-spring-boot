@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2023 the original author or authors.
+ * Copyright 2012-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,15 +23,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.PosixFileAttributeView;
 import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.UserPrincipal;
+import java.util.EnumSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import org.springframework.util.FileSystemUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 
 /**
  * Tests for {@link ApplicationTemp}.
@@ -82,6 +88,63 @@ class ApplicationTempTests {
 		if (fileSystem.supportedFileAttributeViews().contains("posix")) {
 			assertDirectoryPermissions(path);
 			assertDirectoryPermissions(temp.getDir("sub").toPath());
+		}
+	}
+
+	@Test
+	@DisabledOnOs(OS.WINDOWS)
+	void whenDirectoryExistsWithWrongPermissionsGetDirThrows() throws IOException {
+		Path path = new ApplicationTemp().getDir().toPath();
+		Files.getFileAttributeView(path, PosixFileAttributeView.class)
+			.setPermissions(EnumSet.allOf(PosixFilePermission.class));
+		assertThatIllegalStateException().isThrownBy(new ApplicationTemp()::getDir)
+			.withMessageContaining("does not have the permissions");
+		FileSystemUtils.deleteRecursively(path);
+	}
+
+	@Test
+	@DisabledOnOs(OS.WINDOWS)
+	void whenDirectoryIsOwnedByAnotherUserGetDirThrows() throws IOException {
+		Path path = new ApplicationTemp().getDir().toPath();
+		UserPrincipal owner = Files.getOwner(path);
+		giveAwayOwnership(path);
+		try {
+			assertThatIllegalStateException().isThrownBy(new ApplicationTemp()::getDir)
+				.withMessageContaining("is not owned by");
+		}
+		finally {
+			Files.setOwner(path, owner);
+		}
+		FileSystemUtils.deleteRecursively(path);
+	}
+
+	@Test
+	void whenSymlinkExistsInDirectoryLocationGetDirThrows() throws IOException {
+		Path path = new ApplicationTemp().getDir().toPath();
+		FileSystemUtils.deleteRecursively(path);
+		Path linkTarget = Files.createTempDirectory("application-temp-tests");
+		try {
+			Files.createSymbolicLink(path, linkTarget);
+		}
+		catch (Exception ex) {
+			Assumptions.assumeTrue(false, "Symlink creation not supported");
+		}
+		try {
+			assertThatIllegalStateException().isThrownBy(new ApplicationTemp()::getDir)
+				.withMessageContaining("already exists but it is not a directory");
+		}
+		finally {
+			Files.delete(path);
+			FileSystemUtils.deleteRecursively(linkTarget);
+		}
+	}
+
+	private void giveAwayOwnership(Path path) {
+		try {
+			Files.setOwner(path, path.getFileSystem().getUserPrincipalLookupService().lookupPrincipalByName("nobody"));
+		}
+		catch (IOException ex) {
+			Assumptions.assumeTrue(false, "Ownership cannot be given away to another user");
 		}
 	}
 
