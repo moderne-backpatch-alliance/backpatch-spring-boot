@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2022 the original author or authors.
+ * Copyright 2012-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +18,17 @@ package org.springframework.boot.system;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.FileSystem;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
+import java.nio.file.attribute.UserPrincipal;
 import java.security.MessageDigest;
 import java.util.EnumSet;
 
@@ -50,6 +54,8 @@ public class ApplicationTemp {
 
 	private final Class<?> sourceClass;
 
+	private final UserPrincipal directoryOwner;
+
 	private volatile Path path;
 
 	/**
@@ -65,6 +71,22 @@ public class ApplicationTemp {
 	 */
 	public ApplicationTemp(Class<?> sourceClass) {
 		this.sourceClass = sourceClass;
+		this.directoryOwner = directoryOwner();
+	}
+
+	private static UserPrincipal directoryOwner() {
+		try {
+			Path tempFile = Files.createTempFile("application-temp", "-owner");
+			UserPrincipal owner = Files.getOwner(tempFile);
+			Files.delete(tempFile);
+			return owner;
+		}
+		catch (UnsupportedOperationException ex) {
+			return null;
+		}
+		catch (IOException ex) {
+			throw new UncheckedIOException(ex);
+		}
 	}
 
 	@Override
@@ -101,8 +123,27 @@ public class ApplicationTemp {
 
 	private Path createDirectory(Path path) {
 		try {
-			if (!Files.exists(path)) {
-				Files.createDirectory(path, getFileAttributes(path.getFileSystem(), DIRECTORY_PERMISSIONS));
+			FileSystem fileSystem = path.getFileSystem();
+			if (!Files.exists(path, LinkOption.NOFOLLOW_LINKS)) {
+				Files.createDirectory(path, asFileAttributes(fileSystem, DIRECTORY_PERMISSIONS));
+			}
+			else if (supportsPosixView(fileSystem)) {
+				PosixFileAttributes attributes = Files.readAttributes(path, PosixFileAttributes.class,
+						LinkOption.NOFOLLOW_LINKS);
+				Assert.state(attributes.isDirectory(), () -> "'" + path + "' already exists but it is not a directory");
+				Assert.state(DIRECTORY_PERMISSIONS.equals(attributes.permissions()), () -> "Existing directory '" + path
+						+ "' does not have the permissions " + DIRECTORY_PERMISSIONS);
+				assertDirectoryOwnership(attributes.owner(), path);
+			}
+			else {
+				Assert.state(Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS),
+						() -> "'" + path + "' already exists but it is not a directory");
+				try {
+					assertDirectoryOwnership(Files.getOwner(path, LinkOption.NOFOLLOW_LINKS), path);
+				}
+				catch (UnsupportedOperationException ex) {
+					// Ownership check not supported. Continue.
+				}
 			}
 			return path;
 		}
@@ -111,11 +152,20 @@ public class ApplicationTemp {
 		}
 	}
 
-	private FileAttribute<?>[] getFileAttributes(FileSystem fileSystem, EnumSet<PosixFilePermission> ownerReadWrite) {
-		if (!fileSystem.supportedFileAttributeViews().contains("posix")) {
+	private void assertDirectoryOwnership(UserPrincipal owner, Path path) {
+		Assert.state((this.directoryOwner == null) || this.directoryOwner.equals(owner),
+				() -> "Existing directory '" + path + "' is not owned by " + this.directoryOwner.getName());
+	}
+
+	private FileAttribute<?>[] asFileAttributes(FileSystem fileSystem, EnumSet<PosixFilePermission> ownerReadWrite) {
+		if (!supportsPosixView(fileSystem)) {
 			return NO_FILE_ATTRIBUTES;
 		}
 		return new FileAttribute<?>[] { PosixFilePermissions.asFileAttribute(ownerReadWrite) };
+	}
+
+	private boolean supportsPosixView(FileSystem fileSystem) {
+		return fileSystem.supportedFileAttributeViews().contains("posix");
 	}
 
 	private Path getTempDirectory() {
