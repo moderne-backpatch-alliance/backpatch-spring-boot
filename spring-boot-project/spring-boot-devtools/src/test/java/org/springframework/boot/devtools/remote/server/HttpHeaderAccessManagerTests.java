@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2023 the original author or authors.
+ * Copyright 2012-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,18 @@
 
 package org.springframework.boot.devtools.remote.server;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import org.springframework.asm.ClassReader;
+import org.springframework.asm.ClassVisitor;
+import org.springframework.asm.MethodVisitor;
+import org.springframework.asm.SpringAsmInfo;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -96,6 +105,47 @@ class HttpHeaderAccessManagerTests {
 	void disallowsWrongHeader() {
 		this.request.addHeader("X-WRONG", SECRET);
 		assertThat(this.manager.isAllowed(this.serverRequest)).isFalse();
+	}
+
+	@Test
+	void allowsMatchingNonAsciiSecret() {
+		String secret = "pässwörd";
+		this.request.addHeader(HEADER, secret);
+		assertThat(new HttpHeaderAccessManager(HEADER, secret).isAllowed(this.serverRequest)).isTrue();
+	}
+
+	@Test
+	void comparesSecretsWithoutShortCircuiting() throws IOException {
+		assertThat(invocationsIn("isAllowed")).contains("java/security/MessageDigest.isEqual")
+			.doesNotContain("java/lang/String.equals");
+	}
+
+	private Set<String> invocationsIn(String methodName) throws IOException {
+		Set<String> invocations = new LinkedHashSet<>();
+		try (InputStream classFile = HttpHeaderAccessManager.class
+			.getResourceAsStream("HttpHeaderAccessManager.class")) {
+			new ClassReader(classFile).accept(new ClassVisitor(SpringAsmInfo.ASM_VERSION) {
+
+				@Override
+				public MethodVisitor visitMethod(int access, String name, String descriptor, String signature,
+						String[] exceptions) {
+					if (!methodName.equals(name)) {
+						return null;
+					}
+					return new MethodVisitor(SpringAsmInfo.ASM_VERSION) {
+
+						@Override
+						public void visitMethodInsn(int opcode, String owner, String name, String descriptor,
+								boolean isInterface) {
+							invocations.add(owner + "." + name);
+						}
+
+					};
+				}
+
+			}, ClassReader.SKIP_FRAMES);
+		}
+		return invocations;
 	}
 
 }
