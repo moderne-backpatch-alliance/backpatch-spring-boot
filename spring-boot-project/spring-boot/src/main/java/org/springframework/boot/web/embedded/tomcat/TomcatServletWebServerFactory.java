@@ -887,6 +887,16 @@ public class TomcatServletWebServerFactory extends AbstractServletWebServerFacto
 		}
 
 		@Override
+		public boolean getAllowLinking() {
+			return this.delegate.getAllowLinking();
+		}
+
+		@Override
+		public void setAllowLinking(boolean allowLinking) {
+			this.delegate.setAllowLinking(allowLinking);
+		}
+
+		@Override
 		public void setReadOnly(boolean readOnly) {
 			this.delegate.setReadOnly(readOnly);
 		}
