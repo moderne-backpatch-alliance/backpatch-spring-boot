@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00028
+release: 2.7.18.1-backpatch-00029
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -523,11 +523,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00001 (backpatch-jackson-core@b9e4b3a).
+    note: Carried from 2.7.18.1-backpatch-00028; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00001 (backpatch-jackson-core@b9e4b3a).
+  - cve: GHSA-r7wm-3cxj-wff9
+    upstream: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00002 (backpatch-jackson-core@4d6b1ea).
 tests:
-  commit: 0a25af8f2dd82a73a6ae1fa7955096a98b127b14
+  commit: 7872c251506504f161bda3c23734796dadf69f59
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2025-52999 carried by moderne-backpatch-alliance/backpatch-spring-boot at v2.13.5.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. GHSA-r7wm-3cxj-wff9 carried by moderne-backpatch-alliance/backpatch-spring-boot at v2.13.5.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
