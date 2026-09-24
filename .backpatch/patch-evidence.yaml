@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00004
+release: 2.7.18.1-backpatch-00005
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -22,181 +22,342 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-50379
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.98, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.98, which this release pins.
   - cve: CVE-2024-56337
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-56337
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.98, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.98, which this release pins.
   - cve: CVE-2025-24813
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-24813
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.99, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.99, which this release pins.
   - cve: CVE-2025-55754
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55754
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.109, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.109, which this release pins.
   - cve: CVE-2025-31651
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31651
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.104, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.104, which this release pins.
   - cve: CVE-2026-41293
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41293
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-43512
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43512
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-65905
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65905
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2025-66614
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-66614
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.113, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.113, which this release pins.
   - cve: CVE-2026-43515
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43515
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-65182
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65182
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2026-68525
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-68525
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2025-49124
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49124
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2024-24549
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-24549
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.86, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.86, which this release pins.
   - cve: CVE-2024-34750
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-34750
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.90, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.90, which this release pins.
   - cve: CVE-2024-38286
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38286
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.90, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.90, which this release pins.
   - cve: CVE-2025-31650
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31650
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.104, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.104, which this release pins.
   - cve: CVE-2025-48988
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48988
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2025-48989
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48989
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.108, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.108, which this release pins.
   - cve: CVE-2025-49125
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49125
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2025-52434
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52434
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-52520
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52520
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-53506
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-53506
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-55752
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55752
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.109, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.109, which this release pins.
   - cve: CVE-2026-24734
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24734
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.115, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.115, which this release pins.
   - cve: CVE-2026-24880
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24880
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.116, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
   - cve: CVE-2026-34483
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34483
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.116, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
   - cve: CVE-2026-34487
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34487
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.117, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.117, which this release pins.
   - cve: CVE-2026-41284
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41284
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-43513
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43513
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2025-46701
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-46701
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.105, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.105, which this release pins.
   - cve: CVE-2026-42498
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42498
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2025-55668
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55668
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2024-23672
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-23672
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
-    note: New in this release; fixed upstream in 9.0.86, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.86, which this release pins.
   - cve: CVE-2026-25854
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-25854
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.116, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
+  - cve: CVE-2026-45674
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45674
+    artifacts:
+      - io.netty:netty-resolver-dns
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2026-47691
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47691
+    artifacts:
+      - io.netty:netty-resolver-dns
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2026-42581
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42581
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-42579
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42579
+    artifacts:
+      - io.netty:netty-codec-dns
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-42584
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42584
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-44249
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-44249
+    artifacts:
+      - io.netty:netty-handler
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2025-24970
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-24970
+    artifacts:
+      - io.netty:netty-handler
+    note: New in this release; fixed upstream in 4.1.118.Final, which this release pins.
+  - cve: CVE-2025-55163
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55163
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.124.Final, which this release pins.
+  - cve: CVE-2025-58056
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-58056
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.125.Final, which this release pins.
+  - cve: CVE-2025-58057
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-58057
+    artifacts:
+      - io.netty:netty-codec
+    note: New in this release; fixed upstream in 4.1.125.Final, which this release pins.
+  - cve: CVE-2026-33870
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-33870
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.132.Final, which this release pins.
+  - cve: CVE-2026-33871
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-33871
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.132.Final, which this release pins.
+  - cve: CVE-2026-42578
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42578
+    artifacts:
+      - io.netty:netty-handler-proxy
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-42583
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42583
+    artifacts:
+      - io.netty:netty-codec
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-42585
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42585
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-42587
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42587
+    artifacts:
+      - io.netty:netty-codec-http;
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-45416
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45416
+    artifacts:
+      - io.netty:netty-handler
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2026-48043
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-48043
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2026-50010
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-50010
+    artifacts:
+      - io.netty:netty-handler
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2026-55831
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-55831
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-55833
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-55833
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-56745
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56745
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-56819
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56819
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-59898
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59898
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-59899
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59899
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-59901
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59901
+    artifacts:
+      - io.netty:netty-codec
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-45673
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45673
+    artifacts:
+      - io.netty:netty-resolver-dns
+    note: New in this release; fixed upstream in 4.1.135.Final, which this release pins.
+  - cve: CVE-2025-67735
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-67735
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.129.Final, which this release pins.
+  - cve: CVE-2026-42580
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42580
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.133.Final, which this release pins.
+  - cve: CVE-2026-56746
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56746
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
+  - cve: CVE-2026-59903
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59903
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.137.Final, which this release pins.
+  - cve: CVE-2026-59921
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59921
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.136.Final, which this release pins.
 tests:
-  commit: f34b5f89a29c4117e71d842a916aee3824fe6376
+  commit: af7ccff65634a295bcac4d21edf2483b842a1bd7
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2024-50379 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.98, tested by its project; CVE-2024-56337 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.98, tested by its project; CVE-2025-24813 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.99, tested by its project; CVE-2025-55754 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.109, tested by its project; CVE-2025-31651 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.104, tested by its project; CVE-2026-41293 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-43512 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-65905 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2025-66614 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.113, tested by its project; CVE-2026-43515 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-65182 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2026-68525 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2025-49124 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2024-24549 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.86, tested by its project; CVE-2024-34750 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.90, tested by its project; CVE-2024-38286 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.90, tested by its project; CVE-2025-31650 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.104, tested by its project; CVE-2025-48988 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2025-48989 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.108, tested by its project; CVE-2025-49125 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2025-52434 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-52520 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-53506 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-55752 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.109, tested by its project; CVE-2026-24734 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.115, tested by its project; CVE-2026-24880 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project; CVE-2026-34483 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project; CVE-2026-34487 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.117, tested by its project; CVE-2026-41284 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-43513 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2025-46701 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.105, tested by its project; CVE-2026-42498 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2025-55668 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2024-23672 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.86, tested by its project; CVE-2026-25854 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-45674 carried by the upstream release io.netty:netty-resolver-dns 4.1.135.Final, tested by its project; CVE-2026-47691 carried by the upstream release io.netty:netty-resolver-dns 4.1.135.Final, tested by its project; CVE-2026-42581 carried by the upstream release io.netty:netty-codec-http 4.1.133.Final, tested by its project; CVE-2026-42579 carried by the upstream release io.netty:netty-codec-dns 4.1.133.Final, tested by its project; CVE-2026-42584 carried by the upstream release io.netty:netty-codec-http 4.1.133.Final, tested by its project; CVE-2026-44249 carried by the upstream release io.netty:netty-handler 4.1.135.Final, tested by its project; CVE-2025-24970 carried by the upstream release io.netty:netty-handler 4.1.118.Final, tested by its project; CVE-2025-55163 carried by the upstream release io.netty:netty-codec-http2 4.1.124.Final, tested by its project; CVE-2025-58056 carried by the upstream release io.netty:netty-codec-http 4.1.125.Final, tested by its project; CVE-2025-58057 carried by the upstream release io.netty:netty-codec 4.1.125.Final, tested by its project; CVE-2026-33870 carried by the upstream release io.netty:netty-codec-http 4.1.132.Final, tested by its project; CVE-2026-33871 carried by the upstream release io.netty:netty-codec-http2 4.1.132.Final, tested by its project; CVE-2026-42578 carried by the upstream release io.netty:netty-handler-proxy 4.1.133.Final, tested by its project; CVE-2026-42583 carried by the upstream release io.netty:netty-codec 4.1.133.Final, tested by its project; CVE-2026-42585 carried by the upstream release io.netty:netty-codec-http 4.1.133.Final, tested by its project; CVE-2026-42587 carried by the upstream release io.netty:netty-codec-http; io.netty:netty-codec-http2 4.1.133.Final, tested by its project; CVE-2026-45416 carried by the upstream release io.netty:netty-handler 4.1.135.Final, tested by its project; CVE-2026-48043 carried by the upstream release io.netty:netty-codec-http2 4.1.135.Final, tested by its project; CVE-2026-50010 carried by the upstream release io.netty:netty-handler 4.1.135.Final, tested by its project; CVE-2026-55831 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-55833 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-56745 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-56819 carried by the upstream release io.netty:netty-codec-http2 4.1.136.Final, tested by its project; CVE-2026-59898 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-59899 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-59901 carried by the upstream release io.netty:netty-codec 4.1.136.Final, tested by its project; CVE-2026-45673 carried by the upstream release io.netty:netty-resolver-dns 4.1.135.Final, tested by its project; CVE-2025-67735 carried by the upstream release io.netty:netty-codec-http 4.1.129.Final, tested by its project; CVE-2026-42580 carried by the upstream release io.netty:netty-codec-http 4.1.133.Final, tested by its project; CVE-2026-56746 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project; CVE-2026-59903 carried by the upstream release io.netty:netty-codec-http 4.1.137.Final, tested by its project; CVE-2026-59921 carried by the upstream release io.netty:netty-codec-http 4.1.136.Final, tested by its project
