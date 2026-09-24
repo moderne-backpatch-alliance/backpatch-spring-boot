@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00012
+release: 2.7.18.1-backpatch-00013
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -391,21 +391,41 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38821
     artifacts:
       - org.springframework.security:spring-security-web
-    note: New in this release; fixed upstream in 5.7.13, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00012; fixed upstream in 5.7.13, which this release pins.
   - cve: CVE-2026-22732
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22732
     artifacts:
       - org.springframework.security:spring-security-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00001 (backpatch-spring-security@5ebff93).
+    note: Carried from 2.7.18.1-backpatch-00012; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00001 (backpatch-spring-security@5ebff93).
   - cve: CVE-2024-22257
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-22257
     artifacts:
       - org.springframework.security:spring-security-core
-    note: New in this release; fixed upstream in 5.7.12, which this release pins.
+    note: Carried from 2.7.18.1-backpatch-00012; fixed upstream in 5.7.12, which this release pins.
+  - cve: CVE-2026-2332
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-2332
+    artifacts:
+      - org.eclipse.jetty:jetty-http
+    note: New in this release; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00001 (backpatch-jetty.project@e9b71a8).
+  - cve: CVE-2024-9823
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-9823
+    artifacts:
+      - org.eclipse.jetty:jetty-servlets
+    note: New in this release; fixed upstream in 9.4.54.v20240208, which this release pins.
+  - cve: CVE-2024-13009
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-13009
+    artifacts:
+      - org.eclipse.jetty:jetty-server
+    note: New in this release; fixed upstream in 9.4.57.v20241219, which this release pins.
+  - cve: CVE-2024-8184
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-8184
+    artifacts:
+      - org.eclipse.jetty:jetty-server
+    note: New in this release; fixed upstream in 9.4.56.v20240826, which this release pins.
 tests:
-  commit: acac9593650867409786b0f491d5c9a18b751ee7
+  commit: 79ecf37d450a17ead756a3ab1e761975511c2ddc
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2024-38821 carried by the upstream release org.springframework.security:spring-security-web 5.7.13, tested by its project; CVE-2026-22732 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2024-22257 carried by the upstream release org.springframework.security:spring-security-core 5.7.12, tested by its project
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-2332 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2024-9823 carried by the upstream release org.eclipse.jetty:jetty-servlets 9.4.54.v20240208, tested by its project; CVE-2024-13009 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.57.v20241219, tested by its project; CVE-2024-8184 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.56.v20240826, tested by its project
