@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00040
+release: 2.7.18.1-backpatch-00041
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -583,11 +583,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47838
     artifacts:
       - org.springframework.security:spring-security-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00002 (backpatch-spring-security@377a7e4..75ef229).
+    note: Carried from 2.7.18.1-backpatch-00040; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00002 (backpatch-spring-security@377a7e4..75ef229).
+  - cve: CVE-2026-40988
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40988
+    artifacts:
+      - org.springframework.security:spring-security-saml2-service-provider
+    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00003 (backpatch-spring-security@1ef4a11).
 tests:
-  commit: b1561b01782e299250ddf4a8b35fa224a22e7059
+  commit: 058e69ba9c189957958cb7094ae00a7d8c3a97d6
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-47838 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-40988 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
