@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00038
+release: 2.7.18.1-backpatch-00039
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -573,11 +573,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41719
     artifacts:
       - org.springframework.data:spring-data-keyvalue
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00005 (backpatch-spring-data-keyvalue@aecb98f).
+    note: Carried from 2.7.18.1-backpatch-00038; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00005 (backpatch-spring-data-keyvalue@aecb98f).
+  - cve: CVE-2026-41696
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41696
+    artifacts:
+      - org.springframework.data:spring-data-mongodb
+    note: New in this release; ported onto 2.7.18; fixed at 3.4.18.1-backpatch-00006 (backpatch-spring-data-mongodb@bd2432f).
 tests:
-  commit: c47282bfc1a51466c5e5ada30246b556419dff25
+  commit: a5a9a46de19be491125926b649349be70fadb6be
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-41719 carried by moderne-backpatch-alliance/backpatch-spring-data-keyvalue at v2.7.18.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-41696 carried by moderne-backpatch-alliance/backpatch-spring-data-mongodb at v3.4.18.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
