@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00007
+release: 2.7.18.1-backpatch-00008
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -365,11 +365,16 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux;
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00003 (backpatch-spring-framework@9df5e90..0544754).
+    note: Carried from 2.7.18.1-backpatch-00007; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00003 (backpatch-spring-framework@9df5e90..0544754).
+  - cve: CVE-2025-41249
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    artifacts:
+      - org.springframework:spring-core
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
 tests:
-  commit: 853514aa206c7c1a542a30d1a2cbe9ca2a2d9648
+  commit: d78fbbb8c6747174562a23e7e246a43b768c7ab4
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2024-38819 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2025-41249 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
