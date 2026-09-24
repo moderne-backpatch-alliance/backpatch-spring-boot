@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00003
+release: 2.7.18.1-backpatch-00004
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -17,11 +17,186 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22235
     artifacts:
       - org.springframework.boot:spring-boot-actuator-autoconfigure
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00003 (backpatch-spring-boot@5b6c229).
+    note: Carried from 2.7.18.1-backpatch-00003; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00003 (backpatch-spring-boot@5b6c229).
+  - cve: CVE-2024-50379
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-50379
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.98, which this release pins.
+  - cve: CVE-2024-56337
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-56337
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.98, which this release pins.
+  - cve: CVE-2025-24813
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-24813
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.99, which this release pins.
+  - cve: CVE-2025-55754
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55754
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.109, which this release pins.
+  - cve: CVE-2025-31651
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31651
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.104, which this release pins.
+  - cve: CVE-2026-41293
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41293
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2026-43512
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43512
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2026-65905
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65905
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+  - cve: CVE-2025-66614
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-66614
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.113, which this release pins.
+  - cve: CVE-2026-43515
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43515
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2026-65182
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65182
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+  - cve: CVE-2026-68525
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-68525
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.121, which this release pins.
+  - cve: CVE-2025-49124
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49124
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+  - cve: CVE-2024-24549
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-24549
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.86, which this release pins.
+  - cve: CVE-2024-34750
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-34750
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.90, which this release pins.
+  - cve: CVE-2024-38286
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38286
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.90, which this release pins.
+  - cve: CVE-2025-31650
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31650
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.104, which this release pins.
+  - cve: CVE-2025-48988
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48988
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+  - cve: CVE-2025-48989
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48989
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.108, which this release pins.
+  - cve: CVE-2025-49125
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49125
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+  - cve: CVE-2025-52434
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52434
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+  - cve: CVE-2025-52520
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52520
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+  - cve: CVE-2025-53506
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-53506
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.107, which this release pins.
+  - cve: CVE-2025-55752
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55752
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.109, which this release pins.
+  - cve: CVE-2026-24734
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24734
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.115, which this release pins.
+  - cve: CVE-2026-24880
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24880
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.116, which this release pins.
+  - cve: CVE-2026-34483
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34483
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.116, which this release pins.
+  - cve: CVE-2026-34487
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34487
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.117, which this release pins.
+  - cve: CVE-2026-41284
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41284
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2026-43513
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43513
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2025-46701
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-46701
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.105, which this release pins.
+  - cve: CVE-2026-42498
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42498
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.118, which this release pins.
+  - cve: CVE-2025-55668
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55668
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.106, which this release pins.
+  - cve: CVE-2024-23672
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-23672
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-websocket
+    note: New in this release; fixed upstream in 9.0.86, which this release pins.
+  - cve: CVE-2026-25854
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-25854
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 9.0.116, which this release pins.
 tests:
-  commit: 5b6c229206625d7c3b67aff2e89e84cfb23a98fb
-  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00003 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo -p spring-boot-project/spring-boot-actuator-autoconfigure test --rerun-tasks --tests org.springframework.boot.actuate.autoconfigure.security.reactive.EndpointRequestTests --tests org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequestTests
-  runtime: OpenJDK 1.8.0_372 (Zulu), Gradle wrapper of the repository
-  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-actuator-autoconfigure/2.7.18.1-backpatch-00003/spring-boot-actuator-autoconfigure-2.7.18.1-backpatch-00003-tests.zip
+  commit: f34b5f89a29c4117e71d842a916aee3824fe6376
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: the regression tests the fix commits touched, 49 test(s) run, 0 failed, at the tested commit
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2024-50379 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.98, tested by its project; CVE-2024-56337 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.98, tested by its project; CVE-2025-24813 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.99, tested by its project; CVE-2025-55754 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.109, tested by its project; CVE-2025-31651 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.104, tested by its project; CVE-2026-41293 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-43512 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-65905 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2025-66614 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.113, tested by its project; CVE-2026-43515 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-65182 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2026-68525 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.121, tested by its project; CVE-2025-49124 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2024-24549 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.86, tested by its project; CVE-2024-34750 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.90, tested by its project; CVE-2024-38286 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.90, tested by its project; CVE-2025-31650 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.104, tested by its project; CVE-2025-48988 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2025-48989 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.108, tested by its project; CVE-2025-49125 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2025-52434 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-52520 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-53506 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.107, tested by its project; CVE-2025-55752 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.109, tested by its project; CVE-2026-24734 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.115, tested by its project; CVE-2026-24880 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project; CVE-2026-34483 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project; CVE-2026-34487 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.117, tested by its project; CVE-2026-41284 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2026-43513 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2025-46701 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.105, tested by its project; CVE-2026-42498 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.118, tested by its project; CVE-2025-55668 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.106, tested by its project; CVE-2024-23672 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.86, tested by its project; CVE-2026-25854 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.116, tested by its project
