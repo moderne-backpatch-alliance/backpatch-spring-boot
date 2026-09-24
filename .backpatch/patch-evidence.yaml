@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00051
+release: 2.7.18.1-backpatch-00052
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -638,11 +638,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40972
     artifacts:
       - org.springframework.boot:spring-boot-devtools
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00051 (backpatch-spring-boot@b04b878..b21818b).
+    note: Carried from 2.7.18.1-backpatch-00051; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00051 (backpatch-spring-boot@b04b878..b21818b).
+  - cve: CVE-2026-40973
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
+    artifacts:
+      - org.springframework.boot:spring-boot
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00052 (backpatch-spring-boot@0ad0567..a0d5e5f).
 tests:
-  commit: b18c418ab8d64d5bcd37d5c1ca69415aa622e47b
-  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00051 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot-devtools test --rerun-tasks --tests org.springframework.boot.devtools.remote.server.HttpHeaderAccessManagerTests
+  commit: ce9212b30302836547547be0def98088756e32c9
+  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00052 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot test --rerun-tasks --tests org.springframework.boot.system.ApplicationTempTests
   runtime: OpenJDK 17.0.9 (Zulu), Gradle wrapper of the repository
-  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-devtools/2.7.18.1-backpatch-00051/spring-boot-devtools-2.7.18.1-backpatch-00051-tests.zip
+  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot/2.7.18.1-backpatch-00052/spring-boot-2.7.18.1-backpatch-00052-tests.zip
   result: pass
-  note: the regression tests the fix commits touched, 10 test(s) run, 0 failed, at the tested commit
+  note: the regression tests the fix commits touched, 6 test(s) run, 1 skipped, 0 failed, at the tested commit
