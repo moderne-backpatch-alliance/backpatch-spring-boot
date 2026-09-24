@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00002
+release: 2.7.18.1-backpatch-00003
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -12,11 +12,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22733
     artifacts:
       - org.springframework.boot:spring-boot-actuator-autoconfigure
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00002 (backpatch-spring-boot@d33a10d..cda69a5).
+    note: Carried from 2.7.18.1-backpatch-00002; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00002 (backpatch-spring-boot@d33a10d..cda69a5).
+  - cve: CVE-2025-22235
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22235
+    artifacts:
+      - org.springframework.boot:spring-boot-actuator-autoconfigure
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00003 (backpatch-spring-boot@5b6c229).
 tests:
-  commit: cda69a57de302eb3f090c808a6d724e665b3be76
-  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00002 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo -p spring-boot-project/spring-boot-actuator-autoconfigure test --rerun-tasks --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.reactive.CloudFoundryWebFluxEndpointHandlerMappingTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.reactive.CloudFoundryWebFluxEndpointIntegrationTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.servlet.CloudFoundryMvcWebEndpointIntegrationTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.servlet.CloudFoundryWebEndpointServletHandlerMappingTests
+  commit: 5b6c229206625d7c3b67aff2e89e84cfb23a98fb
+  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00003 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo -p spring-boot-project/spring-boot-actuator-autoconfigure test --rerun-tasks --tests org.springframework.boot.actuate.autoconfigure.security.reactive.EndpointRequestTests --tests org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequestTests
   runtime: OpenJDK 1.8.0_372 (Zulu), Gradle wrapper of the repository
-  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-actuator-autoconfigure/2.7.18.1-backpatch-00002/spring-boot-actuator-autoconfigure-2.7.18.1-backpatch-00002-tests.zip
+  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-actuator-autoconfigure/2.7.18.1-backpatch-00003/spring-boot-actuator-autoconfigure-2.7.18.1-backpatch-00003-tests.zip
   result: pass
-  note: the regression tests the fix commits touched, 21 test(s) run, 0 failed, at the tested commit
+  note: the regression tests the fix commits touched, 49 test(s) run, 0 failed, at the tested commit
