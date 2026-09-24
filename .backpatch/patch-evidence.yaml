@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00050
+release: 2.7.18.1-backpatch-00051
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -633,11 +633,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22227
     artifacts:
       - io.projectreactor.netty:reactor-netty-http
-    note: New in this release; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00001 (backpatch-reactor-netty@fa4fd4a..e6c0969).
+    note: Carried from 2.7.18.1-backpatch-00050; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00001 (backpatch-reactor-netty@fa4fd4a..e6c0969).
+  - cve: CVE-2026-40972
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40972
+    artifacts:
+      - org.springframework.boot:spring-boot-devtools
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00051 (backpatch-spring-boot@b04b878..b21818b).
 tests:
-  commit: d8dbe2ddab734ef7aa80edb2f8587fa9a10c3d6d
-  command: none in this repository
-  runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  commit: b18c418ab8d64d5bcd37d5c1ca69415aa622e47b
+  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00051 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot-devtools test --rerun-tasks --tests org.springframework.boot.devtools.remote.server.HttpHeaderAccessManagerTests
+  runtime: OpenJDK 17.0.9 (Zulu), Gradle wrapper of the repository
+  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-devtools/2.7.18.1-backpatch-00051/spring-boot-devtools-2.7.18.1-backpatch-00051-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2025-22227 carried by moderne-backpatch-alliance/backpatch-reactor-netty at v1.0.48.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: the regression tests the fix commits touched, 10 test(s) run, 0 failed, at the tested commit
