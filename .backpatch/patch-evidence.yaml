@@ -1,17 +1,22 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00001
+release: 2.7.18.1-backpatch-00002
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2016-1000027
     artifacts:
       - org.springframework:spring-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00001 (backpatch-spring-framework@0b5fbdb..c647e92).
+    note: Carried from 2.7.18.1-backpatch-00001; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00001 (backpatch-spring-framework@0b5fbdb..c647e92).
+  - cve: CVE-2026-22733
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22733
+    artifacts:
+      - org.springframework.boot:spring-boot-actuator-autoconfigure
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00002 (backpatch-spring-boot@d33a10d..cda69a5).
 tests:
-  commit: 4f647417f952c3eff55593feebf16b3bd2357c7c
-  command: none in this repository
-  runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  commit: cda69a57de302eb3f090c808a6d724e665b3be76
+  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00002 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo -p spring-boot-project/spring-boot-actuator-autoconfigure test --rerun-tasks --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.reactive.CloudFoundryWebFluxEndpointHandlerMappingTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.reactive.CloudFoundryWebFluxEndpointIntegrationTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.servlet.CloudFoundryMvcWebEndpointIntegrationTests --tests org.springframework.boot.actuate.autoconfigure.cloudfoundry.servlet.CloudFoundryWebEndpointServletHandlerMappingTests
+  runtime: OpenJDK 1.8.0_372 (Zulu), Gradle wrapper of the repository
+  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-actuator-autoconfigure/2.7.18.1-backpatch-00002/spring-boot-actuator-autoconfigure-2.7.18.1-backpatch-00002-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2016-1000027 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: the regression tests the fix commits touched, 21 test(s) run, 0 failed, at the tested commit
