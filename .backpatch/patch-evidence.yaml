@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00014
+release: 2.7.18.1-backpatch-00015
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -426,16 +426,32 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-10050
     artifacts:
       - org.eclipse.jetty:jetty-security
-    note: New in this release; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00002 (backpatch-jetty.project@5e1d893).
+    note: Carried from 2.7.18.1-backpatch-00014; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00002 (backpatch-jetty.project@5e1d893).
   - cve: CVE-2026-0603
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-0603
     artifacts:
       - org.hibernate:hibernate-core
-    note: New in this release; ported onto 2.7.18; fixed at 5.6.15.Final-backpatch-00001 (backpatch-hibernate-orm@425482e..ffd9df6).
+    note: Carried from 2.7.18.1-backpatch-00014; ported onto 2.7.18; fixed at 5.6.15.Final-backpatch-00001 (backpatch-hibernate-orm@425482e..ffd9df6).
+  - cve: CVE-2023-6378
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-6378
+    artifacts:
+      - ch.qos.logback:logback-classic;
+      - ch.qos.logback:logback-core
+    note: New in this release; fixed upstream in 1.2.13, which this release pins.
+  - cve: CVE-2023-6481
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-6481
+    artifacts:
+      - ch.qos.logback:logback-core
+    note: New in this release; fixed upstream in 1.2.13, which this release pins.
+  - cve: CVE-2024-12801
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-12801
+    artifacts:
+      - ch.qos.logback:logback-core
+    note: New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00001 (backpatch-logback@72dbf41).
 tests:
-  commit: ca9bfa24550d3e8e944d24d53a22047483e9be02
+  commit: 7347346584d1f39f576331c9bbbccf73966aa328
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2026-10050 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-0603 carried by moderne-backpatch-alliance/backpatch-hibernate-orm at v5.6.15.Final-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here. Its test provenance is the release it pins that carried the fix, the form REL-001.REQ-002 proposes with REL-009 (finos-osera/remediation-standards#67, pending adoption); result pass is that release's result. CVE-2023-6378 carried by the upstream release ch.qos.logback:logback-classic; ch.qos.logback:logback-core 1.2.13, tested by its project; CVE-2023-6481 carried by the upstream release ch.qos.logback:logback-core 1.2.13, tested by its project; CVE-2024-12801 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
