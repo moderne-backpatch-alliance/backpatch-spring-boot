@@ -117,6 +117,18 @@ class RepackagerTests extends AbstractPackagerTests<Repackager> {
 	}
 
 	@Test
+	void repackagedJarCarriesLoaderThatChecksStreamedEntries() throws Exception {
+		// CVE-2024-38807: the loader is copied out of this module's embedded
+		// spring-boot-loader.jar, so that copy must be the patched one
+		this.testJarFile.addClass("a/b/C.class", ClassWithMainMethod.class);
+		Repackager repackager = createRepackager(this.testJarFile.getFile(), false);
+		repackager.repackage(NO_LIBRARIES);
+		assertThat(getPackagedEntryContent("org/springframework/boot/loader/jar/JarEntriesStream.class")).isNotNull();
+		assertThat(getPackagedEntryContent("org/springframework/boot/loader/jar/JarFileEntries.class"))
+			.contains("org/springframework/boot/loader/jar/JarEntriesStream");
+	}
+
+	@Test
 	void nullDestination() throws Exception {
 		this.testJarFile.addClass("a/b/C.class", ClassWithMainMethod.class);
 		Repackager repackager = createRepackager(this.testJarFile.getFile(), true);
