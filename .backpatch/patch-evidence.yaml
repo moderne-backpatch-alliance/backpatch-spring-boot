@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00053
+release: 2.7.18.1-backpatch-00054
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -271,7 +271,7 @@ fixes:
   - cve: CVE-2026-42587
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42587
     artifacts:
-      - io.netty:netty-codec-http;
+      - io.netty:netty-codec-http
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-45416
@@ -357,13 +357,13 @@ fixes:
   - cve: CVE-2024-38816
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38816
     artifacts:
-      - org.springframework:spring-webflux;
+      - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00006; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00002 (backpatch-spring-framework@0527163).
   - cve: CVE-2024-38819
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38819
     artifacts:
-      - org.springframework:spring-webflux;
+      - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00007; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00003 (backpatch-spring-framework@9df5e90..0544754).
   - cve: CVE-2025-41249
@@ -379,7 +379,7 @@ fixes:
   - cve: CVE-2026-41842
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41842
     artifacts:
-      - org.springframework:spring-webflux;
+      - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00010; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00006 (backpatch-spring-framework@ba5eba0..26b3074).
   - cve: CVE-2026-41717
@@ -435,7 +435,7 @@ fixes:
   - cve: CVE-2023-6378
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-6378
     artifacts:
-      - ch.qos.logback:logback-classic;
+      - ch.qos.logback:logback-classic
       - ch.qos.logback:logback-core
     note: Carried from 2.7.18.1-backpatch-00015; fixed upstream in 1.2.13, which this release pins.
   - cve: CVE-2023-6481
@@ -457,7 +457,7 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2022-1471
     artifacts:
       - org.yaml:snakeyaml
-    note: Carried from 2.7.18.1-backpatch-00017; ported onto 2.7.18; fixed at 1.33.1-backpatch-00001 (backpatch-snakeyaml@be7b4a9).
+    note: Carried from 2.7.18.1-backpatch-00017; ported onto 2.7.18; fixed at 1.33.1-backpatch-00001 (backpatch-snakeyaml@329ace8).
   - cve: CVE-2025-11226
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-11226
     artifacts:
@@ -506,7 +506,7 @@ fixes:
   - cve: CVE-2026-41844
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41844
     artifacts:
-      - org.springframework:spring-webflux;
+      - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00025; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00010 (backpatch-spring-framework@1e9a02b..54183d2).
   - cve: CVE-2026-41845
@@ -648,11 +648,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38807
     artifacts:
       - org.springframework.boot:spring-boot-loader
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00053 (backpatch-spring-boot@25d6671..4fb512d).
+    note: Carried from 2.7.18.1-backpatch-00053; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00053 (backpatch-spring-boot@25d6671..4fb512d).
+  - cve: CVE-2023-3894
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-3894
+    artifacts:
+      - com.fasterxml.jackson.dataformat:jackson-dataformat-toml
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00008 (backpatch-jackson-dataformats-text@a127de5).
 tests:
-  commit: 90101c689cad79da0ac095d103beec7c9d686390
-  command: ./gradlew --quiet --no-daemon -I init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00053 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/private/tmp/claude-501/-Users-jon-Projects-github-moderneinc-backpatch-alliance--claude-worktrees-release-train/cac70bb4-ef1d-4ea1-ba68-6304b55890a2/scratchpad/osera/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot-tools/spring-boot-loader test --rerun-tasks --tests org.springframework.boot.loader.jar.JarFileSignatureTests
-  runtime: OpenJDK 17.0.9 (Zulu), Gradle wrapper of the repository
-  report: https://backpatch.moderne.io/maven/org/springframework/boot/spring-boot-loader/2.7.18.1-backpatch-00053/spring-boot-loader-2.7.18.1-backpatch-00053-tests.zip
+  commit: d44b242844093c7163272c9f017b326314cfd11d
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: the regression tests the fix commits touched, 2 test(s) run, 0 failed, at the tested commit
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-3894 carried by moderne-backpatch-alliance/backpatch-jackson-dataformats-text at v2.13.5.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
