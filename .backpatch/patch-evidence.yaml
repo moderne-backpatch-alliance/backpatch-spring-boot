@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00054
+release: 2.7.18.1-backpatch-00055
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -653,11 +653,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-3894
     artifacts:
       - com.fasterxml.jackson.dataformat:jackson-dataformat-toml
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00008 (backpatch-jackson-dataformats-text@a127de5).
+    note: Carried from 2.7.18.1-backpatch-00054; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00008 (backpatch-jackson-dataformats-text@a127de5).
+  - cve: CVE-2026-34479
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34479
+    artifacts:
+      - org.apache.logging.log4j:log4j-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00002 (backpatch-logging-log4j2@f0cb714).
 tests:
-  commit: d44b242844093c7163272c9f017b326314cfd11d
+  commit: 1976f59bb27f13633ca6d395f5c1880be45640a1
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-3894 carried by moderne-backpatch-alliance/backpatch-jackson-dataformats-text at v2.13.5.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-34479 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
