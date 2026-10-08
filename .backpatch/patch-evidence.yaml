@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00055
+release: 2.7.18.1-backpatch-00056
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -658,11 +658,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34479
     artifacts:
       - org.apache.logging.log4j:log4j-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00002 (backpatch-logging-log4j2@f0cb714).
+    note: Carried from 2.7.18.1-backpatch-00055; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00002 (backpatch-logging-log4j2@f0cb714).
+  - cve: CVE-2026-34481
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34481
+    artifacts:
+      - org.apache.logging.log4j:log4j-layout-template-json
+    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00003 (backpatch-logging-log4j2@cb1ef49).
 tests:
-  commit: 1976f59bb27f13633ca6d395f5c1880be45640a1
+  commit: 669a67d7cb2903d10fb3630bf0d81e8e066754bc
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-34479 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-34481 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
