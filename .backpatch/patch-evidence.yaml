@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00057
+release: 2.7.18.1-backpatch-00058
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -668,11 +668,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41715
     artifacts:
       - io.projectreactor.netty:reactor-netty-http
-    note: New in this release; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00002 (backpatch-reactor-netty@82062d9..948035b).
+    note: Carried from 2.7.18.1-backpatch-00057; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00002 (backpatch-reactor-netty@82062d9..948035b).
+  - cve: CVE-2026-40994
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40994
+    artifacts:
+      - org.springframework.ws:spring-ws-security
+    note: New in this release; ported onto 2.7.18; fixed at 3.1.8.1-backpatch-00003 (backpatch-spring-ws@5ceca63).
 tests:
-  commit: 0a2f08e00f28cd4aff21fef8c6b37218af0e7f84
+  commit: c446ad6c3189e2f6df2727ff058dec276f9ade59
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41715 carried by moderne-backpatch-alliance/backpatch-reactor-netty at v1.0.48.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40994 carried by moderne-backpatch-alliance/backpatch-spring-ws at v3.1.8.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
