@@ -48,6 +48,7 @@ import org.apache.catalina.LifecycleState;
 import org.apache.catalina.Service;
 import org.apache.catalina.SessionIdGenerator;
 import org.apache.catalina.Valve;
+import org.apache.catalina.WebResourceSet;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.AprLifecycleListener;
 import org.apache.catalina.core.StandardContext;
@@ -87,6 +88,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -433,6 +435,24 @@ class TomcatServletWebServerFactoryTests extends AbstractServletWebServerFactory
 		SessionIdGenerator sessionIdGenerator = context.getManager().getSessionIdGenerator();
 		assertThat(sessionIdGenerator).isInstanceOf(LazySessionIdGenerator.class);
 		assertThat(sessionIdGenerator.getJvmRoute()).isEqualTo("test");
+	}
+
+	@Test
+	void loaderHidingResourceSetDelegatesAllowLinking() {
+		TomcatServletWebServerFactory factory = getFactory();
+		factory.setDocumentRoot(this.tempDir);
+		this.webServer = factory.getWebServer();
+		this.webServer.start();
+		Tomcat tomcat = ((TomcatWebServer) this.webServer).getTomcat();
+		Context context = (Context) tomcat.getHost().findChildren()[0];
+		WebResourceSet main = (WebResourceSet) ReflectionTestUtils.getField(context.getResources(), "main");
+		WebResourceSet delegate = (WebResourceSet) ReflectionTestUtils.getField(main, "delegate");
+		main.setAllowLinking(true);
+		assertThat(main.getAllowLinking()).isTrue();
+		assertThat(delegate.getAllowLinking()).isTrue();
+		main.setAllowLinking(false);
+		assertThat(main.getAllowLinking()).isFalse();
+		assertThat(delegate.getAllowLinking()).isFalse();
 	}
 
 	@Test
