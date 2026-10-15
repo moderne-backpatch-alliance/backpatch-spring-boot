@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00062
+release: 2.7.18.1-backpatch-00063
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -685,15 +685,30 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux
     note: Carried from 2.7.18.1-backpatch-00060; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
+  - cve: CVE-2026-89425
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+    note: Carried from 2.7.18.1-backpatch-00061; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@f87ed4f).
+  - cve: CVE-2026-68494
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+    note: Carried from 2.7.18.1-backpatch-00061; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@4d6b1ea..f87ed4f).
   - cve: CVE-2026-47884
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47884
     artifacts:
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00014 (backpatch-spring-framework@b3bfd95..e777020).
+    note: Carried from 2.7.18.1-backpatch-00062; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00014 (backpatch-spring-framework@b3bfd95..e777020).
+  - cve: CVE-2026-41855
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41855
+    artifacts:
+      - org.springframework:spring-jms
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0).
 tests:
-  commit: a1d91fee46b80bdbcb71c132cb322639a74a29e3
+  commit: ef3c2817ea76674984415111e8c93cfe8f2f59c5
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47884 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00014, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41855 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00015, whose .backpatch/patch-evidence.yaml records the tests that ran
