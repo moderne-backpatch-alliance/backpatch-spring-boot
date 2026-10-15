@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00070
+release: 2.7.18.1-backpatch-00071
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -752,11 +752,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41727
     artifacts:
       - org.springframework.kafka:spring-kafka
-    note: New in this release; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00004 (backpatch-spring-kafka@aed19fc).
+    note: Carried from 2.7.18.1-backpatch-00070; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00004 (backpatch-spring-kafka@aed19fc).
+  - cve: CVE-2026-59278
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59278
+    artifacts:
+      - org.springframework.kafka:spring-kafka
+    note: New in this release; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00005 (backpatch-spring-kafka@9c243dc).
 tests:
-  commit: 24c8e524daa2bb57a149342257f23673ff55af5a
+  commit: f4b4dcb8500ebc5a8961a4dcefd2ae27b4ffd2a9
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41727 carried by moderne-backpatch-alliance/backpatch-spring-kafka at v2.8.11.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59278 carried by moderne-backpatch-alliance/backpatch-spring-kafka at v2.8.11.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
