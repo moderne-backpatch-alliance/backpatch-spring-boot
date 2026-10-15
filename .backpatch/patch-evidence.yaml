@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00059
+release: 2.7.18.1-backpatch-00060
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -370,7 +370,7 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
     artifacts:
       - org.springframework:spring-core
-    note: Carried from 2.7.18.1-backpatch-00008; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
+    note: Carried from 2.7.18.1-backpatch-00008; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
   - cve: CVE-2026-41838
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41838
     artifacts:
@@ -502,7 +502,7 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
     artifacts:
       - org.springframework:spring-webflux
-    note: Carried from 2.7.18.1-backpatch-00024; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00009 (backpatch-spring-framework@df02aba..abc12e9).
+    note: Carried from 2.7.18.1-backpatch-00024; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00009 (backpatch-spring-framework@df02aba..abc12e9).
   - cve: CVE-2026-41844
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41844
     artifacts:
@@ -513,7 +513,7 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
     artifacts:
       - org.springframework:spring-webmvc
-    note: Carried from 2.7.18.1-backpatch-00026; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00011 (backpatch-spring-framework@488f0cf).
+    note: Carried from 2.7.18.1-backpatch-00026; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00011 (backpatch-spring-framework@488f0cf).
   - cve: CVE-2026-41846
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41846
     artifacts:
@@ -679,12 +679,16 @@ fixes:
     artifacts:
       - org.springframework.boot:spring-boot-loader
       - org.springframework.boot:spring-boot-loader-tools
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00059 (backpatch-spring-boot@25d6671..86dd06b).
+    note: Carried from 2.7.18.1-backpatch-00059; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00059 (backpatch-spring-boot@25d6671..86dd06b).
+  - cve: CVE-2026-47892
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47892
+    artifacts:
+      - org.springframework:spring-webflux
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
 tests:
-  commit: 86dd06ba125e3320402baae4c12eb88115f19cb1
-  command: ./gradlew --no-daemon -I /Users/peter/moderne/git/backpatch-alliance/.claude/worktrees/festive-montalcini-9e1d82/ecosystem/gradle/init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00059 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/Users/peter/moderne/git/backpatch-alliance/work/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot-tools/spring-boot-loader test --rerun-tasks --tests org.springframework.boot.loader.jar.JarFileSignatureTests && ./gradlew --no-daemon -I /Users/peter/moderne/git/backpatch-alliance/.claude/worktrees/festive-montalcini-9e1d82/ecosystem/gradle/init-backpatch.gradle -Dbackpatch.version=2.7.18.1-backpatch-00059 -Dbackpatch.repository.url=file:///tmp/osera-unused-repo -Dbackpatch.compile.jdk=17 -Dbackpatch.gradle.pluginRepo=/Users/peter/moderne/git/backpatch-alliance/work/bpa-repo --max-workers=1 -p spring-boot-project/spring-boot-tools/spring-boot-loader-tools test --rerun-tasks --tests org.springframework.boot.loader.tools.RepackagerTests
-  runtime: OpenJDK 17.0.8.1 (Zulu), Gradle wrapper of the repository
-  report: spring-boot-loader-tools-2.7.18.1-backpatch-00059-tests.zip
-  report_sha256: 359ef2a655511b6ecda7e2a31498ab2b69ce1b3fd358cdc69ec303b317579ba1
+  commit: 3d282c844e1502604270db823ed8c76ae49cdc59
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: the regression tests the fix commits touched, 53 test(s) run, 0 failed, at the tested commit
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47892 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
