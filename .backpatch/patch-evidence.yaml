@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00064
+release: 2.7.18.1-backpatch-00065
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -709,11 +709,29 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-91776
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
+    note: Carried from 2.7.18.1-backpatch-00064; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
+  - cve: CVE-2025-41249
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    artifacts:
+      - org.springframework:spring-core
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-22740
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-41845
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    artifacts:
+      - org.springframework:spring-webmvc
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
 tests:
-  commit: 37a6818a04e8423b2f994f23a3f4e658dbdd417a
+  commit: c2a184cd6fd76603984bd7acfe1f4b0e7898d1a9
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-91776 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-41249 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-22740 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-41845 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran
