@@ -1799,7 +1799,7 @@ bom {
 			]
 		}
 	}
-	library("Spring Kafka", "2.8.11.1-backpatch-00004") {
+	library("Spring Kafka", "2.8.11.1-backpatch-00005") {
 		considerSnapshots()
 		group("org.springframework.kafka") {
 			modules = [
