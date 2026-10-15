@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00073
+release: 2.7.18.1-backpatch-00074
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -767,12 +767,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
     artifacts:
       - org.springframework.boot:spring-boot
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00073 (backpatch-spring-boot@0ad0567..28118f4).
+    note: Carried from 2.7.18.1-backpatch-00073; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00073 (backpatch-spring-boot@0ad0567..28118f4).
+  - cve: GHSA-h383-gmxw-35v2
+    upstream: https://github.com/advisories/GHSA-h383-gmxw-35v2
+    artifacts:
+      - org.apache.logging.log4j:log4j-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
 tests:
-  commit: 28118f40391ec0fd78175cf6b076530a72bc4ab7
-  command: ./gradlew --no-daemon -I <alliance>/ecosystem/gradle/init-backpatch.gradle -I <work>/test-bounds.gradle -Dbackpatch.version=2.7.18.1-backpatch-00073 -Dbackpatch.repository.url=file://<unused> -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=<alliance>/work/bpa-repo -p spring-boot-project/spring-boot test --rerun-tasks --continue
-  runtime: OpenJDK 1.8.0_504 (Zulu 8.96.0.205, linux/aarch64), Gradle wrapper of the repository
-  report: spring-boot-2.7.18.1-backpatch-00073-tests.zip
-  report_sha256: f8533fccfa5b1b7705e087905cea547c4fc7288b315d861986a0e294e16f32fd
+  commit: c6b465fb3209ff410fd518e3c624d110c7c4d608
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: "the spring-boot module's tests at the tested commit, 4251 run, 155 skipped, 2 failed; the same 2 fail at 2.7.18.1-backpatch-00072 (a8fc65f) under the same setup, 4250 run, and pass at v2.7.18 (4247 run, 0 failed), so they come from the pinned Jackson 2.13.5.1-backpatch-00011 and Tomcat 9.0.121, not from this release: JacksonJsonParserTests.listWithRepeatedOpenArray and TldPatternsTests.tomcatSkipAlignsWithTomcatDefaults; run in Docker azul/zulu-openjdk:8 on linux/aarch64, with -Werror off and buildSrc resolving our pins from <alliance>/work/bpa-repo by local, uncommitted build edits, and <work>/test-bounds.gradle setting junit.jupiter.execution.timeout.default=3 m and a 45 minute test task timeout; releases 2.7.18.1-backpatch-00013 to -00053 name a tests.commit from a discarded replay of this branch, each one's tree equal to its tag's parent tree outside .backpatch, kept reachable at refs/archive/replay-1"
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is GHSA-h383-gmxw-35v2 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
