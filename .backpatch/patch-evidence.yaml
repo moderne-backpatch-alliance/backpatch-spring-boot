@@ -1,782 +1,1134 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00074
+release: 2.7.18.1-backpatch-00075
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2016-1000027
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2016-1000027
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/0b5fbdb~1...c647e92
+    not_applicable_rationale: a provider-developed fix; no upstream-authored code to credit
+    basis: original
     artifacts:
       - org.springframework:spring-web
     note: Carried from 2.7.18.1-backpatch-00001; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00001 (backpatch-spring-framework@0b5fbdb..c647e92).
   - cve: CVE-2026-22733
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22733
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/01fbede2b27237616e215fe0df7c294ae47bdd73
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22733
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/d33a10d~1...cda69a5
+    basis: adapted
     artifacts:
       - org.springframework.boot:spring-boot-actuator-autoconfigure
     note: Carried from 2.7.18.1-backpatch-00002; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00002 (backpatch-spring-boot@d33a10d..cda69a5).
   - cve: CVE-2025-22235
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22235
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/55f67c9a522647039fd3294dee5cb83f4888160a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-22235
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/commit/5b6c229
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot-actuator-autoconfigure
     note: Carried from 2.7.18.1-backpatch-00003; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00003 (backpatch-spring-boot@5b6c229).
   - cve: CVE-2024-50379
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-50379
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-50379
+    not_applicable_rationale: fixed upstream in 9.0.98, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.98, which this release pins.
   - cve: CVE-2024-56337
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-56337
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-56337
+    not_applicable_rationale: fixed upstream in 9.0.98, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.98, which this release pins.
   - cve: CVE-2025-24813
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-24813
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-24813
+    not_applicable_rationale: fixed upstream in 9.0.99, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.99, which this release pins.
   - cve: CVE-2025-55754
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55754
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-55754
+    not_applicable_rationale: fixed upstream in 9.0.109, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.109, which this release pins.
   - cve: CVE-2025-31651
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31651
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-31651
+    not_applicable_rationale: fixed upstream in 9.0.104, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.104, which this release pins.
   - cve: CVE-2026-41293
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41293
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41293
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-43512
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43512
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-43512
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-65905
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65905
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-65905
+    not_applicable_rationale: fixed upstream in 9.0.121, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2025-66614
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-66614
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-66614
+    not_applicable_rationale: fixed upstream in 9.0.113, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.113, which this release pins.
   - cve: CVE-2026-43515
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43515
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-43515
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-65182
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-65182
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-65182
+    not_applicable_rationale: fixed upstream in 9.0.121, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2026-68525
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-68525
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68525
+    not_applicable_rationale: fixed upstream in 9.0.121, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.121, which this release pins.
   - cve: CVE-2025-49124
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49124
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-49124
+    not_applicable_rationale: fixed upstream in 9.0.106, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2024-24549
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-24549
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-24549
+    not_applicable_rationale: fixed upstream in 9.0.86, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.86, which this release pins.
   - cve: CVE-2024-34750
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-34750
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-34750
+    not_applicable_rationale: fixed upstream in 9.0.90, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.90, which this release pins.
   - cve: CVE-2024-38286
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38286
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38286
+    not_applicable_rationale: fixed upstream in 9.0.90, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.90, which this release pins.
   - cve: CVE-2025-31650
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-31650
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-31650
+    not_applicable_rationale: fixed upstream in 9.0.104, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.104, which this release pins.
   - cve: CVE-2025-48988
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48988
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-48988
+    not_applicable_rationale: fixed upstream in 9.0.106, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2025-48989
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-48989
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-48989
+    not_applicable_rationale: fixed upstream in 9.0.108, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.108, which this release pins.
   - cve: CVE-2025-49125
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-49125
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-49125
+    not_applicable_rationale: fixed upstream in 9.0.106, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2025-52434
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52434
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52434
+    not_applicable_rationale: fixed upstream in 9.0.107, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-52520
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52520
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52520
+    not_applicable_rationale: fixed upstream in 9.0.107, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-53506
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-53506
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-53506
+    not_applicable_rationale: fixed upstream in 9.0.107, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.107, which this release pins.
   - cve: CVE-2025-55752
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55752
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-55752
+    not_applicable_rationale: fixed upstream in 9.0.109, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.109, which this release pins.
   - cve: CVE-2026-24734
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24734
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-24734
+    not_applicable_rationale: fixed upstream in 9.0.115, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.115, which this release pins.
   - cve: CVE-2026-24880
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-24880
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-24880
+    not_applicable_rationale: fixed upstream in 9.0.116, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
   - cve: CVE-2026-34483
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34483
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34483
+    not_applicable_rationale: fixed upstream in 9.0.116, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
   - cve: CVE-2026-34487
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34487
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34487
+    not_applicable_rationale: fixed upstream in 9.0.117, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.117, which this release pins.
   - cve: CVE-2026-41284
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41284
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41284
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2026-43513
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-43513
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-43513
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2025-46701
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-46701
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-46701
+    not_applicable_rationale: fixed upstream in 9.0.105, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.105, which this release pins.
   - cve: CVE-2026-42498
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42498
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42498
+    not_applicable_rationale: fixed upstream in 9.0.118, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.118, which this release pins.
   - cve: CVE-2025-55668
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55668
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-55668
+    not_applicable_rationale: fixed upstream in 9.0.106, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.106, which this release pins.
   - cve: CVE-2024-23672
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-23672
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-23672
+    not_applicable_rationale: fixed upstream in 9.0.86, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.86, which this release pins.
   - cve: CVE-2026-25854
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-25854
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-25854
+    not_applicable_rationale: fixed upstream in 9.0.116, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
     note: Carried from 2.7.18.1-backpatch-00004; fixed upstream in 9.0.116, which this release pins.
   - cve: CVE-2026-45674
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45674
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-45674
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-resolver-dns
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2026-47691
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47691
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47691
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-resolver-dns
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2026-42581
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42581
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42581
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-42579
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42579
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42579
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-dns
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-42584
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42584
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42584
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-44249
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-44249
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-44249
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-handler
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2025-24970
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-24970
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-24970
+    not_applicable_rationale: fixed upstream in 4.1.118.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-handler
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.118.Final, which this release pins.
   - cve: CVE-2025-55163
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-55163
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-55163
+    not_applicable_rationale: fixed upstream in 4.1.124.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.124.Final, which this release pins.
   - cve: CVE-2025-58056
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-58056
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-58056
+    not_applicable_rationale: fixed upstream in 4.1.125.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.125.Final, which this release pins.
   - cve: CVE-2025-58057
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-58057
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-58057
+    not_applicable_rationale: fixed upstream in 4.1.125.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.125.Final, which this release pins.
   - cve: CVE-2026-33870
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-33870
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-33870
+    not_applicable_rationale: fixed upstream in 4.1.132.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.132.Final, which this release pins.
   - cve: CVE-2026-33871
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-33871
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-33871
+    not_applicable_rationale: fixed upstream in 4.1.132.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.132.Final, which this release pins.
   - cve: CVE-2026-42578
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42578
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42578
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-handler-proxy
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-42583
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42583
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42583
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-42585
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42585
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42585
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-42587
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42587
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42587
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-45416
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45416
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-45416
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-handler
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2026-48043
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-48043
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-48043
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2026-50010
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-50010
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-50010
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-handler
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2026-55831
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-55831
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-55831
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-55833
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-55833
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-55833
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-56745
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56745
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-56745
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-56819
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56819
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-56819
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http2
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-59898
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59898
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59898
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-59899
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59899
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59899
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-59901
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59901
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59901
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-45673
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-45673
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-45673
+    not_applicable_rationale: fixed upstream in 4.1.135.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-resolver-dns
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.135.Final, which this release pins.
   - cve: CVE-2025-67735
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-67735
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-67735
+    not_applicable_rationale: fixed upstream in 4.1.129.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.129.Final, which this release pins.
   - cve: CVE-2026-42580
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-42580
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-42580
+    not_applicable_rationale: fixed upstream in 4.1.133.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.133.Final, which this release pins.
   - cve: CVE-2026-56746
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-56746
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-56746
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2026-59903
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59903
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59903
+    not_applicable_rationale: fixed upstream in 4.1.137.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.137.Final, which this release pins.
   - cve: CVE-2026-59921
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59921
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59921
+    not_applicable_rationale: fixed upstream in 4.1.136.Final, which this release pins; no commit of ours carries the fix
     artifacts:
       - io.netty:netty-codec-http
     note: Carried from 2.7.18.1-backpatch-00005; fixed upstream in 4.1.136.Final, which this release pins.
   - cve: CVE-2024-38816
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38816
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/d86bf8b2056429edf5494456cffcb2b243331c49
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38816
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/0527163
+    basis: adapted
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00006; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00002 (backpatch-spring-framework@0527163).
   - cve: CVE-2024-38819
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38819
+    upstream_fix_url: https://github.com/advisories/GHSA-g5vr-rgqm-vf78
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38819
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/9df5e90~1...0544754
+    basis: adapted
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00007; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00003 (backpatch-spring-framework@9df5e90..0544754).
   - cve: CVE-2025-41249
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/c86ba0d~1...8a0071a
+    basis: backport
     artifacts:
       - org.springframework:spring-core
     note: Carried from 2.7.18.1-backpatch-00008; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
   - cve: CVE-2026-41838
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41838
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/a42a6e0c6ac64eb18954729ca5e3fe64b05a39b5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41838
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/64f7330
+    basis: backport
     artifacts:
       - org.springframework:spring-websocket
     note: Carried from 2.7.18.1-backpatch-00009; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00005 (backpatch-spring-framework@64f7330).
   - cve: CVE-2026-41842
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41842
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/8d51f47357e4830076b9630ffc8bfbb2a2831260
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41842
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/ba5eba0~1...26b3074
+    basis: adapted
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00010; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00006 (backpatch-spring-framework@ba5eba0..26b3074).
   - cve: CVE-2026-41717
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41717
+    upstream_fix_url: https://github.com/spring-projects/spring-data-mongodb/commit/7d2ea784d262bf4bf4ea8402505f491c8ab66fcc
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41717
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-mongodb/commit/7ee7b5e
+    basis: backport
     artifacts:
       - org.springframework.data:spring-data-mongodb
     note: Carried from 2.7.18.1-backpatch-00011; ported onto 2.7.18; fixed at 3.4.18.1-backpatch-00001 (backpatch-spring-data-mongodb@7ee7b5e).
   - cve: CVE-2024-38821
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38821
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38821
+    not_applicable_rationale: fixed upstream in 5.7.13, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.springframework.security:spring-security-web
     note: Carried from 2.7.18.1-backpatch-00012; fixed upstream in 5.7.13, which this release pins.
   - cve: CVE-2026-22732
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22732
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/c3e1a94d8ca4455f30240ec0e56809bf3c48e67b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22732
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/5ebff93
+    basis: backport
     artifacts:
       - org.springframework.security:spring-security-web
     note: Carried from 2.7.18.1-backpatch-00012; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00001 (backpatch-spring-security@5ebff93).
   - cve: CVE-2024-22257
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-22257
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-22257
+    not_applicable_rationale: fixed upstream in 5.7.12, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.springframework.security:spring-security-core
     note: Carried from 2.7.18.1-backpatch-00012; fixed upstream in 5.7.12, which this release pins.
   - cve: CVE-2026-2332
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-2332
+    upstream_fix_url: https://github.com/jetty/jetty.project/commit/ff9eb742492d6dc3191bcd49668b1bce1e620d57
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-2332
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/e9b71a8
+    basis: adapted
     artifacts:
       - org.eclipse.jetty:jetty-http
     note: Carried from 2.7.18.1-backpatch-00013; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00001 (backpatch-jetty.project@e9b71a8).
   - cve: CVE-2024-9823
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-9823
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-9823
+    not_applicable_rationale: fixed upstream in 9.4.54.v20240208, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-servlets
     note: Carried from 2.7.18.1-backpatch-00013; fixed upstream in 9.4.54.v20240208, which this release pins.
   - cve: CVE-2024-13009
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-13009
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-13009
+    not_applicable_rationale: fixed upstream in 9.4.57.v20241219, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-server
     note: Carried from 2.7.18.1-backpatch-00013; fixed upstream in 9.4.57.v20241219, which this release pins.
   - cve: CVE-2024-8184
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-8184
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-8184
+    not_applicable_rationale: fixed upstream in 9.4.56.v20240826, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-server
     note: Carried from 2.7.18.1-backpatch-00013; fixed upstream in 9.4.56.v20240826, which this release pins.
   - cve: CVE-2026-10050
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-10050
+    upstream_fix_url: https://github.com/jetty/jetty.project/commit/4bcdbc7db387ce9e20e2c7571a7250280466221d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-10050
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/5e1d893
+    basis: adapted
     artifacts:
       - org.eclipse.jetty:jetty-security
     note: Carried from 2.7.18.1-backpatch-00014; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00002 (backpatch-jetty.project@5e1d893).
   - cve: CVE-2026-0603
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-0603
+    upstream_fix_url: https://github.com/hibernate/hibernate-orm/compare/02f06415bb73e21576eb68087977a677cc7c79f4...6f4aae562b6eec9466959fa7a6dcfd34b57cf7d0
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-0603
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-hibernate-orm/compare/425482e~1...ffd9df6
+    basis: backport
     artifacts:
       - org.hibernate:hibernate-core
     note: Carried from 2.7.18.1-backpatch-00014; ported onto 2.7.18; fixed at 5.6.15.Final-backpatch-00001 (backpatch-hibernate-orm@425482e..ffd9df6).
   - cve: CVE-2023-6378
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-6378
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-6378
+    not_applicable_rationale: fixed upstream in 1.2.13, which this release pins; no commit of ours carries the fix
     artifacts:
       - ch.qos.logback:logback-classic
       - ch.qos.logback:logback-core
     note: Carried from 2.7.18.1-backpatch-00015; fixed upstream in 1.2.13, which this release pins.
   - cve: CVE-2023-6481
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-6481
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-6481
+    not_applicable_rationale: fixed upstream in 1.2.13, which this release pins; no commit of ours carries the fix
     artifacts:
       - ch.qos.logback:logback-core
     note: Carried from 2.7.18.1-backpatch-00015; fixed upstream in 1.2.13, which this release pins.
   - cve: CVE-2024-12801
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-12801
+    upstream_fix_url: https://github.com/qos-ch/logback/commit/2863a4974a3649b5b00d4a529ee6ff2063470f35
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-12801
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/72dbf41
+    basis: backport
     artifacts:
       - ch.qos.logback:logback-core
     note: Carried from 2.7.18.1-backpatch-00015; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00001 (backpatch-logback@72dbf41).
   - cve: CVE-2026-41720
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41720
+    upstream_fix_url: https://github.com/spring-projects/spring-ldap/commit/e2748d44bdce4f6cb4663b9b8d8462e34808f09c
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41720
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-ldap/commit/d2429cd
+    basis: backport
     artifacts:
       - org.springframework.ldap:spring-ldap-core
     note: Carried from 2.7.18.1-backpatch-00016; ported onto 2.7.18; fixed at 2.4.4.1-backpatch-00001 (backpatch-spring-ldap@d2429cd).
   - cve: CVE-2022-1471
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2022-1471
+    upstream_fix_url: https://github.com/snakeyaml/snakeyaml/commit/2b8d47c8bcfd402e7a682b7b2674e8d0cb25e522
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2022-1471
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-snakeyaml/commit/329ace8
+    basis: adapted
     artifacts:
       - org.yaml:snakeyaml
     note: Carried from 2.7.18.1-backpatch-00017; ported onto 2.7.18; fixed at 1.33.1-backpatch-00001 (backpatch-snakeyaml@329ace8).
   - cve: CVE-2025-11226
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-11226
+    upstream_fix_url: https://github.com/qos-ch/logback/commit/e3aa0f440cf7a3b98f16fbb21bcea83f72be71e6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-11226
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/8c3076c
+    basis: adapted
     artifacts:
       - ch.qos.logback:logback-core
     note: Carried from 2.7.18.1-backpatch-00018; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00002 (backpatch-logback@8c3076c).
   - cve: CVE-2026-34480
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34480
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/4f5014229825d8be977662e0743205bb8a67f989
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34480
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/535753d
+    basis: adapted
     artifacts:
       - org.apache.logging.log4j:log4j-core
     note: Carried from 2.7.18.1-backpatch-00019; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00001 (backpatch-logging-log4j2@535753d).
   - cve: CVE-2026-41006
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41006
+    upstream_fix_url: https://github.com/spring-projects/spring-hateoas/commit/2c127edd741e43e6e6f06f4081af92d400209990
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41006
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-hateoas/commit/b8d3122
+    basis: adapted
     artifacts:
       - org.springframework.hateoas:spring-hateoas
     note: Carried from 2.7.18.1-backpatch-00020; ported onto 2.7.18; fixed at 1.5.6.1-backpatch-00001 (backpatch-spring-hateoas@b8d3122).
   - cve: CVE-2026-41007
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41007
+    upstream_fix_url: https://github.com/spring-projects/spring-hateoas/commit/668fd3282e1c7ffc817499b4b3d85d3aa21c0c2e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41007
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-hateoas/commit/46a20a0
+    basis: backport
     artifacts:
       - org.springframework.hateoas:spring-hateoas
     note: Carried from 2.7.18.1-backpatch-00021; ported onto 2.7.18; fixed at 1.5.6.1-backpatch-00002 (backpatch-spring-hateoas@46a20a0).
   - cve: CVE-2026-41848
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41848
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b294371a46ec98bbc6c620c04567169b10675cb3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41848
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a0c8ebb~1...f5b59f7
+    basis: backport
     artifacts:
       - org.springframework:spring-core
     note: Carried from 2.7.18.1-backpatch-00022; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00007 (backpatch-spring-framework@a0c8ebb..f5b59f7).
   - cve: CVE-2026-41849
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41849
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41849
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    not_applicable_rationale: a provider-developed fix; no upstream-authored code to credit
+    basis: original
     artifacts:
       - org.springframework:spring-expression
     note: Carried from 2.7.18.1-backpatch-00023; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
   - cve: CVE-2026-41850
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41850
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/76a36dfd707cddbe7118a81c2e055b36501d2cff
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41850
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    basis: adapted
     artifacts:
       - org.springframework:spring-expression
     note: Carried from 2.7.18.1-backpatch-00023; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
   - cve: CVE-2026-41851
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41851
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/ec89834fa8f633b173de094be257b9dde37a0fc8
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41851
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    basis: adapted
     artifacts:
       - org.springframework:spring-expression
     note: Carried from 2.7.18.1-backpatch-00023; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
   - cve: CVE-2026-22740
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b338fdd99dd87974870f90ababb39fcb8727e1b4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/df02aba~1...abc12e9
+    basis: backport
     artifacts:
       - org.springframework:spring-webflux
     note: Carried from 2.7.18.1-backpatch-00024; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00009 (backpatch-spring-framework@df02aba..abc12e9).
   - cve: CVE-2026-41844
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41844
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/3aaec987651cf82fd4ed7e0ed9b3deddcdf58853
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41844
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/1e9a02b~1...54183d2
+    basis: adapted
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00025; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00010 (backpatch-spring-framework@1e9a02b..54183d2).
   - cve: CVE-2026-41845
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/86d99790dbaa8ce6bb1087ef92844d0abfdab015
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/488f0cf
+    basis: backport
     artifacts:
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00026; a superseded fix, ported onto 2.7.18 at 5.3.39.1-backpatch-00011 (backpatch-spring-framework@488f0cf).
   - cve: CVE-2026-41846
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41846
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/1829b42b9c45e780c268dd17863d9198d62154d3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41846
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/f75ea09
+    basis: backport
     artifacts:
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00027; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00012 (backpatch-spring-framework@f75ea09).
   - cve: CVE-2025-52999
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/54f78a9cff5e3bace1cf8042ac1b4c3785dc9f5e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/b9e4b3a
+    basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
-    note: Carried from 2.7.18.1-backpatch-00028; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00001 (backpatch-jackson-core@b9e4b3a).
+    note: Carried from 2.7.18.1-backpatch-00028; a superseded fix, ported onto 2.7.18 at 2.13.5.1-backpatch-00001 (backpatch-jackson-core@b9e4b3a).
   - cve: GHSA-r7wm-3cxj-wff9
-    upstream: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/4d6b1ea
+    basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
-    note: Carried from 2.7.18.1-backpatch-00029; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00002 (backpatch-jackson-core@4d6b1ea).
+    note: Carried from 2.7.18.1-backpatch-00029; a superseded fix, ported onto 2.7.18 at 2.13.5.1-backpatch-00002 (backpatch-jackson-core@4d6b1ea).
   - cve: CVE-2026-54513
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-54513
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/01d1692c8d0ed03e51a0e3c4f8a9e6908e4931e5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-54513
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/c3a8387
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00030; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00003 (backpatch-jackson-databind@c3a8387).
   - cve: CVE-2026-54512
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-54512
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/compare/01d1692c8d0ed03e51a0e3c4f8a9e6908e4931e5...26a8c70bd42949ad72fbd9608e9f060ce661cb11
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-54512
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/dc49d7c
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00031; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00004 (backpatch-jackson-databind@dc49d7c).
   - cve: CVE-2026-50193
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-50193
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/compare/396af5f23409cd1cde542d59e2b73134678674ea...a1fa4ae4ecf5cee16da465985f135f3e81816f8c
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-50193
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/845e792
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00032; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00005 (backpatch-jackson-databind@845e792).
   - cve: CVE-2026-54514
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-54514
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/compare/5622b802fa6e4c3a8cba9354d6fb0f540cec170a...1f5a1037b1e9e05920e755cb35f198bcd46667e4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-54514
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/19b3144
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00033; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00006 (backpatch-jackson-databind@19b3144).
   - cve: CVE-2026-54515
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-54515
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/bc1613c765704703ec7385e314fa8b19448e1ddd
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-54515
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/d3d76f1
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00034; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00007 (backpatch-jackson-databind@d3d76f1).
   - cve: CVE-2026-41729
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41729
+    upstream_fix_url: https://github.com/spring-projects/spring-data-rest/commit/9ba7da5cc686f22e2ce51e5740afc48b9b03621f
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41729
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-rest/commit/87cd40e
+    basis: backport
     artifacts:
       - org.springframework.data:spring-data-rest-webmvc
     note: Carried from 2.7.18.1-backpatch-00035; ported onto 2.7.18; fixed at 3.7.18.1-backpatch-00002 (backpatch-spring-data-rest@87cd40e).
   - cve: CVE-2026-41716
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41716
+    upstream_fix_url: https://github.com/spring-projects/spring-data-commons/commit/2398607384927743a89ce9e40e05ae70f766de34
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41716
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-commons/commit/cbb399a
+    basis: backport
     artifacts:
       - org.springframework.data:spring-data-commons
     note: Carried from 2.7.18.1-backpatch-00036; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00003 (backpatch-spring-data-commons@cbb399a).
   - cve: CVE-2026-41728
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41728
+    upstream_fix_url: https://github.com/spring-projects/spring-data-rest/commit/d5b4de42cbe498c38401965aa969afe3c4e882fc
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41728
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-rest/commit/e82ce85
+    basis: backport
     artifacts:
       - org.springframework.data:spring-data-rest-webmvc
     note: Carried from 2.7.18.1-backpatch-00037; ported onto 2.7.18; fixed at 3.7.18.1-backpatch-00004 (backpatch-spring-data-rest@e82ce85).
   - cve: CVE-2026-41719
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41719
+    upstream_fix_url: https://github.com/spring-projects/spring-data-keyvalue/commit/27a46d5294403fee142b9619df05d85db61830ec
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41719
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-keyvalue/commit/aecb98f
+    basis: backport
     artifacts:
       - org.springframework.data:spring-data-keyvalue
     note: Carried from 2.7.18.1-backpatch-00038; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00005 (backpatch-spring-data-keyvalue@aecb98f).
   - cve: CVE-2026-41696
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41696
+    upstream_fix_url: https://github.com/spring-projects/spring-data-mongodb/commit/24d5afc0c7df223150e06fce3f64c226bcc88ca2
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41696
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-mongodb/commit/bd2432f
+    basis: adapted
     artifacts:
       - org.springframework.data:spring-data-mongodb
     note: Carried from 2.7.18.1-backpatch-00039; ported onto 2.7.18; fixed at 3.4.18.1-backpatch-00006 (backpatch-spring-data-mongodb@bd2432f).
   - cve: CVE-2026-47838
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47838
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/e3ad551ab337d8a1e17217994b45fed6c68ce69e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47838
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/compare/377a7e4~1...75ef229
+    basis: adapted
     artifacts:
       - org.springframework.security:spring-security-web
     note: Carried from 2.7.18.1-backpatch-00040; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00002 (backpatch-spring-security@377a7e4..75ef229).
   - cve: CVE-2026-40988
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40988
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/9d4d9065b48508c9e115f2f894632120787fd1df
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40988
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/1ef4a11
+    basis: adapted
     artifacts:
       - org.springframework.security:spring-security-saml2-service-provider
     note: Carried from 2.7.18.1-backpatch-00041; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00003 (backpatch-spring-security@1ef4a11).
   - cve: CVE-2025-22228
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22228
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/46f0dc6dfc8402cd556c598fdf2d31f9d46cdbf3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-22228
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/fa4fb35
+    basis: backport
     artifacts:
       - org.springframework.security:spring-security-crypto
     note: Carried from 2.7.18.1-backpatch-00042; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00004 (backpatch-spring-security@fa4fb35).
   - cve: CVE-2026-41706
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41706
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/a14c9d66b15946d2040a3681b55fe29ac145c5c9
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41706
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/compare/50b528d~1...6c4475e
+    basis: backport
     artifacts:
       - org.springframework.security:spring-security-web
     note: Carried from 2.7.18.1-backpatch-00043; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00005 (backpatch-spring-security@50b528d..6c4475e).
   - cve: CVE-2025-11143
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-11143
+    upstream_fix_url: https://github.com/jetty/jetty.project/commit/553b59eff83461a7e488e592bcc3bb958a76f13f
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-11143
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/2701fbf
+    basis: adapted
     artifacts:
       - org.eclipse.jetty:jetty-http
     note: Carried from 2.7.18.1-backpatch-00044; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00003 (backpatch-jetty.project@2701fbf).
   - cve: CVE-2026-5795
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-5795
+    upstream_fix_url: https://github.com/jetty/jetty.project/commit/332d14d013c1b13db875a822f52a503c48a6ab03
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-5795
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/c6a2e1e
+    basis: backport
     artifacts:
       - org.eclipse.jetty:jetty-jaspi
     note: Carried from 2.7.18.1-backpatch-00045; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00004 (backpatch-jetty.project@c6a2e1e).
   - cve: CVE-2026-40999
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40999
+    upstream_fix_url: https://github.com/spring-projects/spring-ws/commit/5121a4e545803c4925e63c4ed015391be2605ba5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40999
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-ws/compare/5a095c3~1...ea2b75e
+    basis: adapted
     artifacts:
       - org.springframework.ws:spring-ws-core
     note: Carried from 2.7.18.1-backpatch-00046; ported onto 2.7.18; fixed at 3.1.8.1-backpatch-00001 (backpatch-spring-ws@5a095c3..ea2b75e).
   - cve: CVE-2026-40998
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40998
+    upstream_fix_url: https://github.com/spring-projects/spring-ws/commit/eb8d66c0995d1e1dd5bfcfb657c8c9de21266d97
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40998
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-ws/commit/7bb9494
+    basis: backport
     artifacts:
       - org.springframework.ws:spring-xml
     note: Carried from 2.7.18.1-backpatch-00047; ported onto 2.7.18; fixed at 3.1.8.1-backpatch-00002 (backpatch-spring-ws@7bb9494).
   - cve: CVE-2026-41700
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41700
+    upstream_fix_url: https://github.com/spring-projects/spring-graphql/commit/c21ee6ec0eab12d71b4abed659e5cf738b0e39eb
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41700
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-graphql/commit/2f28cf0
+    basis: backport
     artifacts:
       - org.springframework.graphql:spring-graphql
     note: Carried from 2.7.18.1-backpatch-00048; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00001 (backpatch-spring-graphql@2f28cf0).
   - cve: CVE-2026-41856
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41856
+    upstream_fix_url: https://github.com/spring-projects/spring-graphql/commit/63a89ed1379be646822dca9779b15dbf2ce45839
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41856
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-graphql/compare/82d4ab2~1...a684c5d
+    basis: backport
     artifacts:
       - org.springframework.graphql:spring-graphql
     note: Carried from 2.7.18.1-backpatch-00049; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00002 (backpatch-spring-graphql@82d4ab2..a684c5d).
   - cve: CVE-2025-22227
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-22227
+    upstream_fix_url: https://github.com/reactor/reactor-netty/commit/8d882ffab7c4fa73dd03d3a3e35d2336dc865e52
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-22227
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-reactor-netty/compare/fa4fd4a~1...e6c0969
+    basis: backport
     artifacts:
       - io.projectreactor.netty:reactor-netty-http
     note: Carried from 2.7.18.1-backpatch-00050; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00001 (backpatch-reactor-netty@fa4fd4a..e6c0969).
   - cve: CVE-2026-40972
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40972
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/4b0862cc00815a47b22339d7eac7ddc3b6645bd4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40972
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/b04b878~1...b21818b
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot-devtools
     note: Carried from 2.7.18.1-backpatch-00051; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00051 (backpatch-spring-boot@b04b878..b21818b).
   - cve: CVE-2026-40973
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/5ceb1a228932e35cc803d1c1fea68f0f984aaa90
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/0ad0567~1...a0d5e5f
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot
     note: Carried from 2.7.18.1-backpatch-00052; a superseded fix, ported onto 2.7.18 at 2.7.18.1-backpatch-00052 (backpatch-spring-boot@0ad0567..a0d5e5f).
   - cve: CVE-2024-38807
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38807
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/0b24ee857189e139f48826bf2aef10ae8680c11b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38807
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/25d6671~1...4fb512d
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot-loader
     note: Carried from 2.7.18.1-backpatch-00053; a superseded fix, ported onto 2.7.18 at 2.7.18.1-backpatch-00053 (backpatch-spring-boot@25d6671..4fb512d).
   - cve: CVE-2023-3894
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-3894
+    upstream_fix_url: https://github.com/FasterXML/jackson-dataformats-text/commit/5dd5f740aedcf37adad7ffece460e75e54abb0ed
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-3894
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-dataformats-text/commit/a127de5
+    basis: adapted
     artifacts:
       - com.fasterxml.jackson.dataformat:jackson-dataformat-toml
     note: Carried from 2.7.18.1-backpatch-00054; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00008 (backpatch-jackson-dataformats-text@a127de5).
   - cve: CVE-2026-34479
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34479
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/25043cfad1bac2e43ebc4638450cbb73c51451c4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34479
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/f0cb714
+    basis: backport
     artifacts:
       - org.apache.logging.log4j:log4j-core
     note: Carried from 2.7.18.1-backpatch-00055; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00002 (backpatch-logging-log4j2@f0cb714).
   - cve: CVE-2026-34481
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-34481
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/2c4dd1db372c59ad73aca88e281635fe30072268
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34481
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/cb1ef49
+    basis: backport
     artifacts:
       - org.apache.logging.log4j:log4j-layout-template-json
     note: Carried from 2.7.18.1-backpatch-00056; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00003 (backpatch-logging-log4j2@cb1ef49).
   - cve: CVE-2026-41715
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41715
+    upstream_fix_url: https://github.com/reactor/reactor-netty/commit/e7ef551eead84ba465324531683fafa03ab96ee9
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41715
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-reactor-netty/compare/82062d9~1...948035b
+    basis: backport
     artifacts:
       - io.projectreactor.netty:reactor-netty-http
     note: Carried from 2.7.18.1-backpatch-00057; ported onto 2.7.18; fixed at 1.0.48.1-backpatch-00002 (backpatch-reactor-netty@82062d9..948035b).
   - cve: CVE-2026-40994
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40994
+    upstream_fix_url: https://github.com/spring-projects/spring-ws/commit/9f1cea1d6fa14f082e0e7da195f76ccccf87682e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40994
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-ws/commit/5ceca63
+    basis: backport
     artifacts:
       - org.springframework.ws:spring-ws-security
     note: Carried from 2.7.18.1-backpatch-00058; ported onto 2.7.18; fixed at 3.1.8.1-backpatch-00003 (backpatch-spring-ws@5ceca63).
   - cve: CVE-2024-38807
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2024-38807
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/0b24ee857189e139f48826bf2aef10ae8680c11b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38807
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/25d6671~1...86dd06b
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot-loader
       - org.springframework.boot:spring-boot-loader-tools
     note: Carried from 2.7.18.1-backpatch-00059; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00059 (backpatch-spring-boot@25d6671..86dd06b).
   - cve: CVE-2026-47892
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47892
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/07cbd482a0006d42eef61cede2b8a125c2b2a748
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47892
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/8244f32
+    basis: backport
     artifacts:
       - org.springframework:spring-webflux
     note: Carried from 2.7.18.1-backpatch-00060; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
   - cve: CVE-2026-89425
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/211cf2c5d91abbec38067f37efc1363cd4e88ee3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/f87ed4f
+    basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
-    note: Carried from 2.7.18.1-backpatch-00061; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@f87ed4f).
+    note: Carried from 2.7.18.1-backpatch-00061; a superseded fix, ported onto 2.7.18 at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@f87ed4f).
   - cve: CVE-2026-68494
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/compare/4d6b1ea~1...f87ed4f
+    basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
-    note: Carried from 2.7.18.1-backpatch-00061; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@4d6b1ea..f87ed4f).
+    note: Carried from 2.7.18.1-backpatch-00061; a superseded fix, ported onto 2.7.18 at 2.13.5.1-backpatch-00009 (backpatch-jackson-core@4d6b1ea..f87ed4f).
   - cve: CVE-2026-47884
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47884
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/692dbc9160de3b5de50ccedeee014716d0cedb7b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47884
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/b3bfd95~1...e777020
+    basis: adapted
     artifacts:
       - org.springframework:spring-webmvc
     note: Carried from 2.7.18.1-backpatch-00062; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00014 (backpatch-spring-framework@b3bfd95..e777020).
   - cve: CVE-2026-41855
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41855
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/ee4e79002bda440f76740099a7e9b225e7f727ab
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41855
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/59c04e0
+    basis: backport
     artifacts:
       - org.springframework:spring-jms
     note: Carried from 2.7.18.1-backpatch-00063; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0).
   - cve: CVE-2026-91776
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-91776
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/2870d1d6dc1b7e1c07ee11dd5b04ab71cddbb577
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-91776
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/09f5955
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00064; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
   - cve: CVE-2025-41249
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
     artifacts:
       - org.springframework:spring-core
       - org.springframework:spring-web
     note: Carried from 2.7.18.1-backpatch-00065; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
   - cve: CVE-2026-22740
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b338fdd99dd87974870f90ababb39fcb8727e1b4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-web
     note: Carried from 2.7.18.1-backpatch-00065; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
   - cve: CVE-2026-41845
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/86d99790dbaa8ce6bb1087ef92844d0abfdab015
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
     artifacts:
       - org.springframework:spring-webmvc
       - org.springframework:spring-web
     note: Carried from 2.7.18.1-backpatch-00065; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
   - cve: CVE-2026-91777
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-91777
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/37ad9b81712cbb9fb62c2d2c1813593252a24b67
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-91777
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/c717b9a
+    basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
     note: Carried from 2.7.18.1-backpatch-00066; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00011 (backpatch-jackson-databind@c717b9a).
   - cve: CVE-2026-41731
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41731
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/bd3cca108d88efd8e669f91b6628198359072472
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41731
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/commit/23c1787
+    basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
     note: Carried from 2.7.18.1-backpatch-00067; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00001 (backpatch-spring-kafka@23c1787).
   - cve: CVE-2023-34040
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2023-34040
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/25ac793a78725e2ca4a3a2888a1506a4bfcf0c9d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-34040
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/compare/53aef17~1...0e2a60a
+    basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
     note: Carried from 2.7.18.1-backpatch-00068; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00002 (backpatch-spring-kafka@53aef17..0e2a60a).
   - cve: CVE-2026-41726
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41726
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/52754050db74d67b97711528c163bbe57978501d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41726
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/commit/44a50e4
+    basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
     note: Carried from 2.7.18.1-backpatch-00069; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00003 (backpatch-spring-kafka@44a50e4).
   - cve: CVE-2026-41727
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41727
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/fb8f16c4d9380b40667e9fb93e54adbed693b465
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41727
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/commit/aed19fc
+    basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
     note: Carried from 2.7.18.1-backpatch-00070; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00004 (backpatch-spring-kafka@aed19fc).
   - cve: CVE-2026-59278
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-59278
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/91b997e19ee60d3fc83b2b9f605f0e27ff262350
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59278
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/commit/9c243dc
+    basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
     note: Carried from 2.7.18.1-backpatch-00071; ported onto 2.7.18; fixed at 2.8.11.1-backpatch-00005 (backpatch-spring-kafka@9c243dc).
   - cve: CVE-2026-40987
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40987
+    upstream_fix_url: https://github.com/spring-projects/spring-integration/commit/82ac6f3b6891f2e855bf71d90f7daf9abd339689
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40987
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-integration/commit/20b75d3
+    basis: backport
     artifacts:
       - org.springframework.integration:spring-integration-file
     note: Carried from 2.7.18.1-backpatch-00072; ported onto 2.7.18; fixed at 5.5.20.1-backpatch-00001 (backpatch-spring-integration@20b75d3).
   - cve: CVE-2026-40973
-    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/5ceb1a228932e35cc803d1c1fea68f0f984aaa90
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40973
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/compare/0ad0567~1...28118f4
+    basis: backport
     artifacts:
       - org.springframework.boot:spring-boot
     note: Carried from 2.7.18.1-backpatch-00073; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00073 (backpatch-spring-boot@0ad0567..28118f4).
   - cve: GHSA-h383-gmxw-35v2
-    upstream: https://github.com/advisories/GHSA-h383-gmxw-35v2
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/25043cfad1bac2e43ebc4638450cbb73c51451c4
+    advisory_url: https://github.com/advisories/GHSA-h383-gmxw-35v2
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/compare/f0cb714~1...faa7549
+    basis: backport
     artifacts:
       - org.apache.logging.log4j:log4j-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
+    note: Carried from 2.7.18.1-backpatch-00074; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
+  - cve: CVE-2026-59889
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/d627a8a86fcb062429282f79f3f256f181ed2c7b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59889
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/88e3e55
+    basis: backport
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-databind@88e3e55).
+  - cve: CVE-2025-52999
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/54f78a9cff5e3bace1cf8042ac1b4c3785dc9f5e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: GHSA-r7wm-3cxj-wff9
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: CVE-2026-89425
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/211cf2c5d91abbec38067f37efc1363cd4e88ee3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: CVE-2026-68494
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
 tests:
-  commit: c6b465fb3209ff410fd518e3c624d110c7c4d608
+  commit: ca4cb2b08ffa1f82fa29455a8d2cb0d93efcc313
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is GHSA-h383-gmxw-35v2 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59889 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2025-52999 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; GHSA-r7wm-3cxj-wff9 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-89425 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-68494 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran
