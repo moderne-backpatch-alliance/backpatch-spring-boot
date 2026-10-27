@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00076
+release: 2.7.18.1-backpatch-00077
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1132,12 +1132,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.graphql:spring-graphql
-    note: New in this release; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00003 (backpatch-spring-graphql@b74a20f).
+    note: Carried from 2.7.18.1-backpatch-00076; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00003 (backpatch-spring-graphql@b74a20f).
+  - cve: CVE-2026-59288
+    upstream_fix_url: https://github.com/spring-projects/spring-graphql/compare/v2.0.5...v2.0.6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59288
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-graphql/commit/23aeb31
+    basis: adapted
+    artifacts:
+      - org.springframework.graphql:spring-graphql
+    note: New in this release; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00004 (backpatch-spring-graphql@23aeb31).
 tests:
-  commit: b8c80c8d33bdbf54b18947c7dd840a0225f633a8
+  commit: eb1febfa3a27688893a70021b057dcecdf0e3b9d
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-graphql-1.0.6.1-backpatch-00003-tests.zip
-  report_sha256: d63cea725e9a7a2b323a0f84ff5e28726115b7a2c22a978bde15bac5b6f0501a
+  report: spring-graphql-1.0.6.1-backpatch-00004-tests.zip
+  report_sha256: 4526af81736ef6a22328ea605149d0545a4918d65154caaf4e435da2aa5b02fc
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59286 carried by moderne-backpatch-alliance/backpatch-spring-graphql at v1.0.6.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59288 carried by moderne-backpatch-alliance/backpatch-spring-graphql at v1.0.6.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
