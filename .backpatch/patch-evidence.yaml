@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00075
+release: 2.7.18.1-backpatch-00076
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1088,7 +1088,7 @@ fixes:
     basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-databind@88e3e55).
+    note: Carried from 2.7.18.1-backpatch-00075; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-databind@88e3e55).
   - cve: CVE-2025-52999
     upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/54f78a9cff5e3bace1cf8042ac1b4c3785dc9f5e
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
@@ -1097,7 +1097,7 @@ fixes:
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
       - com.fasterxml.jackson.jr:jackson-jr-all
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+    note: Carried from 2.7.18.1-backpatch-00075; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
   - cve: GHSA-r7wm-3cxj-wff9
     upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
     advisory_url: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
@@ -1106,7 +1106,7 @@ fixes:
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
       - com.fasterxml.jackson.jr:jackson-jr-all
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+    note: Carried from 2.7.18.1-backpatch-00075; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
   - cve: CVE-2026-89425
     upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/211cf2c5d91abbec38067f37efc1363cd4e88ee3
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
@@ -1115,7 +1115,7 @@ fixes:
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
       - com.fasterxml.jackson.jr:jackson-jr-all
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+    note: Carried from 2.7.18.1-backpatch-00075; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
   - cve: CVE-2026-68494
     upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
@@ -1124,11 +1124,20 @@ fixes:
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
       - com.fasterxml.jackson.jr:jackson-jr-all
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+    note: Carried from 2.7.18.1-backpatch-00075; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: CVE-2026-59286
+    upstream_fix_url: https://github.com/spring-projects/spring-graphql/commit/a386b50db854ce54b018413f8c5345d4767b2fad
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59286
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-graphql/commit/b74a20f
+    basis: adapted
+    artifacts:
+      - org.springframework.graphql:spring-graphql
+    note: New in this release; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00003 (backpatch-spring-graphql@b74a20f).
 tests:
-  commit: ca4cb2b08ffa1f82fa29455a8d2cb0d93efcc313
+  commit: b8c80c8d33bdbf54b18947c7dd840a0225f633a8
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: spring-graphql-1.0.6.1-backpatch-00003-tests.zip
+  report_sha256: d63cea725e9a7a2b323a0f84ff5e28726115b7a2c22a978bde15bac5b6f0501a
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59889 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2025-52999 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; GHSA-r7wm-3cxj-wff9 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-89425 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-68494 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59286 carried by moderne-backpatch-alliance/backpatch-spring-graphql at v1.0.6.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
