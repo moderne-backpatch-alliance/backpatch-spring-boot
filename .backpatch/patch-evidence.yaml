@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00077
+release: 2.7.18.1-backpatch-00078
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1140,12 +1140,149 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.graphql:spring-graphql
-    note: New in this release; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00004 (backpatch-spring-graphql@23aeb31).
+    note: Carried from 2.7.18.1-backpatch-00077; ported onto 2.7.18; fixed at 1.0.6.1-backpatch-00004 (backpatch-spring-graphql@23aeb31).
+  - cve: CVE-2026-89044
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-89044
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93488
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93488
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93491
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93491
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93492
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93492
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93493
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93493
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-handler-ssl-ocsp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93494
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93494
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-stomp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93558
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93558
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93560
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93560
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-stomp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93562
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93562
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93563
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93563
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-smtp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93564
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93564
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-haproxy
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93565
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93565
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93566
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93566
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93567
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93567
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93568
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93568
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93569
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93569
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93572
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93572
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-redis
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93573
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93573
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93574
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93574
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93575
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93575
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-mqtt
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93576
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93576
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-smtp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93578
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93578
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-handler-ssl-ocsp
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
+  - cve: CVE-2026-93579
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93579
+    not_applicable_rationale: fixed upstream in 4.1.138.Final, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - io.netty:netty-codec-http2
+    note: New in this release; fixed upstream in 4.1.138.Final, which this release pins.
 tests:
-  commit: eb1febfa3a27688893a70021b057dcecdf0e3b9d
+  commit: 71b621edadb62ceda420ea283fc9a8141f572abd
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-graphql-1.0.6.1-backpatch-00004-tests.zip
-  report_sha256: 4526af81736ef6a22328ea605149d0545a4918d65154caaf4e435da2aa5b02fc
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59288 carried by moderne-backpatch-alliance/backpatch-spring-graphql at v1.0.6.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-89044 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93488 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93491 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93492 carried by the upstream release io.netty:netty-codec-http2 4.1.138.Final, tested by its project; CVE-2026-93493 carried by the upstream release io.netty:netty-handler-ssl-ocsp 4.1.138.Final, tested by its project; CVE-2026-93494 carried by the upstream release io.netty:netty-codec-stomp 4.1.138.Final, tested by its project; CVE-2026-93558 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93560 carried by the upstream release io.netty:netty-codec-stomp 4.1.138.Final, tested by its project; CVE-2026-93562 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93563 carried by the upstream release io.netty:netty-codec-smtp 4.1.138.Final, tested by its project; CVE-2026-93564 carried by the upstream release io.netty:netty-codec-haproxy 4.1.138.Final, tested by its project; CVE-2026-93565 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93566 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93567 carried by the upstream release io.netty:netty-codec-http2 4.1.138.Final, tested by its project; CVE-2026-93568 carried by the upstream release io.netty:netty-codec-http2 4.1.138.Final, tested by its project; CVE-2026-93569 carried by the upstream release io.netty:netty-codec-http2 4.1.138.Final, tested by its project; CVE-2026-93572 carried by the upstream release io.netty:netty-codec-redis 4.1.138.Final, tested by its project; CVE-2026-93573 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93574 carried by the upstream release io.netty:netty-codec-http 4.1.138.Final, tested by its project; CVE-2026-93575 carried by the upstream release io.netty:netty-codec-mqtt 4.1.138.Final, tested by its project; CVE-2026-93576 carried by the upstream release io.netty:netty-codec-smtp 4.1.138.Final, tested by its project; CVE-2026-93578 carried by the upstream release io.netty:netty-handler-ssl-ocsp 4.1.138.Final, tested by its project; CVE-2026-93579 carried by the upstream release io.netty:netty-codec-http2 4.1.138.Final, tested by its project
