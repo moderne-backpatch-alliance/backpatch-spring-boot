@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00080
+release: 2.7.18.1-backpatch-00081
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1394,12 +1394,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.boot:spring-boot-autoconfigure
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00080 (backpatch-spring-boot@e6f9f4c..fe30e8a).
+    note: Carried from 2.7.18.1-backpatch-00080; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00080 (backpatch-spring-boot@e6f9f4c..fe30e8a).
+  - cve: CVE-2026-40975
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/f3b8eb0f2cd989dffe5dceefce80bde165328b31
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40975
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/commit/329f7d0
+    basis: backport
+    artifacts:
+      - org.springframework.boot:spring-boot
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00081 (backpatch-spring-boot@329f7d0).
 tests:
-  commit: fe30e8a2dfa52eaeaab25e0e55e9e253ebaa1414
-  command: ./gradlew --no-daemon -I <alliance>/ecosystem/gradle/init-backpatch.gradle -I <work>/sb27-recipe.gradle -Dbackpatch.version=2.7.18.1-backpatch-00080 -Dbackpatch.repository.url=file://<unused> -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=<work>/bpa-repo :spring-boot-project:spring-boot:test :spring-boot-project:spring-boot-autoconfigure:test --rerun-tasks --continue
+  commit: 329f7d00b65d24e95ab5e2779cd4374f3412a516
+  command: ./gradlew --no-daemon -I <alliance>/ecosystem/gradle/init-backpatch.gradle -I <work>/sb27-recipe.gradle -Dbackpatch.version=2.7.18.1-backpatch-00081 -Dbackpatch.repository.url=file://<unused> -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=<work>/bpa-repo :spring-boot-project:spring-boot:test --rerun-tasks --continue
   runtime: OpenJDK 1.8.0_512 (Zulu 8.98.0.107, linux/aarch64), Gradle wrapper of the repository
-  report: spring-boot-autoconfigure-2.7.18.1-backpatch-00080-tests.zip
-  report_sha256: f73dd3b161535a7349959c56a9a6e9c85140853e9879dc832f249f1c8fe45c57
+  report: spring-boot-2.7.18.1-backpatch-00081-tests.zip
+  report_sha256: 528b52bb359454a200059d7e02f02854f7feec2122a426ea0aa45f3c742fa6d3
   result: pass
-  note: the full module suites at the tested commit (spring-boot 4251, spring-boot-autoconfigure 3179 tests run), 0 failed, 0 errors, 155+62 skipped; run in Docker azul/zulu-openjdk:8 on linux/aarch64, with -Werror off and buildSrc resolving our pins from <work>/bpa-repo by local, uncommitted build edits, and <work>/sb27-recipe.gradle setting junit.jupiter.execution.timeout.default=3 m, a 45 minute test task timeout and a local repository of the pinned backpatch artifacts <work>/bpa-repo lacks, copied from the alliance repository's storage
+  note: the full module suites at the tested commit (spring-boot 4252 tests run), 0 failed, 0 errors, 155 skipped; run in Docker azul/zulu-openjdk:8 on linux/aarch64, with -Werror off and buildSrc resolving our pins from <work>/bpa-repo by local, uncommitted build edits, and <work>/sb27-recipe.gradle setting junit.jupiter.execution.timeout.default=3 m, a 45 minute test task timeout and a local repository of the pinned backpatch artifacts <work>/bpa-repo lacks, copied from the alliance repository's storage
