@@ -16,6 +16,7 @@
 
 package org.springframework.boot.env;
 
+import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.Random;
 import java.util.UUID;
@@ -48,8 +49,13 @@ class RandomValuePropertySourceTests {
 	}
 
 	@Test
+	void sourceIsSecureRandom() {
+		assertThat(this.source.getSource()).isInstanceOf(SecureRandom.class);
+	}
+
+	@Test
 	void getPropertyWhenStringReturnsValue() {
-		assertThat(this.source.getProperty("random.string")).isNotNull();
+		assertThat(this.source.getProperty("random.string")).isNotNull().asString().containsPattern("^[0-9a-f]{32}$");
 	}
 
 	@Test

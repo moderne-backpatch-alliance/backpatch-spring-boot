@@ -16,6 +16,7 @@
 
 package org.springframework.boot.env;
 
+import java.security.SecureRandom;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 import java.util.Random;
@@ -76,7 +77,7 @@ public class RandomValuePropertySource extends PropertySource<Random> {
 	}
 
 	public RandomValuePropertySource(String name) {
-		super(name, new Random());
+		super(name, new SecureRandom());
 	}
 
 	@Override
