@@ -415,8 +415,9 @@ class ServerPropertiesTests {
 
 	@Test
 	void tomcatInternalProxiesMatchesDefault() {
-		assertThat(this.properties.getTomcat().getRemoteip().getInternalProxies())
-			.isEqualTo(new RemoteIpValve().getInternalProxies());
+		String bootDefault = this.properties.getTomcat().getRemoteip().getInternalProxies();
+		assertThat(new RemoteIpValve().getInternalProxies())
+			.isEqualTo(bootDefault + "|fe[89ab]\\p{XDigit}:.*|f[cd]\\p{XDigit}{2}+:.*");
 	}
 
 	@Test

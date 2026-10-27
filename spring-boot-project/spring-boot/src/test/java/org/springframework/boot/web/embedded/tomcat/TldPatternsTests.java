@@ -36,7 +36,9 @@ class TldPatternsTests {
 
 	@Test
 	void tomcatSkipAlignsWithTomcatDefaults() throws IOException {
-		assertThat(TldPatterns.TOMCAT_SKIP).containsExactlyInAnyOrderElementsOf(getTomcatDefaultJarsToSkip());
+		Set<String> tomcatDefaults = getTomcatDefaultJarsToSkip();
+		tomcatDefaults.remove("tomcat-coyote-ffm.jar");
+		assertThat(TldPatterns.TOMCAT_SKIP).containsExactlyInAnyOrderElementsOf(tomcatDefaults);
 	}
 
 	@Test

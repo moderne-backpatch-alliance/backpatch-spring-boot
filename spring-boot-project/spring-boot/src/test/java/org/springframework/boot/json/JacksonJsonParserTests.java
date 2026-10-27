@@ -17,11 +17,15 @@
 package org.springframework.boot.json;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
+import org.springframework.util.StreamUtils;
+
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.then;
@@ -46,6 +50,16 @@ class JacksonJsonParserTests extends AbstractJsonParserTests {
 		ObjectMapper objectMapper = spy(new ObjectMapper());
 		new JacksonJsonParser(objectMapper).parseMap("{}");
 		then(objectMapper).should().readValue(eq("{}"), any(TypeReference.class));
+	}
+
+	@Override
+	@Test
+	void listWithRepeatedOpenArray() throws IOException {
+		String input = StreamUtils.copyToString(
+				AbstractJsonParserTests.class.getResourceAsStream("repeated-open-array.txt"), StandardCharsets.UTF_8);
+		assertThatExceptionOfType(JsonParseException.class).isThrownBy(() -> getParser().parseList(input))
+			.havingCause()
+			.withMessageContaining("exceeds the maximum allowed nesting depth");
 	}
 
 }
