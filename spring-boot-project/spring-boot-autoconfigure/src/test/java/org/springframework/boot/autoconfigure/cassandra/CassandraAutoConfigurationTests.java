@@ -64,6 +64,28 @@ class CassandraAutoConfigurationTests {
 	}
 
 	@Test
+	void cqlSessionBuilderWithSslEnabled() {
+		this.contextRunner.withPropertyValues("spring.data.cassandra.ssl=true").run((context) -> {
+			CqlSessionBuilder builder = context.getBean(CqlSessionBuilder.class);
+			assertThat(builder).hasFieldOrPropertyWithValue("programmaticSslFactory", true);
+			assertThat(builder).extracting("programmaticArgumentsBuilder.sslEngineFactory")
+				.hasFieldOrPropertyWithValue("requireHostnameValidation", true);
+		});
+	}
+
+	@Test
+	void cqlSessionBuilderWithSslEnabledAndVerifyHostnameDisabled() {
+		this.contextRunner
+			.withPropertyValues("spring.data.cassandra.ssl=true", "spring.data.cassandra.ssl-verify-hostname=false")
+			.run((context) -> {
+				CqlSessionBuilder builder = context.getBean(CqlSessionBuilder.class);
+				assertThat(builder).hasFieldOrPropertyWithValue("programmaticSslFactory", true);
+				assertThat(builder).extracting("programmaticArgumentsBuilder.sslEngineFactory")
+					.hasFieldOrPropertyWithValue("requireHostnameValidation", false);
+			});
+	}
+
+	@Test
 	void driverConfigLoaderWithDefaultConfiguration() {
 		this.contextRunner.run((context) -> {
 			assertThat(context).hasSingleBean(DriverConfigLoader.class);
