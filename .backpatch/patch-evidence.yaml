@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00083
+release: 2.7.18.1-backpatch-00084
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1418,12 +1418,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.integration:spring-integration-http
-    note: New in this release; ported onto 2.7.18; fixed at 5.5.20.1-backpatch-00002 (backpatch-spring-integration@a6ff930).
+    note: Carried from 2.7.18.1-backpatch-00083; ported onto 2.7.18; fixed at 5.5.20.1-backpatch-00002 (backpatch-spring-integration@a6ff930).
+  - cve: CVE-2026-59324
+    upstream_fix_url: https://github.com/spring-projects/spring-integration/commit/67e8f53f7ddaa29302089c002a869d18e326029d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59324
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-integration/commit/e474151
+    basis: adapted
+    artifacts:
+      - org.springframework.integration:spring-integration-core
+    note: New in this release; ported onto 2.7.18; fixed at 5.5.20.1-backpatch-00003 (backpatch-spring-integration@e474151).
 tests:
-  commit: b222a86f96c85101ff0c494b5be64dc72bea1a63
+  commit: c53f3990214351ce46350e9344f62983476a1db2
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-integration-http-5.5.20.1-backpatch-00002-tests.zip
-  report_sha256: 61197834dd05121cc089658d64f03659857698e45d209469a5271ca04aa41fb0
+  report: spring-integration-core-5.5.20.1-backpatch-00003-tests.zip
+  report_sha256: 439d45df5f4f798088db05c719a9c6597d8b2a90aa430db9c8b0d1dfb786eca4
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47864 carried by moderne-backpatch-alliance/backpatch-spring-integration at v5.5.20.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59324 carried by moderne-backpatch-alliance/backpatch-spring-integration at v5.5.20.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
