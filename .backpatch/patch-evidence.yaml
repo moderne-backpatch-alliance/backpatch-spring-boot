@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00089
+release: 2.7.18.1-backpatch-00090
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1470,12 +1470,20 @@ fixes:
     artifacts:
       - org.eclipse.jetty:jetty-http
       - org.eclipse.jetty:jetty-client
-    note: New in this release; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00006 (backpatch-jetty.project@b136d35).
+    note: Carried from 2.7.18.1-backpatch-00089; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00006 (backpatch-jetty.project@b136d35).
+  - cve: CVE-2026-47849
+    upstream_fix_url: https://github.com/spring-projects/spring-data-rest/commit/cb2df4edc19cbb53a6affc6ef72ca1cc9aa2e0ce
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47849
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-data-rest/commit/45e7ea5
+    basis: adapted
+    artifacts:
+      - org.springframework.data:spring-data-rest-webmvc
+    note: New in this release; ported onto 2.7.18; fixed at 3.7.18.1-backpatch-00007 (backpatch-spring-data-rest@45e7ea5).
 tests:
-  commit: 5236acb55d88131c618e2edafdfb3de06c976edd
+  commit: a7077e15a6ace2b9c91b76b1f12e70efd5bc9b3d
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jetty-http-9.4.58.v20250814-backpatch-00006-tests.zip
-  report_sha256: 5bd9cb8eddec401f960b871a43ee865a16cdebd18064fe84d5c751c4a2522e30
+  report: spring-data-rest-webmvc-3.7.18.1-backpatch-00007-tests.zip
+  report_sha256: bf4e1e503099eedd197ab4b0b313fa0c419ac52a4410e32ef2bc990e4816cfa9
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-2332 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47849 carried by moderne-backpatch-alliance/backpatch-spring-data-rest at v3.7.18.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
