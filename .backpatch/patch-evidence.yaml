@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00094
+release: 2.7.18.1-backpatch-00095
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1512,12 +1512,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00020 (backpatch-spring-framework@efd94fe).
+    note: Carried from 2.7.18.1-backpatch-00094; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00020 (backpatch-spring-framework@efd94fe).
+  - cve: CVE-2026-59282
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/d186b381b989da493225b79629ef74ffb02bb3ab
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59282
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/f450cf6
+    basis: backport
+    artifacts:
+      - org.springframework:spring-beans
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00021 (backpatch-spring-framework@f450cf6).
 tests:
-  commit: 01d1f79472a1e3d3ee3fcf2eb27f3ecc800861c2
+  commit: fd162af030dee9c5f54fbbf544bba9db3f3cf936
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-web-5.3.39.1-backpatch-00020-tests.zip
-  report_sha256: 3855ea6737608abfd727befc5a0bf94b90f52be21d9ed9ce8d2120b60979e6e3
+  report: spring-beans-5.3.39.1-backpatch-00021-tests.zip
+  report_sha256: 8c9aed79aa1a00e1b94d2e001cad305ea29c0b5ca22aeb00a60d57028be2c8b4
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47891 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00020, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59282 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00021, whose .backpatch/patch-evidence.yaml records the tests that ran
