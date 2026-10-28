@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00085
+release: 2.7.18.1-backpatch-00086
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1434,12 +1434,21 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.security:spring-security-ldap
-    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00006 (backpatch-spring-security@4410bb9).
+    note: Carried from 2.7.18.1-backpatch-00085; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00006 (backpatch-spring-security@4410bb9).
+  - cve: CVE-2026-18401
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/b0c428e6f993e1b5ece5c1c3cb2523e887cd52cf
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-18401
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/58bfacd
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00014 (backpatch-jackson-core@58bfacd).
 tests:
-  commit: 4b7532ed7cb152d75ac8d54fe2507fea1060f4b4
+  commit: 51a97a782b0e8fc208543360140a566a7429c8f6
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-security-ldap-5.7.14.1-backpatch-00006-tests.zip
-  report_sha256: e802859967cdc8424af6e12952cff38834a1302aa98183949eea421d0e0d7dcf
+  report: jackson-core-2.13.5.1-backpatch-00014-tests.zip
+  report_sha256: c6e074813b31b10ac2069d58d81ba9128ace824b9c3729dd0a5940092ffe6bbb
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59270 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-18401 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00014, whose .backpatch/patch-evidence.yaml records the tests that ran
