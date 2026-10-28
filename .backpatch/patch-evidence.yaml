@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00082
+release: 2.7.18.1-backpatch-00083
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1410,12 +1410,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00013 (backpatch-jackson-databind@964de55).
+    note: Carried from 2.7.18.1-backpatch-00082; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00013 (backpatch-jackson-databind@964de55).
+  - cve: CVE-2026-47864
+    upstream_fix_url: https://github.com/spring-projects/spring-integration/commit/0b9994bb8c674dbf714087dae9c216602d0b8ade
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47864
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-integration/commit/a6ff930
+    basis: adapted
+    artifacts:
+      - org.springframework.integration:spring-integration-http
+    note: New in this release; ported onto 2.7.18; fixed at 5.5.20.1-backpatch-00002 (backpatch-spring-integration@a6ff930).
 tests:
-  commit: ee6c3a49125fb7dc63547b2690cc0e174ff82d2a
+  commit: b222a86f96c85101ff0c494b5be64dc72bea1a63
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00013-tests.zip
-  report_sha256: 525811ac07167f9c0b73c10f059612169c383ea6b1d5dcb48fb0763a2d947a9d
+  report: spring-integration-http-5.5.20.1-backpatch-00002-tests.zip
+  report_sha256: 61197834dd05121cc089658d64f03659857698e45d209469a5271ca04aa41fb0
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-68497 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47864 carried by moderne-backpatch-alliance/backpatch-spring-integration at v5.5.20.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
