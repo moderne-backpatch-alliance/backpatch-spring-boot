@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00086
+release: 2.7.18.1-backpatch-00087
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1443,12 +1443,20 @@ fixes:
     artifacts:
       - com.fasterxml.jackson.core:jackson-core
       - com.fasterxml.jackson.jr:jackson-jr-all
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00014 (backpatch-jackson-core@58bfacd).
+    note: Carried from 2.7.18.1-backpatch-00086; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00014 (backpatch-jackson-core@58bfacd).
+  - cve: CVE-2026-13006
+    upstream_fix_url: https://github.com/qos-ch/logback/commit/a1899674579c67711a4fff6bdc569f4bfb25ead5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-13006
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/624061b
+    basis: adapted
+    artifacts:
+      - ch.qos.logback:logback-core
+    note: New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00003 (backpatch-logback@624061b).
 tests:
-  commit: 51a97a782b0e8fc208543360140a566a7429c8f6
+  commit: 0c4b7f9ffdc8472f017873d88b24b7c35adf424b
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-core-2.13.5.1-backpatch-00014-tests.zip
-  report_sha256: c6e074813b31b10ac2069d58d81ba9128ace824b9c3729dd0a5940092ffe6bbb
+  report: logback-core-1.2.13.1-backpatch-00003-tests.zip
+  report_sha256: fb85f22aa6173d57e3cf7b6870c510dd6ec750278b8773f125a534380f69adf8
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-18401 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00014, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-13006 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
