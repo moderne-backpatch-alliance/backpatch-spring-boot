@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00092
+release: 2.7.18.1-backpatch-00093
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1496,12 +1496,20 @@ fixes:
     artifacts:
       - org.springframework:spring-web
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00018 (backpatch-spring-framework@1a711cc).
+    note: Carried from 2.7.18.1-backpatch-00092; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00018 (backpatch-spring-framework@1a711cc).
+  - cve: CVE-2026-47893
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/dadd474d214de7a39d7c025a807e4434c3584832
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47893
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/461669d
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-webflux
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00019 (backpatch-spring-framework@461669d).
 tests:
-  commit: ab8fc914e050a90e29c01aa6f04056f651641d0b
+  commit: a99242cfe34e314a4892575f6c4c70a9d23ea3e4
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-web-5.3.39.1-backpatch-00018-tests.zip
-  report_sha256: 9d6211d69e10183e32a486a3109acf907700c12da721e69e27f25d678b2b92c0
+  report: spring-webflux-5.3.39.1-backpatch-00019-tests.zip
+  report_sha256: 5d98247d37c2492c44d5082bb707e97ad6f212fdc548ae43b23e64f62eb4a8fa
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59313 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00018, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47893 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00019, whose .backpatch/patch-evidence.yaml records the tests that ran
