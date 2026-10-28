@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00081
+release: 2.7.18.1-backpatch-00082
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1402,12 +1402,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.boot:spring-boot
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00081 (backpatch-spring-boot@329f7d0).
+    note: Carried from 2.7.18.1-backpatch-00081; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00081 (backpatch-spring-boot@329f7d0).
+  - cve: CVE-2026-68497
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/a99b7e74c8928f43f6975773a8c862c8316178bd
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68497
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/964de55
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00013 (backpatch-jackson-databind@964de55).
 tests:
-  commit: 329f7d00b65d24e95ab5e2779cd4374f3412a516
-  command: ./gradlew --no-daemon -I <alliance>/ecosystem/gradle/init-backpatch.gradle -I <work>/sb27-recipe.gradle -Dbackpatch.version=2.7.18.1-backpatch-00081 -Dbackpatch.repository.url=file://<unused> -Dbackpatch.compile.jdk=8 -Dbackpatch.gradle.pluginRepo=<work>/bpa-repo :spring-boot-project:spring-boot:test --rerun-tasks --continue
-  runtime: OpenJDK 1.8.0_512 (Zulu 8.98.0.107, linux/aarch64), Gradle wrapper of the repository
-  report: spring-boot-2.7.18.1-backpatch-00081-tests.zip
-  report_sha256: 528b52bb359454a200059d7e02f02854f7feec2122a426ea0aa45f3c742fa6d3
+  commit: ee6c3a49125fb7dc63547b2690cc0e174ff82d2a
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: jackson-databind-2.13.5.1-backpatch-00013-tests.zip
+  report_sha256: 525811ac07167f9c0b73c10f059612169c383ea6b1d5dcb48fb0763a2d947a9d
   result: pass
-  note: the full module suites at the tested commit (spring-boot 4252 tests run), 0 failed, 0 errors, 155 skipped; run in Docker azul/zulu-openjdk:8 on linux/aarch64, with -Werror off and buildSrc resolving our pins from <work>/bpa-repo by local, uncommitted build edits, and <work>/sb27-recipe.gradle setting junit.jupiter.execution.timeout.default=3 m, a 45 minute test task timeout and a local repository of the pinned backpatch artifacts <work>/bpa-repo lacks, copied from the alliance repository's storage
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-68497 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
