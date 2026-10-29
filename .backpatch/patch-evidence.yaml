@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00103
+release: 2.7.18.1-backpatch-00104
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1585,12 +1585,20 @@ fixes:
     basis: backport
     artifacts:
       - org.eclipse.jetty:jetty-annotations
-    note: New in this release; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00011 (backpatch-jetty.project@2bb3c2f).
+    note: Carried from 2.7.18.1-backpatch-00103; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00011 (backpatch-jetty.project@2bb3c2f).
+  - cve: CVE-2026-12611
+    upstream_fix_url: https://github.com/jetty/jetty.project/pull/15307
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-12611
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/7abc7b8
+    basis: adapted
+    artifacts:
+      - org.eclipse.jetty.http2:http2-common
+    note: New in this release; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00012 (backpatch-jetty.project@7abc7b8).
 tests:
-  commit: 8d41360fd2563b417b520aae26f231d2c2dc7c85
+  commit: 5958ea805b9202a7c3f6515c229c2576d0ea3d5f
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jetty-http-9.4.58.v20250814-backpatch-00011-tests.zip
-  report_sha256: 576f4e31986f52c256b284ac02d2da93bd0fbf5c90d8c163e95ab4b806929d73
+  report: jetty-http-9.4.58.v20250814-backpatch-00012-tests.zip
+  report_sha256: b892ce2b136e36379b53c0bf2cf0e0b99421b9cb975db9b304f0692af640c302
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-18661 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00011, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-12611 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran
