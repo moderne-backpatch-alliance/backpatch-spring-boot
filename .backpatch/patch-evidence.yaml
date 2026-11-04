@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00107
+release: 2.7.18.1-backpatch-00108
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1595,9 +1595,9 @@ fixes:
       - org.eclipse.jetty.http2:http2-common
     note: Carried from 2.7.18.1-backpatch-00104; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00012 (backpatch-jetty.project@7abc7b8).
 tests:
-  commit: 34a6e5b9ebbca3dded4abb38494a7f12d88d693f
+  commit: bf9ce7dc7e363d0ff2af50194207ac64c6905adf
   command: none in this repository
   runtime: none, no build or test ran for this release
   report: carried, see the evidence of the release named in the note
   result: pass
-  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-03-jackson-2.13: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.7.18.1-backpatch-00106, whose .backpatch/patch-evidence.yaml says what ran"
+  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-03-jetty-9.4: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.7.18.1-backpatch-00107, whose .backpatch/patch-evidence.yaml says what ran"
