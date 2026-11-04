@@ -1680,7 +1680,7 @@ bom {
 			]
 		}
 	}
-	library("SnakeYAML", "1.33.1-backpatch-00001") {
+	library("SnakeYAML", "1.33.1-backpatch-00002") {
 		group("org.yaml") {
 			modules = [
 				"snakeyaml"
