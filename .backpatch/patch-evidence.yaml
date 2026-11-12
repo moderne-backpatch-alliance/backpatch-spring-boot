@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00124
+release: 2.7.18.1-backpatch-00125
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1594,10 +1594,19 @@ fixes:
     artifacts:
       - org.eclipse.jetty.http2:http2-common
     note: Carried from 2.7.18.1-backpatch-00104; ported onto 2.7.18; fixed at 9.4.58.v20250814-backpatch-00012 (backpatch-jetty.project@7abc7b8).
+  - cve: CVE-2026-47838
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/e3ad551ab337d8a1e17217994b45fed6c68ce69e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47838
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/bcf97e3
+    basis: adapted
+    artifacts:
+      - org.springframework.security:spring-security-web
+    note: "New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00008 (backpatch-spring-security@bcf97e3). Servlet applications that log in with X.509 client certificates and configure no principal regex take the principal from the certificate's CN attribute itself (CVE-2026-47838). Where another attribute's value contains CN=, the principal is now the CN rather than that value: an OU of \"CN=duke,\" gave duke for a certificate whose CN is luke, and now gives luke. A CN that contains a comma or a quote is returned whole: Taylor, Luke where 5.7.14 gave \"Taylor."
 tests:
-  commit: 4762c93c01ac0b0b312fae9bad86da94baacc72c
+  commit: 46f3652681f527e774f42151b588571d6ed59a54
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: spring-security-web-5.7.14.1-backpatch-00008-tests.zip
+  report_sha256: cdb841d45e23907d020c486f98ca5ef447a9abe24e12a455dd95ef27cb0ac103
   result: pass
-  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-12-spring-framework-5.3: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.7.18.1-backpatch-00123, whose .backpatch/patch-evidence.yaml says what ran"
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47838 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
