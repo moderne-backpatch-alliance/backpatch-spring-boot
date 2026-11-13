@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00127
+release: 2.7.18.1-backpatch-00128
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1617,12 +1617,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.security:spring-security-core
-    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00009 (backpatch-spring-security@005a366).
+    note: Carried from 2.7.18.1-backpatch-00127; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00009 (backpatch-spring-security@005a366).
+  - cve: CVE-2026-77310
+    upstream_fix_url: https://github.com/advisories/GHSA-vvgp-rfg2-7rr6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-77310
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/145b78e
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: "New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00018 (backpatch-jackson-databind@145b78e). jackson-databind now deserializes an `InetAddress` only from an IPv4 or IPv6 address literal and no longer looks up host names (CVE-2026-77310). If your app reads `InetAddress` values that hold a host name, `localhost` included, deserialization fails with `InvalidFormatException` (\"Not a valid IP address string literal\"), which also hits values Jackson wrote itself: an address that carries a name, such as `InetAddress.getLoopbackAddress()`, is written as `\"localhost\"`. Write IP literals instead, or hold the value as a `String` and call `InetAddress.getByName()` where you use it; `@JsonFormat(shape = JsonFormat.Shape.NUMBER)`, or the same format through `configOverride(InetAddress.class)`, makes Jackson write the numeric form. A `DeserializationProblemHandler` whose `handleWeirdStringValue` returns `InetAddress.getByName(value)` restores the lookup, which brings back the exposure the fix closes for untrusted input."
 tests:
-  commit: b103c3fe26b94208913dd7eb091c19f357ad0dc1
+  commit: 9e35e86f409ad404ff9a01aa41cb394605ec13e3
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-security-core-5.7.14.1-backpatch-00009-tests.zip
-  report_sha256: d194c9fc5fb9cbf1ebe4e18fe7d06dd5f02fadb31e35259c150d525ace381bac
+  report: jackson-databind-2.13.5.1-backpatch-00018-tests.zip
+  report_sha256: e3c7c3804ea182227c474c3c541358cf1a335cdf0eaa6bb1b504fff623e72c0a
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22746 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00009, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-77310 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00018, whose .backpatch/patch-evidence.yaml records the tests that ran
