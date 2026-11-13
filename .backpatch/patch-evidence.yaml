@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00128
+release: 2.7.18.1-backpatch-00129
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1625,12 +1625,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: "New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00018 (backpatch-jackson-databind@145b78e). jackson-databind now deserializes an `InetAddress` only from an IPv4 or IPv6 address literal and no longer looks up host names (CVE-2026-77310). If your app reads `InetAddress` values that hold a host name, `localhost` included, deserialization fails with `InvalidFormatException` (\"Not a valid IP address string literal\"), which also hits values Jackson wrote itself: an address that carries a name, such as `InetAddress.getLoopbackAddress()`, is written as `\"localhost\"`. Write IP literals instead, or hold the value as a `String` and call `InetAddress.getByName()` where you use it; `@JsonFormat(shape = JsonFormat.Shape.NUMBER)`, or the same format through `configOverride(InetAddress.class)`, makes Jackson write the numeric form. A `DeserializationProblemHandler` whose `handleWeirdStringValue` returns `InetAddress.getByName(value)` restores the lookup, which brings back the exposure the fix closes for untrusted input."
+    note: "Carried from 2.7.18.1-backpatch-00128; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00018 (backpatch-jackson-databind@145b78e). jackson-databind now deserializes an `InetAddress` only from an IPv4 or IPv6 address literal and no longer looks up host names (CVE-2026-77310). If your app reads `InetAddress` values that hold a host name, `localhost` included, deserialization fails with `InvalidFormatException` (\"Not a valid IP address string literal\"), which also hits values Jackson wrote itself: an address that carries a name, such as `InetAddress.getLoopbackAddress()`, is written as `\"localhost\"`. Write IP literals instead, or hold the value as a `String` and call `InetAddress.getByName()` where you use it; `@JsonFormat(shape = JsonFormat.Shape.NUMBER)`, or the same format through `configOverride(InetAddress.class)`, makes Jackson write the numeric form. A `DeserializationProblemHandler` whose `handleWeirdStringValue` returns `InetAddress.getByName(value)` restores the lookup, which brings back the exposure the fix closes for untrusted input."
+  - cve: CVE-2026-83557
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/eb3b7fc0f9c0d27f471550ac3316b17d1987388f
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-83557
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/14717e4
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00019 (backpatch-jackson-databind@14717e4). With `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` enabled, jackson-databind now treats `java.lang.Comparable` as an unsafe polymorphic base type (CVE-2026-83557); the feature is off by default, so only apps that enable it are affected. If such an app has a property declared as `Comparable` with `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` or `MINIMAL_CLASS`, reading it fails with `InvalidDefinitionException` ("Configured `PolymorphicTypeValidator` ... denied resolution of all subtypes of base type `java.lang.Comparable`"). Declare the property with a narrower type, switch it to `JsonTypeInfo.Id.NAME` with `@JsonSubTypes`, or configure `polymorphicTypeValidator(...)` with a `BasicPolymorphicTypeValidator` that allows only your subtypes. Turning the feature off brings back the exposure the fix closes.
 tests:
-  commit: 9e35e86f409ad404ff9a01aa41cb394605ec13e3
+  commit: dd3fbe6d58532cbe025d292cd1a3843992c0bea4
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00018-tests.zip
-  report_sha256: e3c7c3804ea182227c474c3c541358cf1a335cdf0eaa6bb1b504fff623e72c0a
+  report: jackson-databind-2.13.5.1-backpatch-00019-tests.zip
+  report_sha256: 814fb5a300edc3cd590422a113556d224952c1b07565067a19295553347e2ed2
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-77310 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00018, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-83557 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00019, whose .backpatch/patch-evidence.yaml records the tests that ran
