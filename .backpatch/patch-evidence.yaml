@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00129
+release: 2.7.18.1-backpatch-00130
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1633,12 +1633,21 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00019 (backpatch-jackson-databind@14717e4). With `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` enabled, jackson-databind now treats `java.lang.Comparable` as an unsafe polymorphic base type (CVE-2026-83557); the feature is off by default, so only apps that enable it are affected. If such an app has a property declared as `Comparable` with `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` or `MINIMAL_CLASS`, reading it fails with `InvalidDefinitionException` ("Configured `PolymorphicTypeValidator` ... denied resolution of all subtypes of base type `java.lang.Comparable`"). Declare the property with a narrower type, switch it to `JsonTypeInfo.Id.NAME` with `@JsonSubTypes`, or configure `polymorphicTypeValidator(...)` with a `BasicPolymorphicTypeValidator` that allows only your subtypes. Turning the feature off brings back the exposure the fix closes.
+    note: Carried from 2.7.18.1-backpatch-00129; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00019 (backpatch-jackson-databind@14717e4). With `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` enabled, jackson-databind now treats `java.lang.Comparable` as an unsafe polymorphic base type (CVE-2026-83557); the feature is off by default, so only apps that enable it are affected. If such an app has a property declared as `Comparable` with `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` or `MINIMAL_CLASS`, reading it fails with `InvalidDefinitionException` ("Configured `PolymorphicTypeValidator` ... denied resolution of all subtypes of base type `java.lang.Comparable`"). Declare the property with a narrower type, switch it to `JsonTypeInfo.Id.NAME` with `@JsonSubTypes`, or configure `polymorphicTypeValidator(...)` with a `BasicPolymorphicTypeValidator` that allows only your subtypes. Turning the feature off brings back the exposure the fix closes.
+  - cve: CVE-2026-41003
+    upstream_fix_url: https://github.com/advisories/GHSA-3pjj-qpw6-5fcm
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41003
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/ac58574
+    basis: adapted
+    artifacts:
+      - org.springframework.security:spring-security-web
+      - org.springframework.security:spring-security-saml2-service-provider
+    note: "New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00010 (backpatch-spring-security@ac58574). Spring Security now writes the auto-submitting page for the SAML 2.0 POST binding (AuthnRequest, LogoutRequest and LogoutResponse) with `FormPostRedirectStrategy`, which escapes the form action and submits the form from a script allowed by its own `Content-Security-Policy: script-src 'nonce-...'` header (CVE-2026-41003). If a proxy, servlet filter or container adds a second `Content-Security-Policy` header to that response whose `script-src` does not allow that script, the browser blocks it and the user is left on a blank page; tests that match the old `<body onload=\"document.forms[0].submit()\">` markup no longer find it. Exempt the SAML endpoints from the extra header, or use the redirect binding through `singleSignOnServiceBinding(Saml2MessageBinding.REDIRECT)` and `singleLogoutServiceBinding(Saml2MessageBinding.REDIRECT)` where your identity provider supports it, and match tests on the new `<form id=\"redirect-form\" method=\"POST\" ...>`."
 tests:
-  commit: dd3fbe6d58532cbe025d292cd1a3843992c0bea4
+  commit: 7a3d4c5a2ab67ffdee1d079b678de4b59c9b038e
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00019-tests.zip
-  report_sha256: 814fb5a300edc3cd590422a113556d224952c1b07565067a19295553347e2ed2
+  report: spring-security-web-5.7.14.1-backpatch-00010-tests.zip
+  report_sha256: 1f86f85a4280bf03ccf55fdc1cca73c5df9604f0940a4e78f10835c81bcb6a46
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-83557 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00019, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41003 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
