@@ -1031,7 +1031,7 @@ bom {
 			]
 		}
 	}
-	library("Json Path", "2.7.0") {
+	library("Json Path", "2.7.0.1-backpatch-00001") {
 		group("com.jayway.jsonpath") {
 			modules = [
 				"json-path",
