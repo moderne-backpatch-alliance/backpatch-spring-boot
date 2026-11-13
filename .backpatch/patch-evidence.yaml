@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00126
+release: 2.7.18.1-backpatch-00127
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1609,12 +1609,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00017 (backpatch-jackson-databind@1b9c0d7).
+    note: Carried from 2.7.18.1-backpatch-00126; ported onto 2.7.18; fixed at 2.13.5.1-backpatch-00017 (backpatch-jackson-databind@1b9c0d7).
+  - cve: CVE-2026-22746
+    upstream_fix_url: https://github.com/spring-projects/spring-security/commit/a317a3d8663995daa2bc91593bb88ae2da21ea52
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22746
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-security/commit/005a366
+    basis: adapted
+    artifacts:
+      - org.springframework.security:spring-security-core
+    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00009 (backpatch-spring-security@005a366).
 tests:
-  commit: 97c592c6ea7d0f3e50706486b291a69302b10379
+  commit: b103c3fe26b94208913dd7eb091c19f357ad0dc1
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00017-tests.zip
-  report_sha256: 8750c3d1b5a14ad3c7bec535da752933946264c0607d79b7b274f8b93b733d86
+  report: spring-security-core-5.7.14.1-backpatch-00009-tests.zip
+  report_sha256: d194c9fc5fb9cbf1ebe4e18fe7d06dd5f02fadb31e35259c150d525ace381bac
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-19032 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00017, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22746 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00009, whose .backpatch/patch-evidence.yaml records the tests that ran
