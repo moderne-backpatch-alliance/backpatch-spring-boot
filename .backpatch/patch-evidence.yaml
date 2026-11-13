@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00131
+release: 2.7.18.1-backpatch-00132
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1652,12 +1652,20 @@ fixes:
       - org.springframework.security:spring-security-core
       - org.springframework.security:spring-security-web
       - org.springframework.security:spring-security-saml2-service-provider
-    note: New in this release; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00011 (backpatch-spring-security@5ea6a1b..efab26b).
+    note: Carried from 2.7.18.1-backpatch-00131; ported onto 2.7.18; fixed at 5.7.14.1-backpatch-00011 (backpatch-spring-security@5ea6a1b..efab26b).
+  - cve: CVE-2023-51074
+    upstream_fix_url: https://github.com/json-path/JsonPath/commit/71a09c1193726c010917f1157ecbb069ad6c3e3b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-51074
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-JsonPath/commit/f9f13dc
+    basis: backport
+    artifacts:
+      - com.jayway.jsonpath:json-path
+    note: New in this release; ported onto 2.7.18; fixed at 2.7.0.1-backpatch-00001 (backpatch-JsonPath@f9f13dc).
 tests:
-  commit: 27e507f2f4ca16fdedc252b1d7520d88598ecd0e
+  commit: a70f5e25a5382750a9cdd34356a14464fd2a3fef
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-security-core-5.7.14.1-backpatch-00011-tests.zip
-  report_sha256: b87b94ce63c82ecdc2da84d634dbadf89e8ac4ea59eb00466fc225e140e69f8e
+  report: json-path-2.7.0.1-backpatch-00001-tests.zip
+  report_sha256: 8343135e5018bff02b40de13671b35b29c6e7587e96f899eb1f97d74a1fd90cd
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41694 carried by moderne-backpatch-alliance/backpatch-spring-security at v5.7.14.1-backpatch-00011, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-51074 carried by moderne-backpatch-alliance/backpatch-JsonPath at v2.7.0.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
