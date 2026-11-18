@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00141
+release: 2.7.18.1-backpatch-00142
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1744,12 +1744,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.apache.logging.log4j:log4j-api
-    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00007 (backpatch-logging-log4j2@7277e69).
+    note: Carried from 2.7.18.1-backpatch-00141; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00007 (backpatch-logging-log4j2@7277e69).
+  - cve: CVE-2025-68161
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/5350d1054cd85d8089c90fb2c107fcf1e1c935c5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-68161
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/a8563db
+    basis: adapted
+    artifacts:
+      - org.apache.logging.log4j:log4j-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00008 (backpatch-logging-log4j2@a8563db). A Socket or Syslog appender with `protocol="SSL"` and no `<Ssl>` element now fails to connect with a `NullPointerException` from `SslSocketManager`, as upstream does (apache/logging-log4j2 issue 4026). Such an appender relied on the JVM's default SSL context, for example through `javax.net.ssl.trustStore`. If you configure one, add an `<Ssl>` element with your key store and trust store.
 tests:
-  commit: cf65ce2a77c7403c2482bf71feee2611b3e07de2
+  commit: f33c89a77b379f60a1388c71e7eddd09d0351daf
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: log4j-api-2.17.2.1-backpatch-00007-tests.zip
-  report_sha256: 73985da4e20968d1439f134719f78ea3ad97008a88a73bd1e6cb5801c4bfbb86
+  report: log4j-core-2.17.2.1-backpatch-00008-tests.zip
+  report_sha256: eb29a465f88342065765ba856f86665a4f156bcb530c631df5f1edf234009294
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49844 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-68161 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
