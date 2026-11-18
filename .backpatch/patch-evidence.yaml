@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00140
+release: 2.7.18.1-backpatch-00141
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1736,12 +1736,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.data:spring-data-commons
-    note: New in this release; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00009 (backpatch-spring-data-commons@39f2e2b).
+    note: Carried from 2.7.18.1-backpatch-00140; ported onto 2.7.18; fixed at 2.7.18.1-backpatch-00009 (backpatch-spring-data-commons@39f2e2b).
+  - cve: CVE-2026-49844
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/feadf8eb0b4acb6ddfa4c0ab2bbc6d88b8e12d82
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-49844
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/7277e69
+    basis: adapted
+    artifacts:
+      - org.apache.logging.log4j:log4j-api
+    note: New in this release; ported onto 2.7.18; fixed at 2.17.2.1-backpatch-00007 (backpatch-logging-log4j2@7277e69).
 tests:
-  commit: 4239cdc933bf01e6aef543126f31a33c66aaef35
+  commit: cf65ce2a77c7403c2482bf71feee2611b3e07de2
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-data-commons-2.7.18.1-backpatch-00009-tests.zip
-  report_sha256: f675a378b4fec07781c4fcde14d5c68b011791cf8dbd642cdbe60982bd3c4f92
+  report: log4j-api-2.17.2.1-backpatch-00007-tests.zip
+  report_sha256: 73985da4e20968d1439f134719f78ea3ad97008a88a73bd1e6cb5801c4bfbb86
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41711 carried by moderne-backpatch-alliance/backpatch-spring-data-commons at v2.7.18.1-backpatch-00009, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49844 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
