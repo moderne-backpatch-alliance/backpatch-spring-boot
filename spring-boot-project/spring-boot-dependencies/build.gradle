@@ -404,7 +404,7 @@ bom {
 			]
 		}
 	}
-	library("GraphQL Java", "18.5") {
+	library("GraphQL Java", "18.5.1-backpatch-00001") {
 		group("com.graphql-java") {
 			modules = [
 				"graphql-java"
