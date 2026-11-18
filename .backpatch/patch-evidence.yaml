@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00152
+release: 2.7.18.1-backpatch-00153
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1834,12 +1834,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.data:spring-data-relational
-    note: New in this release; ported onto 2.7.18; fixed at 2.4.18.1-backpatch-00013 (backpatch-spring-data-relational@2a39e4a..81864bc).
+    note: Carried from 2.7.18.1-backpatch-00152; ported onto 2.7.18; fixed at 2.4.18.1-backpatch-00013 (backpatch-spring-data-relational@2a39e4a..81864bc).
+  - cve: CVE-2026-63335
+    upstream_fix_url: https://github.com/rabbitmq/rabbitmq-java-client/commit/abd6d60d4e2bfc1a327dc90ab246b2e8aca1f33b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-63335
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-rabbitmq-java-client/commit/0439fd7
+    basis: adapted
+    artifacts:
+      - com.rabbitmq:amqp-client
+    note: New in this release; ported onto 2.7.18; fixed at 5.14.3.1-backpatch-00001 (backpatch-rabbitmq-java-client@0439fd7).
 tests:
-  commit: 84f8c36de42fce763def93a47ac696a111dec77b
+  commit: b6d5cc35b29933d7593450df34864e824835c2ed
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-data-relational-2.4.18.1-backpatch-00013-tests.zip
-  report_sha256: e79ebf730c0a7db6b65ab4be4482a9e1c259e636ae075ff97e3556f7194ce8c4
+  report: amqp-client-5.14.3.1-backpatch-00001-tests.zip
+  report_sha256: 9301523a9f0ac27632398cea85c942cb32369ddedfbd62ef6867267af3b2ad65
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41697 carried by moderne-backpatch-alliance/backpatch-spring-data-relational at v2.4.18.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-63335 carried by moderne-backpatch-alliance/backpatch-rabbitmq-java-client at v5.14.3.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
