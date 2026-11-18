@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00158
+release: 2.7.18.1-backpatch-00159
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1882,12 +1882,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.rabbitmq:amqp-client
-    note: New in this release; ported onto 2.7.18; fixed at 5.14.3.1-backpatch-00006 (backpatch-rabbitmq-java-client@00d8bd9).
+    note: Carried from 2.7.18.1-backpatch-00158; ported onto 2.7.18; fixed at 5.14.3.1-backpatch-00006 (backpatch-rabbitmq-java-client@00d8bd9).
+  - cve: CVE-2026-61634
+    upstream_fix_url: https://github.com/advisories/GHSA-5xwg-cfvj-gff5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-61634
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-rabbitmq-java-client/compare/c167da5~1...79bdfa4
+    basis: adapted
+    artifacts:
+      - com.rabbitmq:amqp-client
+    note: New in this release; ported onto 2.7.18; fixed at 5.14.3.1-backpatch-00007 (backpatch-rabbitmq-java-client@c167da5..79bdfa4).
 tests:
-  commit: 6f3ba8d3c1bb7fa9358e82ba26d77aa09d50d194
+  commit: 88b25ecb704e53f5ee550be7bd3a134235a5bbff
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: amqp-client-5.14.3.1-backpatch-00006-tests.zip
-  report_sha256: 108590db61b3b2189d1240554b6bbcb3bac288c3b5376f359e48cc84ed299025
+  report: amqp-client-5.14.3.1-backpatch-00007-tests.zip
+  report_sha256: cb64bc3825c02e0736e4cbdce18fb93278751d5986f7e63f560f9d861cdd8734
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-106121 carried by moderne-backpatch-alliance/backpatch-rabbitmq-java-client at v5.14.3.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-61634 carried by moderne-backpatch-alliance/backpatch-rabbitmq-java-client at v5.14.3.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
