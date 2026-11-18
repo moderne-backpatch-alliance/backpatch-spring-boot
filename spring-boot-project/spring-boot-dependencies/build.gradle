@@ -1710,7 +1710,7 @@ bom {
 			]
 		}
 	}
-	library("Spring AMQP", "2.4.17") {
+	library("Spring AMQP", "2.4.17.1-backpatch-00001") {
 		considerSnapshots()
 		prohibit {
 			versionRange "[3.0.0-M1,)"
