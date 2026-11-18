@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00133
+release: 2.7.18.1-backpatch-00134
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1668,12 +1668,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.retry:spring-retry
-    note: New in this release; ported onto 2.7.18; fixed at 1.3.4.1-backpatch-00001 (backpatch-spring-retry@6798f3b).
+    note: Carried from 2.7.18.1-backpatch-00133; ported onto 2.7.18; fixed at 1.3.4.1-backpatch-00001 (backpatch-spring-retry@6798f3b).
+  - cve: CVE-2026-41852
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/3d47da9746d54775a282717b539924f9e6e39096
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41852
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/17136ed
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-expression
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00027 (backpatch-spring-framework@17136ed).
 tests:
-  commit: 4828ae8e6ebe1223381198a2ad1562991f395aff
+  commit: 2f995a16560635b90cef5d71cd4da7d85975d4d5
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-retry-1.3.4.1-backpatch-00001-tests.zip
-  report_sha256: dee4a63e1de0d2322c76bc01e4980221afc9ccd38a0b3216c1a901882bf8444e
+  report: spring-expression-5.3.39.1-backpatch-00027-tests.zip
+  report_sha256: ba7283ec22b178157a4c90bcb8779bdf840beed27193db2ea5d007af9ea5ce51
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41710 carried by moderne-backpatch-alliance/backpatch-spring-retry at v1.3.4.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41852 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00027, whose .backpatch/patch-evidence.yaml records the tests that ran
