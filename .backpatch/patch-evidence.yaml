@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00145
+release: 2.7.18.1-backpatch-00146
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1668,7 +1668,7 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.retry:spring-retry
-    note: Carried from 2.7.18.1-backpatch-00133; ported onto 2.7.18; fixed at 1.3.4.1-backpatch-00001 (backpatch-spring-retry@6798f3b).
+    note: Carried from 2.7.18.1-backpatch-00133; a superseded fix, ported onto 2.7.18 at 1.3.4.1-backpatch-00001 (backpatch-spring-retry@6798f3b).
   - cve: CVE-2026-41852
     upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/3d47da9746d54775a282717b539924f9e6e39096
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41852
@@ -1778,12 +1778,20 @@ fixes:
     basis: adapted
     artifacts:
       - io.micrometer:micrometer-core
-    note: New in this release; ported onto 2.7.18; fixed at 1.9.17.1-backpatch-00001 (backpatch-micrometer@bb3b4ce).
+    note: Carried from 2.7.18.1-backpatch-00145; ported onto 2.7.18; fixed at 1.9.17.1-backpatch-00001 (backpatch-micrometer@bb3b4ce).
+  - cve: CVE-2026-41710
+    upstream_fix_url: https://github.com/spring-attic/spring-retry/commit/6f351edae3d3575fffbde3c0f62fef963dacd152
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41710
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-retry/commit/5be732d
+    basis: adapted
+    artifacts:
+      - org.springframework.retry:spring-retry
+    note: New in this release; ported onto 2.7.18; fixed at 1.3.4.1-backpatch-00002 (backpatch-spring-retry@5be732d).
 tests:
-  commit: 8a8e98f7db42f0793812137211a95a1ee17f7ab8
+  commit: 893152c32c69da52166e3f37f61c495310583d44
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: micrometer-core-1.9.17.1-backpatch-00001-tests.zip
-  report_sha256: 9fbb866e91dd5bbd4dd5da0dd00bd1a2a94bc2ac4d5d9d17c6ffefd752e57021
+  report: spring-retry-1.3.4.1-backpatch-00002-tests.zip
+  report_sha256: 12b4e13b1f4a08062f80c675be14ad1d4fbd1fcbee99fbfb0d5d14b33f7604ae
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40984 carried by moderne-backpatch-alliance/backpatch-micrometer at v1.9.17.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41710 carried by moderne-backpatch-alliance/backpatch-spring-retry at v1.3.4.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
