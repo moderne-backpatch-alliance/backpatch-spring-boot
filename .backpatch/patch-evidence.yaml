@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00171
+release: 2.7.18.1-backpatch-00172
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2114,12 +2114,32 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00009 (backpatch-activemq@ff50d84..80251e5).
+    note: Carried from 2.7.18.1-backpatch-00171; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00009 (backpatch-activemq@ff50d84..80251e5).
+  - cve: CVE-2026-49270
+    upstream_fix_url: https://github.com/apache/activemq/commit/038cb1e688c5383e14b455f32448f80bdbd88777
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-49270
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/commit/1d7281b
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00010 (backpatch-activemq@1d7281b).
 tests:
-  commit: f2fbb4dfcf1df9870d55a5f27509ca445203dd9f
+  commit: 47124b0c2812ce69a4c8759e96ad69a67b19a72f
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00009-tests.zip
-  report_sha256: d63f2f6bf38434dc4ec0936c9a16d1b652a8a87a78dc2e01c973dabcd65e45dd
+  report: activemq-client-5.16.8.1-backpatch-00010-tests.zip
+  report_sha256: db3bcc6d06783e3309ff582056bdc0498ee22422385723f362a9c05252b863da
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41043 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00009, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49270 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
