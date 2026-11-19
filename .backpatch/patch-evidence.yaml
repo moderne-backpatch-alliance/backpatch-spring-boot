@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00166
+release: 2.7.18.1-backpatch-00167
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2014,12 +2014,32 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00004 (backpatch-activemq@ff8ae59). A vm:// connection whose brokerConfig names a broker factory scheme, such as vm://localhost?brokerConfig=xbean:activemq.xml, is now refused by default, as in upstream's fix, so an application that starts an embedded broker that way now fails to connect. Upstream also hardened the default broker, web console and Jolokia configuration files of its distribution in 5.19.7; those files are not in these jars and are not changed here.
+    note: Carried from 2.7.18.1-backpatch-00166; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00004 (backpatch-activemq@ff8ae59). A vm:// connection whose brokerConfig names a broker factory scheme, such as vm://localhost?brokerConfig=xbean:activemq.xml, is now refused by default, as in upstream's fix, so an application that starts an embedded broker that way now fails to connect. Upstream also hardened the default broker, web console and Jolokia configuration files of its distribution in 5.19.7; those files are not in these jars and are not changed here.
+  - cve: CVE-2026-49434
+    upstream_fix_url: https://github.com/advisories/GHSA-h5gm-rvw6-2xpx
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-49434
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/4842a39~1...ecf804b
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00005 (backpatch-activemq@4842a39..ecf804b).
 tests:
-  commit: 4de302e7b6d6fb3ab976966e981a65682edbb87f
+  commit: a93f91e3edf3363c4cb71dcb5be0064566a8c7b2
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00004-tests.zip
-  report_sha256: 3333ac8b28b4cd69f7c56621b56b0f37aaf70ff23bcf2538c7bfd5fdeaf4a338
+  report: activemq-client-5.16.8.1-backpatch-00005-tests.zip
+  report_sha256: c2e455461f1ee8f73513c78c1b1aacfa1ac05ad097b66341167ab33901625c0b
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-45505 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49434 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
