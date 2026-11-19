@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00172
+release: 2.7.18.1-backpatch-00173
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2134,12 +2134,32 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00010 (backpatch-activemq@1d7281b).
+    note: Carried from 2.7.18.1-backpatch-00172; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00010 (backpatch-activemq@1d7281b).
+  - cve: CVE-2026-53917
+    upstream_fix_url: https://github.com/advisories/GHSA-f77w-px59-cqf5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-53917
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/6b3a9e8~1...adcd675
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00011 (backpatch-activemq@6b3a9e8..adcd675).
 tests:
-  commit: 47124b0c2812ce69a4c8759e96ad69a67b19a72f
+  commit: eedf08409a5927bfd988e150a3fc4607176d7a07
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00010-tests.zip
-  report_sha256: db3bcc6d06783e3309ff582056bdc0498ee22422385723f362a9c05252b863da
+  report: activemq-client-5.16.8.1-backpatch-00011-tests.zip
+  report_sha256: 4561cee807a74bec5a4642a9e1d659f560585b65e09776ab7cde917b90d0978e
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49270 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-53917 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00011, whose .backpatch/patch-evidence.yaml records the tests that ran
