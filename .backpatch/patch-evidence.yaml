@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00163
+release: 2.7.18.1-backpatch-00164
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1934,12 +1934,52 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00001 (backpatch-activemq@94296dd).
+    note: Carried from 2.7.18.1-backpatch-00163; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00001 (backpatch-activemq@94296dd).
+  - cve: CVE-2026-34197
+    upstream_fix_url: https://github.com/advisories/GHSA-rxpj-7qvf-xv32
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-34197
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/edc0905~1...e4ff0df
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00002 (backpatch-activemq@edc0905..e4ff0df).
+  - cve: CVE-2026-40466
+    upstream_fix_url: https://github.com/apache/activemq/commit/c84899b1906b0318127449b809e9f735acd7788a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40466
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/edc0905~1...e4ff0df
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00002 (backpatch-activemq@edc0905..e4ff0df).
 tests:
-  commit: d694885fd46f861bbce14409a4f4628b7f91b047
+  commit: 10ba7eb6283fe2a051d8770fb1009673b7bbbf29
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00001-tests.zip
-  report_sha256: 80a743d1bf1414da711cf325dec129e1bb8eaed402255246a8ea846efea108ff
+  report: activemq-client-5.16.8.1-backpatch-00002-tests.zip
+  report_sha256: 3151d7c36f3a547b2b3e3f57b56bc0a047f52b47e18437c0a032119a6a30f852
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-39304 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-34197 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40466 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
