@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00170
+release: 2.7.18.1-backpatch-00171
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2094,12 +2094,32 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00008 (backpatch-activemq@e47b34c). Classes that FactoryFinder loads must now be of the type the caller asks for, and STOMP frame translators and web console queue browse views must also be on an allow list, as in upstream's fix. An application with its own frame translator or queue browse view outside the default list now fails to load it. The lists are set with the system properties org.apache.activemq.stomp.FRAME_TRANSLATOR_CLASSES and org.apache.activemq.web.view.QUEUE_BROWSE_CLASSES.
+    note: Carried from 2.7.18.1-backpatch-00170; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00008 (backpatch-activemq@e47b34c). Classes that FactoryFinder loads must now be of the type the caller asks for, and STOMP frame translators and web console queue browse views must also be on an allow list, as in upstream's fix. An application with its own frame translator or queue browse view outside the default list now fails to load it. The lists are set with the system properties org.apache.activemq.stomp.FRAME_TRANSLATOR_CLASSES and org.apache.activemq.web.view.QUEUE_BROWSE_CLASSES.
+  - cve: CVE-2026-41043
+    upstream_fix_url: https://github.com/apache/activemq/commit/a65f8860dafb50c848127fa95ed00cbd27952f87
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41043
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/ff50d84~1...80251e5
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: New in this release; ported onto 2.7.18; fixed at 5.16.8.1-backpatch-00009 (backpatch-activemq@ff50d84..80251e5).
 tests:
-  commit: 6c136d0a830334b82af2d74971683c408eb19e01
+  commit: f2fbb4dfcf1df9870d55a5f27509ca445203dd9f
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00008-tests.zip
-  report_sha256: 3ffdbca2c0cf657e9d3fc3f69c176405743c4af5847bd448d9f4326804ac4a33
+  report: activemq-client-5.16.8.1-backpatch-00009-tests.zip
+  report_sha256: d63f2f6bf38434dc4ec0936c9a16d1b652a8a87a78dc2e01c973dabcd65e45dd
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-33227 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41043 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00009, whose .backpatch/patch-evidence.yaml records the tests that ran
