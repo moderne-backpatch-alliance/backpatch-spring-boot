@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00189
+release: 2.7.18.1-backpatch-00190
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2413,12 +2413,44 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-core
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00040 (backpatch-spring-framework@5bf6b0f).
+    note: Carried from 2.7.18.1-backpatch-00189; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00040 (backpatch-spring-framework@5bf6b0f).
+  - cve: CVE-2026-40477
+    upstream_fix_url: https://github.com/thymeleaf/thymeleaf/commit/c115713f6d73a4c0e2d83b1fb9e385db4199fb2a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40477
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-thymeleaf/commit/d7a9d18
+    basis: adapted
+    artifacts:
+      - org.thymeleaf:thymeleaf
+    note: "New in this release; ported onto 2.7.18; fixed at 3.0.15.RELEASE-backpatch-00001 (backpatch-thymeleaf@d7a9d18). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. As upstream, #ctx, #vars, #root, #this and #execInfo are refused in restricted evaluation, so a template that reads #execInfo in a TEXT-mode th:text now fails (the thymeleaf-tests templates that did are rewritten to HTML mode, as upstream did). Type references to the newly listed packages, all of org.springframework.* among them, are refused in every template mode, not only restricted evaluation; upstream's later allowedClassOverrides is not ported, so there is no way to allow them again."
+  - cve: CVE-2026-40477
+    upstream_fix_url: https://github.com/thymeleaf/thymeleaf/commit/c115713f6d73a4c0e2d83b1fb9e385db4199fb2a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40477
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-thymeleaf-spring/commit/0ecb952
+    basis: adapted
+    artifacts:
+      - org.thymeleaf:thymeleaf-spring5
+    note: "New in this release; ported onto 2.7.18; fixed at 3.0.15.RELEASE-backpatch-00001 (backpatch-thymeleaf-spring@0ecb952). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. As upstream, #ctx, #vars, #root, #this and #execInfo are refused in restricted evaluation, so a template that reads #execInfo in a TEXT-mode th:text now fails (the thymeleaf-tests templates that did are rewritten to HTML mode, as upstream did). Type references to the newly listed packages, all of org.springframework.* among them, are refused in every template mode, not only restricted evaluation; upstream's later allowedClassOverrides is not ported, so there is no way to allow them again."
+  - cve: CVE-2026-40478
+    upstream_fix_url: https://github.com/thymeleaf/thymeleaf/commit/c115713f6d73a4c0e2d83b1fb9e385db4199fb2a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40478
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-thymeleaf/commit/d7a9d18
+    basis: adapted
+    artifacts:
+      - org.thymeleaf:thymeleaf
+    note: "New in this release; ported onto 2.7.18; fixed at 3.0.15.RELEASE-backpatch-00001 (backpatch-thymeleaf@d7a9d18). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. As upstream, #ctx, #vars, #root, #this and #execInfo are refused in restricted evaluation, so a template that reads #execInfo in a TEXT-mode th:text now fails (the thymeleaf-tests templates that did are rewritten to HTML mode, as upstream did). Type references to the newly listed packages, all of org.springframework.* among them, are refused in every template mode, not only restricted evaluation; upstream's later allowedClassOverrides is not ported, so there is no way to allow them again."
+  - cve: CVE-2026-40478
+    upstream_fix_url: https://github.com/thymeleaf/thymeleaf/commit/c115713f6d73a4c0e2d83b1fb9e385db4199fb2a
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40478
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-thymeleaf-spring/commit/0ecb952
+    basis: adapted
+    artifacts:
+      - org.thymeleaf:thymeleaf-spring5
+    note: "New in this release; ported onto 2.7.18; fixed at 3.0.15.RELEASE-backpatch-00001 (backpatch-thymeleaf-spring@0ecb952). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. As upstream, #ctx, #vars, #root, #this and #execInfo are refused in restricted evaluation, so a template that reads #execInfo in a TEXT-mode th:text now fails (the thymeleaf-tests templates that did are rewritten to HTML mode, as upstream did). Type references to the newly listed packages, all of org.springframework.* among them, are refused in every template mode, not only restricted evaluation; upstream's later allowedClassOverrides is not ported, so there is no way to allow them again."
 tests:
-  commit: f44e9d0d29f2f81b181717f5d3d3303c7e60e4f3
+  commit: 91f3f4ff63de613443f1223fbe49036f559cdce1
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-core-5.3.39.1-backpatch-00040-tests.zip
-  report_sha256: c0af3243026951efe2358a69d4a17819a1640aa82a77cf8cd6e11be5962682b7
+  report: thymeleaf-3.0.15.RELEASE-backpatch-00001-tests.zip
+  report_sha256: d31a9951d97bb30b1c8071cce11e2b62f0416d851f55be25ca309498efcc2952
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41853 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00040, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40477 carried by moderne-backpatch-alliance/backpatch-thymeleaf at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40477 carried by moderne-backpatch-alliance/backpatch-thymeleaf-spring at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40477 carried by moderne-backpatch-alliance/backpatch-thymeleaf at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40477 carried by moderne-backpatch-alliance/backpatch-thymeleaf-spring at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40478 carried by moderne-backpatch-alliance/backpatch-thymeleaf at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40478 carried by moderne-backpatch-alliance/backpatch-thymeleaf-spring at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40478 carried by moderne-backpatch-alliance/backpatch-thymeleaf at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-40478 carried by moderne-backpatch-alliance/backpatch-thymeleaf-spring at v3.0.15.RELEASE-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
