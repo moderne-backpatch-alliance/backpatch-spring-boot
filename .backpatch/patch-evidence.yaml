@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00181
+release: 2.7.18.1-backpatch-00182
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2346,12 +2346,21 @@ fixes:
     basis: adapted
     artifacts:
       - org.xmlunit:xmlunit-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.9.1.1-backpatch-00001 (backpatch-xmlunit@ff22188..ffc1f18). Upstream's fix sets jdk.xml.enableExtensionFunctions through a call that JDK 8 to 21 reject silently, so on those JDKs it does not disable XSLT extension functions; this was measured on five JDKs. This release adds its own change that makes the default refusal work there, on top of upstream's.
+    note: Carried from 2.7.18.1-backpatch-00181; ported onto 2.7.18; fixed at 2.9.1.1-backpatch-00001 (backpatch-xmlunit@ff22188..ffc1f18). Upstream's fix sets jdk.xml.enableExtensionFunctions through a call that JDK 8 to 21 reject silently, so on those JDKs it does not disable XSLT extension functions; this was measured on five JDKs. This release adds its own change that makes the default refusal work there, on top of upstream's.
+  - cve: CVE-2025-41242
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/24e66b63d1d12c45e4af333d6271451083f81e90
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-41242
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/d76e84e
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-core
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00033 (backpatch-spring-framework@d76e84e).
 tests:
-  commit: 656b620abb6543ac7aa5dc4cf294bdd4dcadc88a
+  commit: 22151714694f3748874e75e9d38abec875111afb
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: xmlunit-core-2.9.1.1-backpatch-00001-tests.zip
-  report_sha256: e1f2372d56eff0553447b6184f4ae7f638f254150f1313b620d527980c103618
+  report: spring-core-5.3.39.1-backpatch-00033-tests.zip
+  report_sha256: 853df652b19eb9eabfef29c57cf97cb6e4b9af9aa2412ad84f155bb4cb558a4f
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-31573 carried by moderne-backpatch-alliance/backpatch-xmlunit at v2.9.1.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-41242 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00033, whose .backpatch/patch-evidence.yaml records the tests that ran
