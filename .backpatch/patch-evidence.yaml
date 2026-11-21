@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00176
+release: 2.7.18.1-backpatch-00177
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2302,12 +2302,22 @@ fixes:
     basis: adapted
     artifacts:
       - net.minidev:json-smart
-    note: New in this release; ported onto 2.7.18; fixed at 2.4.11.1-backpatch-00001 (backpatch-json-smart@509d5a9).
+    note: Carried from 2.7.18.1-backpatch-00176; ported onto 2.7.18; fixed at 2.4.11.1-backpatch-00001 (backpatch-json-smart@509d5a9).
+  - cve: CVE-2024-12798
+    upstream_fix_url: https://github.com/advisories/GHSA-pr98-23f8-jwxv
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-12798
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/383aaca
+    basis: adapted
+    artifacts:
+      - ch.qos.logback:logback-core
+      - ch.qos.logback:logback-classic
+      - ch.qos.logback:logback-access
+    note: "New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00005 (backpatch-logback@383aaca). Janino-based evaluators are disabled, not deleted as upstream does: the classes stay, so code that names them still links, but a configured Janino evaluator logs an ERROR, never starts, and throws on evaluate. An SMTPAppender configured with such an evaluator therefore sends no mail."
 tests:
-  commit: 8fc1b2e2c8fc2c3759909620cab5ba3b4ac262fe
+  commit: 9321b04f3b22d2017ac77068f48b417ee923e553
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: json-smart-2.4.11.1-backpatch-00001-tests.zip
-  report_sha256: 6e08b0869ad11449ed884b4b1102e1df3944b50e5dedb5041fe5bcdc14d64147
+  report: logback-core-1.2.13.1-backpatch-00005-tests.zip
+  report_sha256: 107a190e58ace0ceecf1feae94135fe0ad85e4ad4017346cffbf6036b51adde0
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-113602 carried by moderne-backpatch-alliance/backpatch-json-smart at v2.4.11.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-12798 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
