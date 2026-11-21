@@ -1,0 +1,21 @@
+schema: osera-patch-evidence/0.1.0
+producer: moderne
+release: 2.4.13.1-backpatch-00001
+baseline: v2.4.13+backpatch.baseline
+fixes:
+  - cve: CVE-2023-20883
+    upstream_fix_url: https://github.com/spring-projects/spring-boot/commit/d7ff379fb8bb2c33319afeb45a343116b59e0ee2
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-20883
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-boot/commit/f284835
+    basis: adapted
+    artifacts:
+      - org.springframework.boot:spring-boot-autoconfigure
+    note: New in this release; ported onto 2.4.13; fixed at 2.4.13.1-backpatch-00001 (backpatch-spring-boot@f284835).
+tests:
+  commit: f284835a3502f635df80c0146811926208420549
+  command: ./gradlew --no-daemon :spring-boot-project:spring-boot-autoconfigure:test --tests 'org.springframework.boot.autoconfigure.web.servlet.*' --continue (Gradle 6.9.1 wrapper, the run-only build-env patch for repo.spring.io; the report decides)
+  runtime: OpenJDK 1.8.0_382 (Zulu), Gradle wrapper of the repository
+  report: spring-boot-autoconfigure-2.4.13.1-backpatch-00001-tests.zip
+  report_sha256: e841db334e18b5b0feeb48a65d16e6ff65d612bd347ad5bdc175621acb13a0dd
+  result: pass
+  note: 302 tests at the patch commit, 0 of them skipped by the suite, 0 failed, 0 errors.
