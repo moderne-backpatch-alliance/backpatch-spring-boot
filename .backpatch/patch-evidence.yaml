@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00187
+release: 2.7.18.1-backpatch-00188
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2397,12 +2397,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00038 (backpatch-spring-framework@fc9d0a5).
+    note: Carried from 2.7.18.1-backpatch-00187; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00038 (backpatch-spring-framework@fc9d0a5).
+  - cve: CVE-2024-38828
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/fa1f7f6dc7b86d0588dbf90ce9d255de109d0f10
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38828
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/25cf77a
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-web
+    note: "New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00039 (backpatch-spring-framework@25cf77a). No upstream commit is named for this CVE on 5.3. The fix ported here is upstream commit fa1f7f6dc7, matched by elimination: a refactor that stops ByteArrayHttpMessageConverter from sizing its read buffer from the Content-Length header. Only its ByteArrayHttpMessageConverter change is ported."
 tests:
-  commit: dd5f13e8df836e6055ec970fb60821ca8f4e4581
+  commit: 81784abdf0c5246e8c769116a1f88cb4c85eaa9e
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-web-5.3.39.1-backpatch-00038-tests.zip
-  report_sha256: fdf34edc8661d9f1bd981c1d659751744786cda42d4a5d68682032e79369a2ec
+  report: spring-web-5.3.39.1-backpatch-00039-tests.zip
+  report_sha256: 7750c167a69b7a81c8512b67142d467b42c181e9889ea8c3f9bfe0d09b7283ac
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41839 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00038, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-38828 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00039, whose .backpatch/patch-evidence.yaml records the tests that ran
