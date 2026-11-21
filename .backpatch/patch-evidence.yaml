@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00180
+release: 2.7.18.1-backpatch-00181
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2338,12 +2338,20 @@ fixes:
     basis: adapted
     artifacts:
       - ch.qos.logback:logback-core
-    note: New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00008 (backpatch-logback@bd4f812).
+    note: Carried from 2.7.18.1-backpatch-00180; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00008 (backpatch-logback@bd4f812).
+  - cve: CVE-2024-31573
+    upstream_fix_url: https://github.com/xmlunit/xmlunit/commit/b81d48b71dfd2868bdfc30a3e17ff973f32bc15b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-31573
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-xmlunit/compare/ff22188~1...ffc1f18
+    basis: adapted
+    artifacts:
+      - org.xmlunit:xmlunit-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.9.1.1-backpatch-00001 (backpatch-xmlunit@ff22188..ffc1f18). Upstream's fix sets jdk.xml.enableExtensionFunctions through a call that JDK 8 to 21 reject silently, so on those JDKs it does not disable XSLT extension functions; this was measured on five JDKs. This release adds its own change that makes the default refusal work there, on top of upstream's.
 tests:
-  commit: da00d93a42162a2df4587b22150844104691c26f
+  commit: 656b620abb6543ac7aa5dc4cf294bdd4dcadc88a
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: logback-core-1.2.13.1-backpatch-00008-tests.zip
-  report_sha256: 0c520c831c1544c36199b4b9d9134cdf0294d08b6a3b708f81433162ff9499dd
+  report: xmlunit-core-2.9.1.1-backpatch-00001-tests.zip
+  report_sha256: e1f2372d56eff0553447b6184f4ae7f638f254150f1313b620d527980c103618
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-1225 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-31573 carried by moderne-backpatch-alliance/backpatch-xmlunit at v2.9.1.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
