@@ -1170,7 +1170,7 @@ bom {
 			]
 		}
 	}
-	library("Logback", "1.2.13.1-backpatch-00006") {
+	library("Logback", "1.2.13.1-backpatch-00007") {
 		group("ch.qos.logback") {
 			modules = [
 				"logback-access",
