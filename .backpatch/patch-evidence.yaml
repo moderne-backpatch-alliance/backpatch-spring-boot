@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00195
+release: 2.7.18.1-backpatch-00196
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2494,7 +2494,7 @@ fixes:
     basis: adapted
     artifacts:
       - io.undertow:undertow-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00004 (backpatch-undertow@713dc52..6b52afd).
+    note: Carried from 2.7.18.1-backpatch-00195; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00004 (backpatch-undertow@713dc52..6b52afd).
   - cve: CVE-2024-4027
     upstream_fix_url: https://github.com/advisories/GHSA-33hj-rcmx-86mv
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-4027
@@ -2502,12 +2502,20 @@ fixes:
     basis: adapted
     artifacts:
       - io.undertow:undertow-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00004 (backpatch-undertow@713dc52..6b52afd).
+    note: Carried from 2.7.18.1-backpatch-00195; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00004 (backpatch-undertow@713dc52..6b52afd).
+  - cve: CVE-2024-5971
+    upstream_fix_url: https://github.com/undertow-io/undertow/commit/6742d833372cff6f84f307e864c15bb232d15f12
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-5971
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-undertow/compare/4a45ebd~1...8154894
+    basis: adapted
+    artifacts:
+      - io.undertow:undertow-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00005 (backpatch-undertow@4a45ebd..8154894).
 tests:
-  commit: c3eacf30f5b5eefd982b5d5e4222b98fa5592721
+  commit: 54badb1711a705462fc135f9b9f4cea525bc97d3
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: undertow-core-2.2.28.Final-backpatch-00004-tests.zip
-  report_sha256: 5a8bd8b93feab9990c6080b72bfb5445e7bce738b911270a5222e33c768778e7
+  report: undertow-core-2.2.28.Final-backpatch-00005-tests.zip
+  report_sha256: c85d63878b66fb08eef0665d2d3837c8e6b9035dc2352c991eec14806b4cb62b
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-3884 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2024-4027 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-5971 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
