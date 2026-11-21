@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00179
+release: 2.7.18.1-backpatch-00180
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2330,12 +2330,20 @@ fixes:
       - ch.qos.logback:logback-core
       - ch.qos.logback:logback-classic
       - ch.qos.logback:logback-access
-    note: New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00007 (backpatch-logback@24497ff). Besides upstream's allow-list, this release allows java.util.Collections$SynchronizedMap in logback-classic (its MDC map) and java.util.TreeMap and java.lang.String$CaseInsensitiveComparator in logback-access (request header maps); these additions are ours, since 1.2's own serialized events contain them. Values of other java.lang and java.util types, such as java.util.Date, are now refused.
+    note: Carried from 2.7.18.1-backpatch-00179; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00007 (backpatch-logback@24497ff). Besides upstream's allow-list, this release allows java.util.Collections$SynchronizedMap in logback-classic (its MDC map) and java.util.TreeMap and java.lang.String$CaseInsensitiveComparator in logback-access (request header maps); these additions are ours, since 1.2's own serialized events contain them. Values of other java.lang and java.util types, such as java.util.Date, are now refused.
+  - cve: CVE-2026-1225
+    upstream_fix_url: https://github.com/qos-ch/logback/commit/d28931f3b9ede954285cd22d44e029142bba52e6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-1225
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/bd4f812
+    basis: adapted
+    artifacts:
+      - ch.qos.logback:logback-core
+    note: New in this release; ported onto 2.7.18; fixed at 1.2.13.1-backpatch-00008 (backpatch-logback@bd4f812).
 tests:
-  commit: d97b359cc8ce44846e43c569dfd135b133ead09d
+  commit: da00d93a42162a2df4587b22150844104691c26f
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: logback-core-1.2.13.1-backpatch-00007-tests.zip
-  report_sha256: 195c2f0a100bbca867374d21fa397dc50136a1e87aefddbde26e5d964b7d0354
+  report: logback-core-1.2.13.1-backpatch-00008-tests.zip
+  report_sha256: 0c520c831c1544c36199b4b9d9134cdf0294d08b6a3b708f81433162ff9499dd
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-9828 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-1225 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
