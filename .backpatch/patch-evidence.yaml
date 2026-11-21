@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00182
+release: 2.7.18.1-backpatch-00183
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2355,12 +2355,21 @@ fixes:
     artifacts:
       - org.springframework:spring-core
       - org.springframework:spring-web
-    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00033 (backpatch-spring-framework@d76e84e).
+    note: Carried from 2.7.18.1-backpatch-00182; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00033 (backpatch-spring-framework@d76e84e).
+  - cve: CVE-2026-22737
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/317a1f9909a2394a5a1b03e5e17deb25066fbaf6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22737
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/a043b77
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-webmvc
+    note: New in this release; ported onto 2.7.18; fixed at 5.3.39.1-backpatch-00034 (backpatch-spring-framework@a043b77). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
 tests:
-  commit: 22151714694f3748874e75e9d38abec875111afb
+  commit: 28cf5583ffb2648affea4f1b6026bba000d963b2
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-core-5.3.39.1-backpatch-00033-tests.zip
-  report_sha256: 853df652b19eb9eabfef29c57cf97cb6e4b9af9aa2412ad84f155bb4cb558a4f
+  report: spring-webflux-5.3.39.1-backpatch-00034-tests.zip
+  report_sha256: c85678c95be57bda61a92df52981411bf5a6b6f6a528203fd509d8db7c1bc1d8
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-41242 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00033, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22737 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00034, whose .backpatch/patch-evidence.yaml records the tests that ran
