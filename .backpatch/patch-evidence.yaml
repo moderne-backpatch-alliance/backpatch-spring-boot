@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.7.18.1-backpatch-00198
+release: 2.7.18.1-backpatch-00199
 baseline: v2.7.18+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -2526,12 +2526,20 @@ fixes:
     basis: adapted
     artifacts:
       - io.undertow:undertow-core
-    note: New in this release; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00007 (backpatch-undertow@07001fc..4c402ab).
+    note: Carried from 2.7.18.1-backpatch-00198; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00007 (backpatch-undertow@07001fc..4c402ab).
+  - cve: CVE-2025-9784
+    upstream_fix_url: https://github.com/advisories/GHSA-95h4-w6j8-2rp8
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-9784
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-undertow/compare/2fed6a5~1...4bb5b6e
+    basis: adapted
+    artifacts:
+      - io.undertow:undertow-core
+    note: New in this release; ported onto 2.7.18; fixed at 2.2.28.Final-backpatch-00008 (backpatch-undertow@2fed6a5..4bb5b6e).
 tests:
-  commit: 18f22041263485fc640fa38aa811bbe8fd51d1cb
+  commit: fe2d0677d28f6f2abf80d69b3e5a00d726ad1789
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: undertow-core-2.2.28.Final-backpatch-00007-tests.zip
-  report_sha256: c5a4059fd96612f976cee56309ced82aa7e9ab134290e72cede03a758b036153
+  report: undertow-core-2.2.28.Final-backpatch-00008-tests.zip
+  report_sha256: 33a8a6dbeac96575702ae1010bf50c6a1f2280d7dcd9b6149a18cc4658cd3975
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-7885 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-9784 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
