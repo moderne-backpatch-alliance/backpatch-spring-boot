@@ -1882,7 +1882,7 @@ bom {
 			]
 		}
 	}
-	library("Undertow", "2.2.24.Final") {
+	library("Undertow", "2.2.28.Final-backpatch-00001") {
 		group("io.undertow") {
 			modules = [
 				"undertow-core",
