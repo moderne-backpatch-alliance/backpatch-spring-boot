@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00034
+release: 2.6.15.1-backpatch-00035
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -712,12 +712,39 @@ fixes:
     basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
+    note: Carried from 2.6.15.1-backpatch-00034; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
+  - cve: CVE-2025-41249
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
+    artifacts:
+      - org.springframework:spring-core
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-22740
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b338fdd99dd87974870f90ababb39fcb8727e1b4
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-41845
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/86d99790dbaa8ce6bb1087ef92844d0abfdab015
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/eb7bfd5
+    basis: backport
+    artifacts:
+      - org.springframework:spring-webmvc
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
 tests:
-  commit: 8a092cc2d88b6c96a6fb33b82ceffd64858b1e2b
+  commit: 072753f9b16ac162188bf2d8c20a57be1df4e1c1
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00010-tests.zip
-  report_sha256: 7fa68ad3eaf9fd4540cacef58a053f82816116439785311f1d426acdbc6d43e9
+  report: spring-web-5.3.39.1-backpatch-00016-tests.zip
+  report_sha256: bfa9294da8e86b3f164d2d8c449033a8f6b51c31ea7003f466a543f0fb2450e7
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-91776 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-41249 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-22740 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-41845 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00016, whose .backpatch/patch-evidence.yaml records the tests that ran
