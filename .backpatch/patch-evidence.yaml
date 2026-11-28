@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00038
+release: 2.6.15.1-backpatch-00039
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -763,12 +763,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
-    note: New in this release; ported onto 2.6.15; fixed at 2.8.11.1-backpatch-00002 (backpatch-spring-kafka@53aef17..0e2a60a).
+    note: Carried from 2.6.15.1-backpatch-00038; ported onto 2.6.15; fixed at 2.8.11.1-backpatch-00002 (backpatch-spring-kafka@53aef17..0e2a60a).
+  - cve: CVE-2026-41726
+    upstream_fix_url: https://github.com/spring-projects/spring-kafka/commit/52754050db74d67b97711528c163bbe57978501d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41726
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-kafka/commit/44a50e4
+    basis: backport
+    artifacts:
+      - org.springframework.kafka:spring-kafka
+    note: New in this release; ported onto 2.6.15; fixed at 2.8.11.1-backpatch-00003 (backpatch-spring-kafka@44a50e4).
 tests:
-  commit: 9a199ceddd28cfe79e8aa6795e1809c202c66303
+  commit: 2b645d54f3675688b5a671681d220a4ab41473cb
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-kafka-2.8.11.1-backpatch-00002-tests.zip
-  report_sha256: 72e81deefcc01f0533b88ea11bf16ff9f5e1d2c62047b756f84eb8822fc85775
+  report: spring-kafka-2.8.11.1-backpatch-00003-tests.zip
+  report_sha256: e11fe4127a2020798f316b8d9801e251fa499aae82cf8cfefdb657a150294709
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-34040 carried by moderne-backpatch-alliance/backpatch-spring-kafka at v2.8.11.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41726 carried by moderne-backpatch-alliance/backpatch-spring-kafka at v2.8.11.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
