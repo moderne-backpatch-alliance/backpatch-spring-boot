@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00046
+release: 2.6.15.1-backpatch-00047
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -991,113 +991,122 @@ fixes:
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-101356
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-101356
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-73581
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-73581
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-74048
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-74048
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-74049
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-74049
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-jasper
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-75973
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-75973
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-76183
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-76183
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-77756
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-77756
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-77762
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-77762
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-77791
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-77791
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-78383
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-78383
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-78437
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-78437
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-79677
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-79677
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-80353
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-80353
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-86350
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-86350
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-87022
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-87022
     not_applicable_rationale: fixed upstream in 9.0.122, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-websocket
-    note: New in this release; fixed upstream in 9.0.122, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.122, which this release pins.
   - cve: CVE-2026-88041
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-88041
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
   - cve: CVE-2026-93446
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-93446
     not_applicable_rationale: fixed upstream in 9.0.123, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.apache.tomcat.embed:tomcat-embed-core
-    note: New in this release; fixed upstream in 9.0.123, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00046; fixed upstream in 9.0.123, which this release pins.
+  - cve: CVE-2026-68497
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/a99b7e74c8928f43f6975773a8c862c8316178bd
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68497
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/964de55
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00013 (backpatch-jackson-databind@964de55).
 tests:
-  commit: fe37f7b767c18962379f66c18a86e4ae04c81e04
+  commit: 8723489dbff3d803229c6f9572dd0c4b438825a5
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: jackson-databind-2.13.5.1-backpatch-00013-tests.zip
+  report_sha256: 525811ac07167f9c0b73c10f059612169c383ea6b1d5dcb48fb0763a2d947a9d
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-101296 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project; CVE-2026-101356 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project; CVE-2026-73581 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-74048 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project; CVE-2026-74049 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-jasper 9.0.123, tested by its project; CVE-2026-75973 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-76183 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.122, tested by its project; CVE-2026-77756 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-77762 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-77791 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.122, tested by its project; CVE-2026-78383 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-78437 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-79677 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.122, tested by its project; CVE-2026-80353 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project; CVE-2026-86350 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.122, tested by its project; CVE-2026-87022 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-websocket 9.0.122, tested by its project; CVE-2026-88041 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project; CVE-2026-93446 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 9.0.123, tested by its project
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-68497 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
