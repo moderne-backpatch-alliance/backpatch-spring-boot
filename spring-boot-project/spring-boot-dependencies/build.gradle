@@ -1791,7 +1791,7 @@ bom {
 			]
 		}
 	}
-	library("Spring WS", "3.1.8.1-backpatch-00001") {
+	library("Spring WS", "3.1.8.1-backpatch-00002") {
 		group("org.springframework.ws") {
 			modules = [
 				"spring-ws-core",
