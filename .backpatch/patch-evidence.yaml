@@ -1,0 +1,20 @@
+schema: osera-patch-evidence/0.1.0
+producer: moderne
+release: 2.6.15.1-backpatch-00001
+baseline: v2.6.15+backpatch.baseline
+fixes:
+  - cve: CVE-2016-1000027
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2016-1000027
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/0b5fbdb~1...c647e92
+    not_applicable_rationale: a provider-developed fix; no upstream-authored code to credit
+    basis: original
+    artifacts:
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00001 (backpatch-spring-framework@0b5fbdb..c647e92).
+tests:
+  commit: 4cf20afcf482d728639567568e27a7161b3c3e3a
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: spring-web-5.3.39.1-backpatch-00001-tests.zip
+  result: pass
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2016-1000027 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
