@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00084
+release: 2.6.15.1-backpatch-00085
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1292,12 +1292,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00019 (backpatch-jackson-databind@14717e4). With `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` enabled, jackson-databind now treats `java.lang.Comparable` as an unsafe polymorphic base type (CVE-2026-83557); the feature is off by default, so only apps that enable it are affected. If such an app has a property declared as `Comparable` with `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` or `MINIMAL_CLASS`, reading it fails with `InvalidDefinitionException` ("Configured `PolymorphicTypeValidator` ... denied resolution of all subtypes of base type `java.lang.Comparable`"). Declare the property with a narrower type, switch it to `JsonTypeInfo.Id.NAME` with `@JsonSubTypes`, or configure `polymorphicTypeValidator(...)` with a `BasicPolymorphicTypeValidator` that allows only your subtypes. Turning the feature off brings back the exposure the fix closes.
+    note: Carried from 2.6.15.1-backpatch-00084; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00019 (backpatch-jackson-databind@14717e4). With `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` enabled, jackson-databind now treats `java.lang.Comparable` as an unsafe polymorphic base type (CVE-2026-83557); the feature is off by default, so only apps that enable it are affected. If such an app has a property declared as `Comparable` with `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` or `MINIMAL_CLASS`, reading it fails with `InvalidDefinitionException` ("Configured `PolymorphicTypeValidator` ... denied resolution of all subtypes of base type `java.lang.Comparable`"). Declare the property with a narrower type, switch it to `JsonTypeInfo.Id.NAME` with `@JsonSubTypes`, or configure `polymorphicTypeValidator(...)` with a `BasicPolymorphicTypeValidator` that allows only your subtypes. Turning the feature off brings back the exposure the fix closes.
+  - cve: CVE-2026-41852
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/3d47da9746d54775a282717b539924f9e6e39096
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41852
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/17136ed
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-expression
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00027 (backpatch-spring-framework@17136ed).
 tests:
-  commit: 562af18a17414110f973c60ba80be23448676f11
+  commit: 48336d3672a936e94140235db6a774a5a2073287
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00019-tests.zip
-  report_sha256: 814fb5a300edc3cd590422a113556d224952c1b07565067a19295553347e2ed2
+  report: spring-expression-5.3.39.1-backpatch-00027-tests.zip
+  report_sha256: ba7283ec22b178157a4c90bcb8779bdf840beed27193db2ea5d007af9ea5ce51
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-83557 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00019, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41852 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00027, whose .backpatch/patch-evidence.yaml records the tests that ran
