@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00111
+release: 2.6.15.1-backpatch-00112
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1733,12 +1733,20 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00035 (backpatch-spring-framework@5096f6b). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
+    note: Carried from 2.6.15.1-backpatch-00111; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00035 (backpatch-spring-framework@5096f6b). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
+  - cve: CVE-2026-41840
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/a58fdeaf3fc1b8edaa3f42a6679df133e318df0e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41840
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/4f13427
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-web
+    note: "New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00036 (backpatch-spring-framework@4f13427). Upstream's fix also releases the body tokens of a request with too many parts in DefaultPartHttpMessageReader. That hunk is left out: it relies on windowUntil, which 5.3 does not have, and 5.3's PartGenerator already counts parts on the header token. Upstream's leak-checked tooManyParts test passes on this release without it."
 tests:
-  commit: 675a99c9705d23f7bd08dedaef533784bd515a57
+  commit: 8d76c2ea07b69319001f58f65ef05b31c5813196
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-webflux-5.3.39.1-backpatch-00035-tests.zip
-  report_sha256: fcbc0dc7d6ce666facf80782fbd3a2705dd460e963955f064a07e6bac51eb091
+  report: spring-web-5.3.39.1-backpatch-00036-tests.zip
+  report_sha256: 8510f8d231f6472d8c3a850ee2579c9164008d7c3558de3e98a9aae1b537046b
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41843 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00035, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41840 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00036, whose .backpatch/patch-evidence.yaml records the tests that ran
