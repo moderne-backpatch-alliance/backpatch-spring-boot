@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00110
+release: 2.6.15.1-backpatch-00111
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1724,12 +1724,21 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00034 (backpatch-spring-framework@a043b77). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
+    note: Carried from 2.6.15.1-backpatch-00110; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00034 (backpatch-spring-framework@a043b77). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
+  - cve: CVE-2026-41843
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/8d51f47357e4830076b9630ffc8bfbb2a2831260
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41843
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/5096f6b
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-webmvc
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00035 (backpatch-spring-framework@5096f6b). This release adds a public abstract class, ResourceHandlerUtils, to org.springframework.web.servlet.resource and to org.springframework.web.reactive.resource. Upstream's fix calls it across packages and 5.3 does not have it. No existing signature changes.
 tests:
-  commit: 9a369ef9e9334692424e4a3ce036d69b2cd40666
+  commit: 675a99c9705d23f7bd08dedaef533784bd515a57
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-webflux-5.3.39.1-backpatch-00034-tests.zip
-  report_sha256: c85678c95be57bda61a92df52981411bf5a6b6f6a528203fd509d8db7c1bc1d8
+  report: spring-webflux-5.3.39.1-backpatch-00035-tests.zip
+  report_sha256: fcbc0dc7d6ce666facf80782fbd3a2705dd460e963955f064a07e6bac51eb091
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22737 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00034, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41843 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00035, whose .backpatch/patch-evidence.yaml records the tests that ran
