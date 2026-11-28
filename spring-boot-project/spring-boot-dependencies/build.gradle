@@ -1732,7 +1732,7 @@ bom {
 			]
 		}
 	}
-	library("Spring Integration", "5.5.20.1-backpatch-00001") {
+	library("Spring Integration", "5.5.20.1-backpatch-00002") {
 		group("org.springframework.integration") {
 			imports = [
 				"spring-integration-bom"
