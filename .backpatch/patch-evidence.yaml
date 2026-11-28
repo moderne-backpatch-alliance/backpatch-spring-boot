@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00007
+release: 2.6.15.1-backpatch-00008
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -448,11 +448,29 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00006 (backpatch-spring-framework@ba5eba0..26b3074).
+    note: Carried from 2.6.15.1-backpatch-00007; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00006 (backpatch-spring-framework@ba5eba0..26b3074).
+  - cve: CVE-2024-9823
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-9823
+    not_applicable_rationale: fixed upstream in 9.4.54.v20240208, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.eclipse.jetty:jetty-servlets
+    note: New in this release; fixed upstream in 9.4.54.v20240208, which this release pins.
+  - cve: CVE-2024-13009
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-13009
+    not_applicable_rationale: fixed upstream in 9.4.57.v20241219, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.eclipse.jetty:jetty-server
+    note: New in this release; fixed upstream in 9.4.57.v20241219, which this release pins.
+  - cve: CVE-2024-8184
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-8184
+    not_applicable_rationale: fixed upstream in 9.4.56.v20240826, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.eclipse.jetty:jetty-server
+    note: New in this release; fixed upstream in 9.4.56.v20240826, which this release pins.
 tests:
-  commit: d938c2c0aeea72325c13d676f704789e19889271
+  commit: 8e0f70bc018b7c9522982c349d8719e6767d0198
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-webflux-5.3.39.1-backpatch-00006-tests.zip
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41842 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-13009 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.57.v20241219, tested by its project; CVE-2024-8184 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.56.v20240826, tested by its project; CVE-2024-9823 carried by the upstream release org.eclipse.jetty:jetty-servlets 9.4.54.v20240208, tested by its project
