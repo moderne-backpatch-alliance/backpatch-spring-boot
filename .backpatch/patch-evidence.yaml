@@ -1,0 +1,54 @@
+schema: osera-patch-evidence/0.1.0
+producer: moderne
+release: 3.5.16.1-backpatch-00001
+baseline: v3.5.16+backpatch.baseline
+fixes:
+  - cve: CVE-2026-53404
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-53404
+    not_applicable_rationale: fixed upstream in 10.1.56, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.56, which this release pins.
+  - cve: CVE-2026-55276
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-55276
+    not_applicable_rationale: fixed upstream in 10.1.56, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.56, which this release pins.
+  - cve: CVE-2026-55956
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-55956
+    not_applicable_rationale: fixed upstream in 10.1.56, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.56, which this release pins.
+  - cve: CVE-2026-65182
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-65182
+    not_applicable_rationale: fixed upstream in 10.1.59, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.59, which this release pins.
+  - cve: CVE-2026-65637
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-65637
+    not_applicable_rationale: fixed upstream in 10.1.59, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.59, which this release pins.
+  - cve: CVE-2026-65905
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-65905
+    not_applicable_rationale: fixed upstream in 10.1.59, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.59, which this release pins.
+  - cve: CVE-2026-68525
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68525
+    not_applicable_rationale: fixed upstream in 10.1.59, which this release pins; no commit of ours carries the fix
+    artifacts:
+      - org.apache.tomcat.embed:tomcat-embed-core
+    note: New in this release; fixed upstream in 10.1.59, which this release pins.
+tests:
+  commit: e6f152f23412a29f6f61ac5b53c270653e5aa3df
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
+  result: pass
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-53404 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.56, tested by its project; CVE-2026-55276 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.56, tested by its project; CVE-2026-55956 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.56, tested by its project; CVE-2026-65182 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.59, tested by its project; CVE-2026-65637 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.59, tested by its project; CVE-2026-65905 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.59, tested by its project; CVE-2026-68525 carried by the upstream release org.apache.tomcat.embed:tomcat-embed-core 10.1.59, tested by its project
