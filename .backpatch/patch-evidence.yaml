@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00030
+release: 2.6.15.1-backpatch-00031
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -680,11 +680,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.ws:spring-ws-security
-    note: New in this release; ported onto 2.6.15; fixed at 3.1.8.1-backpatch-00003 (backpatch-spring-ws@5ceca63).
+    note: Carried from 2.6.15.1-backpatch-00030; ported onto 2.6.15; fixed at 3.1.8.1-backpatch-00003 (backpatch-spring-ws@5ceca63).
+  - cve: CVE-2026-47892
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/07cbd482a0006d42eef61cede2b8a125c2b2a748
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-47892
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/8244f32
+    basis: backport
+    artifacts:
+      - org.springframework:spring-webflux
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
 tests:
-  commit: 79ea1c4b828dd3877e4a3dfe49dc44dc3dff036f
+  commit: 542c3e9e27a40ebdb4230f3392614841e4f7da22
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-ws-security-3.1.8.1-backpatch-00003-tests.zip
+  report: spring-webflux-5.3.39.1-backpatch-00013-tests.zip
+  report_sha256: 9630ad3e884befd70e28e656a7137818cecc8298c978bb8b3ab5bb0ef456deb6
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40994 carried by moderne-backpatch-alliance/backpatch-spring-ws at v3.1.8.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-47892 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00013, whose .backpatch/patch-evidence.yaml records the tests that ran
