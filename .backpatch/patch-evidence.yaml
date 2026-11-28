@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00090
+release: 2.6.15.1-backpatch-00091
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1343,7 +1343,7 @@ fixes:
     artifacts:
       - org.springframework:spring-context
       - org.springframework:spring-core
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00032 (backpatch-spring-framework@9848fc8).
+    note: Carried from 2.6.15.1-backpatch-00090; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00032 (backpatch-spring-framework@9848fc8).
   - cve: CVE-2024-38820
     upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/23656aebc6c7d0f9faff1080981eb4d55eff296c
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38820
@@ -1352,12 +1352,20 @@ fixes:
     artifacts:
       - org.springframework:spring-context
       - org.springframework:spring-core
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00032 (backpatch-spring-framework@9848fc8).
+    note: Carried from 2.6.15.1-backpatch-00090; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00032 (backpatch-spring-framework@9848fc8).
+  - cve: CVE-2026-49844
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/feadf8eb0b4acb6ddfa4c0ab2bbc6d88b8e12d82
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-49844
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/commit/7277e69
+    basis: adapted
+    artifacts:
+      - org.apache.logging.log4j:log4j-api
+    note: New in this release; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00007 (backpatch-logging-log4j2@7277e69).
 tests:
-  commit: f3ec8bfba1d3a1ef511fcb86320905495fc15090
+  commit: 5d960e11af291c1d7f587b2fbc8931b878d7556c
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-context-5.3.39.1-backpatch-00032-tests.zip
-  report_sha256: e3d481e530eca4156a5c464845dc2bf058b1d405da7a8679fad0074692820b5b
+  report: log4j-api-2.17.2.1-backpatch-00007-tests.zip
+  report_sha256: 73985da4e20968d1439f134719f78ea3ad97008a88a73bd1e6cb5801c4bfbb86
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-38820 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00032, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2025-22233 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00032, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-49844 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
