@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00115
+release: 2.6.15.1-backpatch-00116
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1765,12 +1765,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-web
-    note: "New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00039 (backpatch-spring-framework@25cf77a). No upstream commit is named for this CVE on 5.3. The fix ported here is upstream commit fa1f7f6dc7, matched by elimination: a refactor that stops ByteArrayHttpMessageConverter from sizing its read buffer from the Content-Length header. Only its ByteArrayHttpMessageConverter change is ported."
+    note: "Carried from 2.6.15.1-backpatch-00115; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00039 (backpatch-spring-framework@25cf77a). No upstream commit is named for this CVE on 5.3. The fix ported here is upstream commit fa1f7f6dc7, matched by elimination: a refactor that stops ByteArrayHttpMessageConverter from sizing its read buffer from the Content-Length header. Only its ByteArrayHttpMessageConverter change is ported."
+  - cve: CVE-2026-41853
+    upstream_fix_url: https://github.com/advisories/GHSA-cjpg-rgq5-fr37
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41853
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/5bf6b0f
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-core
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00040 (backpatch-spring-framework@5bf6b0f).
 tests:
-  commit: a0b167bb6e2e7183b4fedf8320e82d196319539a
+  commit: 4f701c25011eb7c154b4336c08fa50899bb1ec05
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-web-5.3.39.1-backpatch-00039-tests.zip
-  report_sha256: 7750c167a69b7a81c8512b67142d467b42c181e9889ea8c3f9bfe0d09b7283ac
+  report: spring-core-5.3.39.1-backpatch-00040-tests.zip
+  report_sha256: c0af3243026951efe2358a69d4a17819a1640aa82a77cf8cd6e11be5962682b7
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-38828 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00039, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41853 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00040, whose .backpatch/patch-evidence.yaml records the tests that ran
