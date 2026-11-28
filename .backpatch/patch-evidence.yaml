@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00018
+release: 2.6.15.1-backpatch-00019
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -584,11 +584,19 @@ fixes:
     basis: backport
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00004 (backpatch-jackson-databind@dc49d7c).
+    note: Carried from 2.6.15.1-backpatch-00018; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00004 (backpatch-jackson-databind@dc49d7c).
+  - cve: CVE-2026-50193
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/compare/396af5f23409cd1cde542d59e2b73134678674ea...a1fa4ae4ecf5cee16da465985f135f3e81816f8c
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-50193
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/845e792
+    basis: backport
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00005 (backpatch-jackson-databind@845e792).
 tests:
-  commit: 5f49a6b2a360b19c9a3de73f9e6ad0b1151fc0a0
+  commit: de655f7d868ee5e9df0641d1e8afb8876e06fe35
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00004-tests.zip
+  report: jackson-databind-2.13.5.1-backpatch-00005-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-54512 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-50193 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
