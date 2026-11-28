@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00043
+release: 2.6.15.1-backpatch-00044
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -803,12 +803,56 @@ fixes:
     basis: backport
     artifacts:
       - org.apache.logging.log4j:log4j-core
-    note: New in this release; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
+    note: Carried from 2.6.15.1-backpatch-00043; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
+  - cve: CVE-2026-59889
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/d627a8a86fcb062429282f79f3f256f181ed2c7b
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-59889
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/88e3e55
+    basis: backport
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-databind@88e3e55).
+  - cve: CVE-2025-52999
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/54f78a9cff5e3bace1cf8042ac1b4c3785dc9f5e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-52999
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: GHSA-r7wm-3cxj-wff9
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://github.com/advisories/GHSA-r7wm-3cxj-wff9
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: CVE-2026-89425
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/commit/211cf2c5d91abbec38067f37efc1363cd4e88ee3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-89425
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
+  - cve: CVE-2026-68494
+    upstream_fix_url: https://github.com/FasterXML/jackson-core/pull/1611
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-68494
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-core/commit/5cb243d
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-core
+      - com.fasterxml.jackson.jr:jackson-jr-all
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00012 (backpatch-jackson-core@5cb243d).
 tests:
-  commit: 68514d8a00a08945ebe510dabdfa7dc920b4105c
+  commit: 65495a7f709f759c7658f86ba1d231a3a249241a
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: log4j-core-2.17.2.1-backpatch-00004-tests.zip
-  report_sha256: e853751c1f287921474b5d12dbfe0753e2e040da4e484656559da3960646c92d
+  report: jackson-core-2.13.5.1-backpatch-00012-tests.zip
+  report_sha256: 5afde801fdafa68646e3a0062c50936933fd970c131b13bcb12dd1fbf2456db6
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is GHSA-h383-gmxw-35v2 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-52999 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-59889 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-68494 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-89425 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran; GHSA-r7wm-3cxj-wff9 carried by moderne-backpatch-alliance/backpatch-jackson-core at v2.13.5.1-backpatch-00012, whose .backpatch/patch-evidence.yaml records the tests that ran
