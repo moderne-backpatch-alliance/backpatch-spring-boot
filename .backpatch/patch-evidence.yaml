@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00119
+release: 2.6.15.1-backpatch-00120
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1830,12 +1830,20 @@ fixes:
     artifacts:
       - io.undertow:undertow-core
       - io.undertow:undertow-servlet
-    note: New in this release; ported onto 2.6.15; fixed at 2.2.28.Final-backpatch-00001 (backpatch-undertow@c5034b2..0663770).
+    note: Carried from 2.6.15.1-backpatch-00119; ported onto 2.6.15; fixed at 2.2.28.Final-backpatch-00001 (backpatch-undertow@c5034b2..0663770).
+  - cve: CVE-2023-4639
+    upstream_fix_url: https://github.com/undertow-io/undertow/commit/ea7ea2525d9acad0fcf8f3dfd4972f91394796ee
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-4639
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-undertow/commit/3361c74
+    basis: adapted
+    artifacts:
+      - io.undertow:undertow-core
+    note: New in this release; ported onto 2.6.15; fixed at 2.2.28.Final-backpatch-00002 (backpatch-undertow@3361c74).
 tests:
-  commit: e5e5e596ec8c1c58a543bb44df37dc664f332c57
+  commit: 1713e2d36436cf3e7cc757f90de8ee85a4441473
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: undertow-core-2.2.28.Final-backpatch-00001-tests.zip
-  report_sha256: 109fe140401a85eb653e65e8a2b8ac75681ed455cea5cbe98c3ef2b7d9752788
+  report: undertow-core-2.2.28.Final-backpatch-00002-tests.zip
+  report_sha256: 7fb6970beb78320ca2fa686395f9e6f88a431466eceec5ceb1f364fae39e524a
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-1973 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-4639 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
