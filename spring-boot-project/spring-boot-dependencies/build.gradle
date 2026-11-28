@@ -1718,7 +1718,7 @@ bom {
 			]
 		}
 	}
-	library("Spring Framework", "5.3.39.1-backpatch-00001") {
+	library("Spring Framework", "5.3.39.1-backpatch-00002") {
 		group("org.springframework") {
 			imports = [
 				"spring-framework-bom"
