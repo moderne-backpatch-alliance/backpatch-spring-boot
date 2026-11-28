@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00087
+release: 2.6.15.1-backpatch-00088
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1316,12 +1316,21 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-core
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00029 (backpatch-spring-framework@eb01537).
+    note: Carried from 2.6.15.1-backpatch-00087; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00029 (backpatch-spring-framework@eb01537).
+  - cve: CVE-2026-22741
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/e607f1c30fd99e146cdaf186c56d1f1275e3fbc1
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-22741
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/f540bcd
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-webmvc
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00030 (backpatch-spring-framework@f540bcd).
 tests:
-  commit: 187d1057a18245a46204ffa5c796a82f8c0a2641
+  commit: 80978b22783c14df3b029d0eb480398119d6a8aa
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-core-5.3.39.1-backpatch-00029-tests.zip
-  report_sha256: 1aad6f4e041da24492b298dff16f4dd24ea5513f5578a54b3252baf6a238e738
+  report: spring-webflux-5.3.39.1-backpatch-00030-tests.zip
+  report_sha256: 96216cb25e982eb0cb6051bd06228c292d63d917fdbe5d65da0c5752c3778d65
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22745 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00029, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-22741 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00030, whose .backpatch/patch-evidence.yaml records the tests that ran
