@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00106
+release: 2.6.15.1-backpatch-00107
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1688,12 +1688,22 @@ fixes:
     basis: adapted
     artifacts:
       - ch.qos.logback:logback-core
-    note: New in this release; ported onto 2.6.15; fixed at 1.2.13.1-backpatch-00006 (backpatch-logback@2144527).
+    note: Carried from 2.6.15.1-backpatch-00106; ported onto 2.6.15; fixed at 1.2.13.1-backpatch-00006 (backpatch-logback@2144527).
+  - cve: CVE-2026-9828
+    upstream_fix_url: https://github.com/advisories/GHSA-p47f-322f-whfh
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-9828
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logback/commit/24497ff
+    basis: adapted
+    artifacts:
+      - ch.qos.logback:logback-core
+      - ch.qos.logback:logback-classic
+      - ch.qos.logback:logback-access
+    note: New in this release; ported onto 2.6.15; fixed at 1.2.13.1-backpatch-00007 (backpatch-logback@24497ff). Besides upstream's allow-list, this release allows java.util.Collections$SynchronizedMap in logback-classic (its MDC map) and java.util.TreeMap and java.lang.String$CaseInsensitiveComparator in logback-access (request header maps); these additions are ours, since 1.2's own serialized events contain them. Values of other java.lang and java.util types, such as java.util.Date, are now refused.
 tests:
-  commit: 4afbd34e9e2d150452c82d7b4d03915698e5c301
+  commit: 27a4d1376fa0b3f03a3df7332b1cf423c50962f4
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: logback-core-1.2.13.1-backpatch-00006-tests.zip
-  report_sha256: ec97c665749490bf2c09b72ca7c173cdce44d82da53284b81cf45a4871327328
+  report: logback-core-1.2.13.1-backpatch-00007-tests.zip
+  report_sha256: 195c2f0a100bbca867374d21fa397dc50136a1e87aefddbde26e5d964b7d0354
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-10532 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-9828 carried by moderne-backpatch-alliance/backpatch-logback at v1.2.13.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
