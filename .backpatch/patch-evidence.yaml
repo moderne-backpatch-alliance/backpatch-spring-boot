@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00095
+release: 2.6.15.1-backpatch-00096
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1394,12 +1394,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework.amqp:spring-rabbit
-    note: New in this release; ported onto 2.6.15; fixed at 2.4.17.1-backpatch-00001 (backpatch-spring-amqp@9a00b22).
+    note: Carried from 2.6.15.1-backpatch-00095; ported onto 2.6.15; fixed at 2.4.17.1-backpatch-00001 (backpatch-spring-amqp@9a00b22).
+  - cve: CVE-2026-41714
+    upstream_fix_url: https://github.com/spring-projects/spring-amqp/commit/690da5c2e614298728a955f52c75039969a6c3c7
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41714
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-amqp/commit/f35bed4
+    basis: adapted
+    artifacts:
+      - org.springframework.amqp:spring-rabbit
+    note: New in this release; ported onto 2.6.15; fixed at 2.4.17.1-backpatch-00002 (backpatch-spring-amqp@f35bed4).
 tests:
-  commit: 72394c637dbf01930da9b343bd87571438e9a668
+  commit: 749add61161691694bb5183168364321ab199069
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-rabbit-2.4.17.1-backpatch-00001-tests.zip
-  report_sha256: 02a7bed9cdc0d9e3c068fd4ceaad3b49ce20cd3305583ca288ccb37f3ea0da06
+  report: spring-rabbit-2.4.17.1-backpatch-00002-tests.zip
+  report_sha256: 5c8857c1ccf73cb4c1f4dbe325e3cc4443f3411b9951d1904876a850b04d4405
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41701 carried by moderne-backpatch-alliance/backpatch-spring-amqp at v2.4.17.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41714 carried by moderne-backpatch-alliance/backpatch-spring-amqp at v2.4.17.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
