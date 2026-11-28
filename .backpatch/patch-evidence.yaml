@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00118
+release: 2.6.15.1-backpatch-00119
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1813,7 +1813,7 @@ fixes:
     basis: adapted
     artifacts:
       - org.thymeleaf:thymeleaf
-    note: New in this release; ported onto 2.6.15; fixed at 3.0.15.RELEASE-backpatch-00002 (backpatch-thymeleaf@692cec4). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. Upstream's later repair of this fix is included, because its first form cannot run on 3.0.15. Restricted evaluation in thymeleaf-spring5 now needs Spring Framework 5.0.5 or later.
+    note: Carried from 2.6.15.1-backpatch-00118; ported onto 2.6.15; fixed at 3.0.15.RELEASE-backpatch-00002 (backpatch-thymeleaf@692cec4). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. Upstream's later repair of this fix is included, because its first form cannot run on 3.0.15. Restricted evaluation in thymeleaf-spring5 now needs Spring Framework 5.0.5 or later.
   - cve: CVE-2026-41901
     upstream_fix_url: https://github.com/thymeleaf/thymeleaf/commit/8af2373885970a7946b738d6f66d1f2a7e4fa799
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41901
@@ -1821,12 +1821,21 @@ fixes:
     basis: adapted
     artifacts:
       - org.thymeleaf:thymeleaf-spring5
-    note: New in this release; ported onto 2.6.15; fixed at 3.0.15.RELEASE-backpatch-00002 (backpatch-thymeleaf-spring@53e1d66). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. Upstream's later repair of this fix is included, because its first form cannot run on 3.0.15. Restricted evaluation in thymeleaf-spring5 now needs Spring Framework 5.0.5 or later.
+    note: Carried from 2.6.15.1-backpatch-00118; ported onto 2.6.15; fixed at 3.0.15.RELEASE-backpatch-00002 (backpatch-thymeleaf-spring@53e1d66). Ships thymeleaf and thymeleaf-spring5 only. thymeleaf-spring3 and thymeleaf-spring4 3.0.15.RELEASE share the affected code and are likely affected; this line does not ship them. Upstream's later repair of this fix is included, because its first form cannot run on 3.0.15. Restricted evaluation in thymeleaf-spring5 now needs Spring Framework 5.0.5 or later.
+  - cve: CVE-2023-1973
+    upstream_fix_url: https://github.com/advisories/GHSA-97cq-f4jm-mv8h
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2023-1973
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-undertow/compare/c5034b2~1...0663770
+    basis: adapted
+    artifacts:
+      - io.undertow:undertow-core
+      - io.undertow:undertow-servlet
+    note: New in this release; ported onto 2.6.15; fixed at 2.2.28.Final-backpatch-00001 (backpatch-undertow@c5034b2..0663770).
 tests:
-  commit: 9566c69bd74b37a7bf7f5836e619cccadf7d4589
+  commit: e5e5e596ec8c1c58a543bb44df37dc664f332c57
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: thymeleaf-3.0.15.RELEASE-backpatch-00002-tests.zip
-  report_sha256: 9e8e021145af8d1ad6e0b13287be5fc704245c911296601b2aca06f397bf5bc8
+  report: undertow-core-2.2.28.Final-backpatch-00001-tests.zip
+  report_sha256: 109fe140401a85eb653e65e8a2b8ac75681ed455cea5cbe98c3ef2b7d9752788
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41901 carried by moderne-backpatch-alliance/backpatch-thymeleaf at v3.0.15.RELEASE-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-41901 carried by moderne-backpatch-alliance/backpatch-thymeleaf-spring at v3.0.15.RELEASE-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2023-1973 carried by moderne-backpatch-alliance/backpatch-undertow at v2.2.28.Final-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
