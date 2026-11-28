@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00033
+release: 2.6.15.1-backpatch-00034
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -704,12 +704,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework:spring-jms
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0).
+    note: Carried from 2.6.15.1-backpatch-00033; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0).
+  - cve: CVE-2026-91776
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/2870d1d6dc1b7e1c07ee11dd5b04ab71cddbb577
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-91776
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/09f5955
+    basis: backport
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00010 (backpatch-jackson-databind@09f5955).
 tests:
-  commit: df7292555e6a13025785db826f3cd4e7b3f9dbb6
+  commit: 8a092cc2d88b6c96a6fb33b82ceffd64858b1e2b
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-jms-5.3.39.1-backpatch-00015-tests.zip
-  report_sha256: 2a47e092fb4414c726d4e480a3486b5afdf92aa6a1d1b0fbbb6d154c440f1cd3
+  report: jackson-databind-2.13.5.1-backpatch-00010-tests.zip
+  report_sha256: 7fa68ad3eaf9fd4540cacef58a053f82816116439785311f1d426acdbc6d43e9
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41855 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00015, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-91776 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00010, whose .backpatch/patch-evidence.yaml records the tests that ran
