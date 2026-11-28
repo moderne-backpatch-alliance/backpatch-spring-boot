@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00081
+release: 2.6.15.1-backpatch-00082
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1269,10 +1269,19 @@ fixes:
     artifacts:
       - org.eclipse.jetty.http2:http2-common
     note: Carried from 2.6.15.1-backpatch-00067; ported onto 2.6.15; fixed at 9.4.58.v20250814-backpatch-00012 (backpatch-jetty.project@7abc7b8).
+  - cve: CVE-2026-19032
+    upstream_fix_url: https://github.com/FasterXML/jackson-databind/commit/cc6756b61ed90b6b9227f670e0408d5d9bd48551
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-19032
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/1b9c0d7
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00017 (backpatch-jackson-databind@1b9c0d7).
 tests:
-  commit: a006bdf85fa31e9370d1fbc8ab1e6b2052c369ae
+  commit: a09fb5e72bc8f31ee9d8a64c8747b94f3b8ed924
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: jackson-databind-2.13.5.1-backpatch-00017-tests.zip
+  report_sha256: 8750c3d1b5a14ad3c7bec535da752933946264c0607d79b7b274f8b93b733d86
   result: pass
-  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-12-spring-framework-5.3: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.6.15.1-backpatch-00080, whose .backpatch/patch-evidence.yaml says what ran"
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-19032 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00017, whose .backpatch/patch-evidence.yaml records the tests that ran
