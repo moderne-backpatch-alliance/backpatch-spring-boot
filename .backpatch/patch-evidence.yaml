@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00008
+release: 2.6.15.1-backpatch-00009
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -454,23 +454,39 @@ fixes:
     not_applicable_rationale: fixed upstream in 9.4.54.v20240208, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-servlets
-    note: New in this release; fixed upstream in 9.4.54.v20240208, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00008; fixed upstream in 9.4.54.v20240208, which this release pins.
   - cve: CVE-2024-13009
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-13009
     not_applicable_rationale: fixed upstream in 9.4.57.v20241219, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-server
-    note: New in this release; fixed upstream in 9.4.57.v20241219, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00008; fixed upstream in 9.4.57.v20241219, which this release pins.
   - cve: CVE-2024-8184
     advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-8184
     not_applicable_rationale: fixed upstream in 9.4.56.v20240826, which this release pins; no commit of ours carries the fix
     artifacts:
       - org.eclipse.jetty:jetty-server
-    note: New in this release; fixed upstream in 9.4.56.v20240826, which this release pins.
+    note: Carried from 2.6.15.1-backpatch-00008; fixed upstream in 9.4.56.v20240826, which this release pins.
+  - cve: CVE-2026-10050
+    upstream_fix_url: https://github.com/jetty/jetty.project/commit/4bcdbc7db387ce9e20e2c7571a7250280466221d
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-10050
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jetty.project/commit/5e1d893
+    basis: adapted
+    artifacts:
+      - org.eclipse.jetty:jetty-security
+    note: New in this release; ported onto 2.6.15; fixed at 9.4.58.v20250814-backpatch-00002 (backpatch-jetty.project@5e1d893).
+  - cve: CVE-2026-0603
+    upstream_fix_url: https://github.com/hibernate/hibernate-orm/compare/02f06415bb73e21576eb68087977a677cc7c79f4...6f4aae562b6eec9466959fa7a6dcfd34b57cf7d0
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-0603
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-hibernate-orm/compare/425482e~1...ffd9df6
+    basis: backport
+    artifacts:
+      - org.hibernate:hibernate-core
+    note: New in this release; ported onto 2.6.15; fixed at 5.6.15.Final-backpatch-00001 (backpatch-hibernate-orm@425482e..ffd9df6).
 tests:
-  commit: 8e0f70bc018b7c9522982c349d8719e6767d0198
+  commit: cec0a9e8bdb38a6e954d81e4b720f7264f4fa8a0
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: hibernate-core-5.6.15.Final-backpatch-00001-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-13009 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.57.v20241219, tested by its project; CVE-2024-8184 carried by the upstream release org.eclipse.jetty:jetty-server 9.4.56.v20240826, tested by its project; CVE-2024-9823 carried by the upstream release org.eclipse.jetty:jetty-servlets 9.4.54.v20240208, tested by its project
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-0603 carried by moderne-backpatch-alliance/backpatch-hibernate-orm at v5.6.15.Final-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-10050 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
