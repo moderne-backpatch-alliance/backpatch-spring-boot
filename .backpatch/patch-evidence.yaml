@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00102
+release: 2.6.15.1-backpatch-00103
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1542,12 +1542,11 @@ fixes:
       - org.apache.activemq:activemq-rar
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
-    note: "New in this release; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00006 (backpatch-activemq@963ff52). XBeanBrokerFactory now loads broker configuration only from file and classpath URLs by default, as in upstream's fix, so a broker started from an xbean: URL over http or another remote protocol now fails to start."
+    note: "Carried from 2.6.15.1-backpatch-00102; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00006 (backpatch-activemq@963ff52). XBeanBrokerFactory now loads broker configuration only from file and classpath URLs by default, as in upstream's fix, so a broker started from an xbean: URL over http or another remote protocol now fails to start."
 tests:
-  commit: c2cb15be19bf332cb4956485c81205dbdddabc1d
+  commit: fd53aa48bd1f23b3dd35a4c6f570e3d6383f4ead
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: activemq-client-5.16.8.1-backpatch-00006-tests.zip
-  report_sha256: ecf6bbf942291ab431ff5d62810fbbe81be5f124b019a54d7bc6216abc793287
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41044 carried by moderne-backpatch-alliance/backpatch-activemq at v5.16.8.1-backpatch-00006, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-19-activemq-5.16: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.6.15.1-backpatch-00102, whose .backpatch/patch-evidence.yaml says what ran"
