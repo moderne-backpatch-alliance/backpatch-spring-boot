@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00113
+release: 2.6.15.1-backpatch-00114
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1749,12 +1749,20 @@ fixes:
     basis: adapted
     artifacts:
       - org.springframework:spring-websocket
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00037 (backpatch-spring-framework@4a9cd6f).
+    note: Carried from 2.6.15.1-backpatch-00113; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00037 (backpatch-spring-framework@4a9cd6f).
+  - cve: CVE-2026-41839
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b8ddd2c690fe3f00bb5e3d9f913a37504aab49a0
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41839
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/commit/fc9d0a5
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-web
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00038 (backpatch-spring-framework@fc9d0a5).
 tests:
-  commit: e437d8e8ea7e76315899f2106521e2ba4c639fbb
+  commit: 4493b32bd1d8bf87a577c65fec94916cabdb2f69
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-websocket-5.3.39.1-backpatch-00037-tests.zip
-  report_sha256: f746e5177a3500ed05788a6be6e50a9c7c444789fb943f1d586fc8fb3f8c22bb
+  report: spring-web-5.3.39.1-backpatch-00038-tests.zip
+  report_sha256: fdf34edc8661d9f1bd981c1d659751744786cda42d4a5d68682032e79369a2ec
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-41254 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00037, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41839 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00038, whose .backpatch/patch-evidence.yaml records the tests that ran
