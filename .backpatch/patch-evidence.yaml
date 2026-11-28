@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00103
+release: 2.6.15.1-backpatch-00104
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1543,10 +1543,139 @@ fixes:
       - org.apache.activemq:activemq-web-console
       - org.apache.activemq:apache-activemq
     note: "Carried from 2.6.15.1-backpatch-00102; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00006 (backpatch-activemq@963ff52). XBeanBrokerFactory now loads broker configuration only from file and classpath URLs by default, as in upstream's fix, so a broker started from an xbean: URL over http or another remote protocol now fails to start."
+  - cve: CVE-2026-50734
+    upstream_fix_url: https://github.com/advisories/GHSA-7259-vf48-52q3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-50734
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/1e05e04~1...a2b8567
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@1e05e04..a2b8567).
+  - cve: CVE-2026-33227
+    upstream_fix_url: https://github.com/advisories/GHSA-h2h4-5m64-m273
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-33227
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/commit/e47b34c
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@e47b34c). Classes that FactoryFinder loads must now be of the type the caller asks for, and STOMP frame translators and web console queue browse views must also be on an allow list, as in upstream's fix. An application with its own frame translator or queue browse view outside the default list now fails to load it. The lists are set with the system properties org.apache.activemq.stomp.FRAME_TRANSLATOR_CLASSES and org.apache.activemq.web.view.QUEUE_BROWSE_CLASSES.
+  - cve: CVE-2026-41043
+    upstream_fix_url: https://github.com/apache/activemq/commit/a65f8860dafb50c848127fa95ed00cbd27952f87
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41043
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/ff50d84~1...80251e5
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@ff50d84..80251e5).
+  - cve: CVE-2026-49270
+    upstream_fix_url: https://github.com/apache/activemq/commit/038cb1e688c5383e14b455f32448f80bdbd88777
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-49270
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/commit/1d7281b
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@1d7281b).
+  - cve: CVE-2026-53917
+    upstream_fix_url: https://github.com/advisories/GHSA-f77w-px59-cqf5
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-53917
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/6b3a9e8~1...adcd675
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@6b3a9e8..adcd675).
+  - cve: CVE-2026-54475
+    upstream_fix_url: https://github.com/advisories/GHSA-mhp6-f224-j2c3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-54475
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-activemq/compare/e7a7680~1...70ea85f
+    basis: adapted
+    artifacts:
+      - org.apache.activemq:activemq-client
+      - org.apache.activemq:activemq-broker
+      - org.apache.activemq:activemq-stomp
+      - org.apache.activemq:activemq-mqtt
+      - org.apache.activemq:activemq-amqp
+      - org.apache.activemq:activemq-web
+      - org.apache.activemq:activemq-jdbc-store
+      - org.apache.activemq:activemq-spring
+      - org.apache.activemq:activemq-all
+      - org.apache.activemq:activemq-osgi
+      - org.apache.activemq:activemq-rar
+      - org.apache.activemq:activemq-web-console
+      - org.apache.activemq:apache-activemq
+    note: Carried from 2.6.15.1-backpatch-00103; ported onto 2.6.15; fixed at 5.16.8.1-backpatch-00013 (backpatch-activemq@e7a7680..70ea85f). Temporary queues and topics now refuse a consumer from any connection other than the one that created them, as in upstream 5.19.8. A network bridge without advisories that statically includes temporary queues is refused (InvalidDestinationException) when it subscribes to another connection's temporary queue, so request and reply over such a bridge stops working. Bridges between trusted brokers can set allowTempDestinationStealing="true" on a tempQueue or tempTopic policy entry, which leaves the CVE open for those destinations.
+  - cve: CVE-2026-113602
+    upstream_fix_url: https://github.com/netplex/json-smart-v2/commit/e0b5afeb3bb4f5f969c233c60e9aeca0a6338d7e
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-113602
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-json-smart/commit/509d5a9
+    basis: adapted
+    artifacts:
+      - net.minidev:json-smart
+    note: New in this release; ported onto 2.6.15; fixed at 2.4.11.1-backpatch-00001 (backpatch-json-smart@509d5a9).
 tests:
-  commit: fd53aa48bd1f23b3dd35a4c6f570e3d6383f4ead
+  commit: 23a24ad59b94ca2e88450c8e7635e0fcba646898
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: carried, see the evidence of the release named in the note
+  report: json-smart-2.4.11.1-backpatch-00001-tests.zip
+  report_sha256: 6e08b0869ad11449ed884b4b1102e1df3944b50e5dedb5041fe5bcdc14d64147
   result: pass
-  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-19-activemq-5.16: a tooling update of moderne-backpatch-alliance/backpatch-spring-boot at v2.6.15.1-backpatch-00102, whose .backpatch/patch-evidence.yaml says what ran"
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-113602 carried by moderne-backpatch-alliance/backpatch-json-smart at v2.4.11.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
