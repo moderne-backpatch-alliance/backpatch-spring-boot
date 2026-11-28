@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00094
+release: 2.6.15.1-backpatch-00095
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1386,12 +1386,20 @@ fixes:
       - org.eclipse.jetty:jetty-client
       - org.eclipse.jetty:jetty-http
       - org.eclipse.jetty:jetty-server
-    note: New in this release; ported onto 2.6.15; fixed at 9.4.58.v20250814-backpatch-00015 (backpatch-jetty.project@550d593).
+    note: Carried from 2.6.15.1-backpatch-00094; ported onto 2.6.15; fixed at 9.4.58.v20250814-backpatch-00015 (backpatch-jetty.project@550d593).
+  - cve: CVE-2026-41701
+    upstream_fix_url: https://github.com/spring-projects/spring-amqp/commit/1beed578185cfc23199ac353470432146e18b8ce
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41701
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-amqp/commit/9a00b22
+    basis: adapted
+    artifacts:
+      - org.springframework.amqp:spring-rabbit
+    note: New in this release; ported onto 2.6.15; fixed at 2.4.17.1-backpatch-00001 (backpatch-spring-amqp@9a00b22).
 tests:
-  commit: dc6bd6bd3831350f76827115ae8cadec4adb9044
+  commit: 72394c637dbf01930da9b343bd87571438e9a668
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jetty-http-9.4.58.v20250814-backpatch-00015-tests.zip
-  report_sha256: 65a95ff390886d0dfc6207bff4df4f3d414e62c9db8195dd80bd852676002a78
+  report: spring-rabbit-2.4.17.1-backpatch-00001-tests.zip
+  report_sha256: 02a7bed9cdc0d9e3c068fd4ceaad3b49ce20cd3305583ca288ccb37f3ea0da06
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-6790 carried by moderne-backpatch-alliance/backpatch-jetty.project at v9.4.58.v20250814-backpatch-00015, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41701 carried by moderne-backpatch-alliance/backpatch-spring-amqp at v2.4.17.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
