@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00012
+release: 2.6.15.1-backpatch-00013
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -519,11 +519,19 @@ fixes:
     basis: adapted
     artifacts:
       - org.apache.logging.log4j:log4j-core
-    note: New in this release; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00001 (backpatch-logging-log4j2@535753d).
+    note: Carried from 2.6.15.1-backpatch-00012; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00001 (backpatch-logging-log4j2@535753d).
+  - cve: CVE-2026-41848
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/b294371a46ec98bbc6c620c04567169b10675cb3
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41848
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a0c8ebb~1...f5b59f7
+    basis: backport
+    artifacts:
+      - org.springframework:spring-core
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00007 (backpatch-spring-framework@a0c8ebb..f5b59f7).
 tests:
-  commit: 2ad54b803aa0030ade448fabc0048bba0b8aca53
+  commit: c71ac14b238fbda5a304c905729ee8ae9083cbc7
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: log4j-core-2.17.2.1-backpatch-00001-tests.zip
+  report: spring-core-5.3.39.1-backpatch-00007-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-34480 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41848 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
