@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00013
+release: 2.6.15.1-backpatch-00014
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -527,11 +527,35 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework:spring-core
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00007 (backpatch-spring-framework@a0c8ebb..f5b59f7).
+    note: Carried from 2.6.15.1-backpatch-00013; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00007 (backpatch-spring-framework@a0c8ebb..f5b59f7).
+  - cve: CVE-2026-41849
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41849
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    not_applicable_rationale: a provider-developed fix; no upstream-authored code to credit
+    basis: original
+    artifacts:
+      - org.springframework:spring-expression
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
+  - cve: CVE-2026-41850
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/76a36dfd707cddbe7118a81c2e055b36501d2cff
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41850
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-expression
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
+  - cve: CVE-2026-41851
+    upstream_fix_url: https://github.com/spring-projects/spring-framework/commit/ec89834fa8f633b173de094be257b9dde37a0fc8
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-41851
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/a533038~1...ffdf53f
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-expression
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00008 (backpatch-spring-framework@a533038..ffdf53f).
 tests:
-  commit: c71ac14b238fbda5a304c905729ee8ae9083cbc7
+  commit: 6f9488340181cbdb8e13cf21c315fafde4f4562d
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-core-5.3.39.1-backpatch-00007-tests.zip
+  report: spring-expression-5.3.39.1-backpatch-00008-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41848 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00007, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-41849 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-41850 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran; CVE-2026-41851 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00008, whose .backpatch/patch-evidence.yaml records the tests that ran
