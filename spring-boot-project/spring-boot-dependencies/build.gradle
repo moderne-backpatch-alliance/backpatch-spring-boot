@@ -426,7 +426,7 @@ bom {
 			]
 		}
 	}
-	library("Hibernate", "5.6.15.Final") {
+	library("Hibernate", "5.6.15.Final-backpatch-00001") {
 		prohibit("[6.0.0.Alpha2,)") {
 			because "it uses the jakarta.* namespace"
 		}
@@ -912,7 +912,7 @@ bom {
 			]
 		}
 	}
-	library("Jetty", "9.4.57.v20241219") {
+	library("Jetty", "9.4.58.v20250814-backpatch-00002") {
 		prohibit("[10.0.0-alpha0,)") {
 			because "it requires Java 11"
 		}
