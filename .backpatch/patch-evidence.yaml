@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00041
+release: 2.6.15.1-backpatch-00042
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -787,12 +787,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.kafka:spring-kafka
-    note: New in this release; ported onto 2.6.15; fixed at 2.8.11.1-backpatch-00005 (backpatch-spring-kafka@9c243dc).
+    note: Carried from 2.6.15.1-backpatch-00041; ported onto 2.6.15; fixed at 2.8.11.1-backpatch-00005 (backpatch-spring-kafka@9c243dc).
+  - cve: CVE-2026-40987
+    upstream_fix_url: https://github.com/spring-projects/spring-integration/commit/82ac6f3b6891f2e855bf71d90f7daf9abd339689
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-40987
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-integration/commit/20b75d3
+    basis: backport
+    artifacts:
+      - org.springframework.integration:spring-integration-file
+    note: New in this release; ported onto 2.6.15; fixed at 5.5.20.1-backpatch-00001 (backpatch-spring-integration@20b75d3).
 tests:
-  commit: 0e2befb0a0f94dcecf27ad2696cf7ad76311f747
+  commit: 3073d739008b86133c5e4cd323851861e394fab3
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-kafka-2.8.11.1-backpatch-00005-tests.zip
-  report_sha256: 9b594b1b2793342cd89d56daa732093f67baa2038e5f8d7fbc2d0c301188b606
+  report: spring-integration-file-5.5.20.1-backpatch-00001-tests.zip
+  report_sha256: 714ff549319cc9b4c64b14a8144efb03731ed805bce956b00c504afe4ccd6c67
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-59278 carried by moderne-backpatch-alliance/backpatch-spring-kafka at v2.8.11.1-backpatch-00005, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40987 carried by moderne-backpatch-alliance/backpatch-spring-integration at v5.5.20.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
