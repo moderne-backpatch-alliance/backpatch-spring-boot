@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00004
+release: 2.6.15.1-backpatch-00005
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -422,11 +422,20 @@ fixes:
     artifacts:
       - org.springframework:spring-webflux
       - org.springframework:spring-webmvc
-    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00002 (backpatch-spring-framework@0527163).
+    note: Carried from 2.6.15.1-backpatch-00004; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00002 (backpatch-spring-framework@0527163).
+  - cve: CVE-2024-38819
+    upstream_fix_url: https://github.com/advisories/GHSA-g5vr-rgqm-vf78
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2024-38819
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-spring-framework/compare/9df5e90~1...0544754
+    basis: adapted
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-webmvc
+    note: New in this release; ported onto 2.6.15; fixed at 5.3.39.1-backpatch-00003 (backpatch-spring-framework@9df5e90..0544754).
 tests:
-  commit: 09b9bcf19fc8cb5dc2efb99e2436f51ae138d5c5
+  commit: e7790dd98af67280d83ddaf72e78122515bbb6ad
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-webflux-5.3.39.1-backpatch-00002-tests.zip
+  report: spring-webflux-5.3.39.1-backpatch-00003-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-38816 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2024-38819 carried by moderne-backpatch-alliance/backpatch-spring-framework at v5.3.39.1-backpatch-00003, whose .backpatch/patch-evidence.yaml records the tests that ran
