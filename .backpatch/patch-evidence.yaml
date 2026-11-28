@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00024
+release: 2.6.15.1-backpatch-00025
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -632,11 +632,19 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.ws:spring-xml
-    note: New in this release; ported onto 2.6.15; fixed at 3.1.8.1-backpatch-00002 (backpatch-spring-ws@7bb9494).
+    note: Carried from 2.6.15.1-backpatch-00024; ported onto 2.6.15; fixed at 3.1.8.1-backpatch-00002 (backpatch-spring-ws@7bb9494).
+  - cve: CVE-2025-22227
+    upstream_fix_url: https://github.com/reactor/reactor-netty/commit/8d882ffab7c4fa73dd03d3a3e35d2336dc865e52
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2025-22227
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-reactor-netty/compare/fa4fd4a~1...e6c0969
+    basis: backport
+    artifacts:
+      - io.projectreactor.netty:reactor-netty-http
+    note: New in this release; ported onto 2.6.15; fixed at 1.0.48.1-backpatch-00001 (backpatch-reactor-netty@fa4fd4a..e6c0969).
 tests:
-  commit: 189c798f9f2bdb49044507dadfdf319de66b2744
+  commit: 922a8e3ff4aea966b9e950baa970a4bf43995221
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-xml-3.1.8.1-backpatch-00002-tests.zip
+  report: reactor-netty-http-1.0.48.1-backpatch-00001-tests.zip
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40998 carried by moderne-backpatch-alliance/backpatch-spring-ws at v3.1.8.1-backpatch-00002, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2025-22227 carried by moderne-backpatch-alliance/backpatch-reactor-netty at v1.0.48.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
