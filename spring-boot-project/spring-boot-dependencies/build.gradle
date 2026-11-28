@@ -1819,7 +1819,7 @@ bom {
 			]
 		}
 	}
-	library("Thymeleaf", "3.0.15.RELEASE") {
+	library("Thymeleaf", "3.0.15.RELEASE-backpatch-00001") {
 		group("org.thymeleaf") {
 			modules = [
 				"thymeleaf",
