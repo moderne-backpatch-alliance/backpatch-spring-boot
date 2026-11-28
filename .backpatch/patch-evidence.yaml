@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00042
+release: 2.6.15.1-backpatch-00043
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -795,12 +795,20 @@ fixes:
     basis: backport
     artifacts:
       - org.springframework.integration:spring-integration-file
-    note: New in this release; ported onto 2.6.15; fixed at 5.5.20.1-backpatch-00001 (backpatch-spring-integration@20b75d3).
+    note: Carried from 2.6.15.1-backpatch-00042; ported onto 2.6.15; fixed at 5.5.20.1-backpatch-00001 (backpatch-spring-integration@20b75d3).
+  - cve: GHSA-h383-gmxw-35v2
+    upstream_fix_url: https://github.com/apache/logging-log4j2/commit/25043cfad1bac2e43ebc4638450cbb73c51451c4
+    advisory_url: https://github.com/advisories/GHSA-h383-gmxw-35v2
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-logging-log4j2/compare/f0cb714~1...faa7549
+    basis: backport
+    artifacts:
+      - org.apache.logging.log4j:log4j-core
+    note: New in this release; ported onto 2.6.15; fixed at 2.17.2.1-backpatch-00004 (backpatch-logging-log4j2@f0cb714..faa7549).
 tests:
-  commit: 3073d739008b86133c5e4cd323851861e394fab3
+  commit: 68514d8a00a08945ebe510dabdfa7dc920b4105c
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: spring-integration-file-5.5.20.1-backpatch-00001-tests.zip
-  report_sha256: 714ff549319cc9b4c64b14a8144efb03731ed805bce956b00c504afe4ccd6c67
+  report: log4j-core-2.17.2.1-backpatch-00004-tests.zip
+  report_sha256: e853751c1f287921474b5d12dbfe0753e2e040da4e484656559da3960646c92d
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-40987 carried by moderne-backpatch-alliance/backpatch-spring-integration at v5.5.20.1-backpatch-00001, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is GHSA-h383-gmxw-35v2 carried by moderne-backpatch-alliance/backpatch-logging-log4j2 at v2.17.2.1-backpatch-00004, whose .backpatch/patch-evidence.yaml records the tests that ran
