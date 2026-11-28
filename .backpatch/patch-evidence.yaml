@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.6.15.1-backpatch-00082
+release: 2.6.15.1-backpatch-00083
 baseline: v2.6.15+backpatch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -1276,12 +1276,20 @@ fixes:
     basis: adapted
     artifacts:
       - com.fasterxml.jackson.core:jackson-databind
-    note: New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00017 (backpatch-jackson-databind@1b9c0d7).
+    note: Carried from 2.6.15.1-backpatch-00082; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00017 (backpatch-jackson-databind@1b9c0d7).
+  - cve: CVE-2026-77310
+    upstream_fix_url: https://github.com/advisories/GHSA-vvgp-rfg2-7rr6
+    advisory_url: https://nvd.nist.gov/vuln/detail/CVE-2026-77310
+    patch_commit_url: https://github.com/moderne-backpatch-alliance/backpatch-jackson-databind/commit/145b78e
+    basis: adapted
+    artifacts:
+      - com.fasterxml.jackson.core:jackson-databind
+    note: "New in this release; ported onto 2.6.15; fixed at 2.13.5.1-backpatch-00018 (backpatch-jackson-databind@145b78e). jackson-databind now deserializes an `InetAddress` only from an IPv4 or IPv6 address literal and no longer looks up host names (CVE-2026-77310). If your app reads `InetAddress` values that hold a host name, `localhost` included, deserialization fails with `InvalidFormatException` (\"Not a valid IP address string literal\"), which also hits values Jackson wrote itself: an address that carries a name, such as `InetAddress.getLoopbackAddress()`, is written as `\"localhost\"`. Write IP literals instead, or hold the value as a `String` and call `InetAddress.getByName()` where you use it; `@JsonFormat(shape = JsonFormat.Shape.NUMBER)`, or the same format through `configOverride(InetAddress.class)`, makes Jackson write the numeric form. A `DeserializationProblemHandler` whose `handleWeirdStringValue` returns `InetAddress.getByName(value)` restores the lookup, which brings back the exposure the fix closes for untrusted input."
 tests:
-  commit: a09fb5e72bc8f31ee9d8a64c8747b94f3b8ed924
+  commit: 17039d500f244757964787ef8602d2f85ddf2640
   command: none in this repository
   runtime: none, no build or test ran for this release
-  report: jackson-databind-2.13.5.1-backpatch-00017-tests.zip
-  report_sha256: 8750c3d1b5a14ad3c7bec535da752933946264c0607d79b7b274f8b93b733d86
+  report: jackson-databind-2.13.5.1-backpatch-00018-tests.zip
+  report_sha256: e3c7c3804ea182227c474c3c541358cf1a335cdf0eaa6bb1b504fff623e72c0a
   result: pass
-  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-19032 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00017, whose .backpatch/patch-evidence.yaml records the tests that ran
+  note: this release changes only the versions this repository pins, nothing ran here; its test provenance is CVE-2026-77310 carried by moderne-backpatch-alliance/backpatch-jackson-databind at v2.13.5.1-backpatch-00018, whose .backpatch/patch-evidence.yaml records the tests that ran
